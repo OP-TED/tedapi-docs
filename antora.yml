@@ -1,0 +1,8 @@
+name: api
+title: TED API
+version: master
+asciidoc:
+  attributes:
+    tedapi_version: *ver # don't modify/remove this attribute. It is used in ROOT:index.adoc
+nav:
+- modules/ROOT/nav.adoc
