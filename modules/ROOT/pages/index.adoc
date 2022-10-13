@@ -8,7 +8,7 @@ TED API allows application developers to connect their 3rd party applications to
 
  * Search for and retrieve published notices from the TED Website,
  * Submit new public procurement notices for publication,
- * Validate, render or translate notices.
+ * Validate, render, or translate notices.
 
 TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). However, all TED APIs manipulating notices that are not yet published, require the caller to be authenticated with an API Key.
 
@@ -17,16 +17,16 @@ TED API allows anonymous access to all services manipulating published notices (
 
 User authentication and authorisation (for those TED APIs that require it) is controlled with the use of API Keys. TED API Keys are essentially UUIDs (Universally Unique Identifiers), without hyphens (dashes). 
 
-You can generate and manage your own API Keys by logging-in to your account in the link:https://developer.ted.europa.eu[**TED Developer Portal**]footnote:[{dev-portal}].
+You can generate and manage your own API Keys by logging-in to your account in the link:https://developer.ted.europa.eu[**TED Developer Portal**]footnote:portal[{dev-portal}].
 
 NOTE: Only one API key is allowed per user. The creation of a new API Key implies the automatic revocation of the previous one.
 
 
 ### API KEY Generation
 
-You can generate an API Key by logging-in to the TED Developer Portal and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
+You can generate an API Key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
 
-NOTE: For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal. Your API Key will delivered to you only at the time of generation. Copy and safely store the provided API Key. If you lose it will have to generate a new one.
+NOTE: For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy,`` and safely store the provided API Key. If you lose it will have to generate a new one.
 
 
 ### API key lifetime
@@ -36,7 +36,7 @@ Expiration:: Every API key is valid for 12 months. After its validity period ela
 Renewal:: 
 API Key renewal extends the validity of an API Key for 12 months. 
 + 
-An automated notification will be sent two (2) days before the expiration of the API key to the email address associated with the EU-Login account of the user that created the API key. The email will contain a clickable URL that can be used to renew the API key.
+An automated notification will be sent two (2) days before the expiration of the API key to the email address associated with the EU-Login account of the user that created the API key. The email will contain a hyperlink that can be used to renew the API key.
 
 Revocation:: You can revoke any unused API keys as needed in the TED Developer Portal. Revoked API keys are invalidated permanently.
 
