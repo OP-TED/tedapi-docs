@@ -1,4 +1,4 @@
-:eu-login: EU Login is the European Commission's user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don't have one, you can link:https://ecas.acceptance.ec.europa.eu/cas/eim/external/register.cgi[create an EU Login account].
+:eu-login: EU Login is the European Commission's user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don't have one, you can link:https://ecas.ec.europa.eu/cas/eim/external/register.cgi[create an EU Login account here].
 
 :dev-portal: The link:https://developer.ted.europa.eu[TED Developer Portal] is the single point of access for all TED developers.
 
@@ -10,9 +10,9 @@ TED API allows application developers to connect their 3rd party applications to
  * Submit new public procurement notices for publication,
  * Validate, render, or translate notices.
 
-TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). Further information about reusing TED data is currently available on the link:https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published[SIMAP Developers' Corner].
+TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). These APIs are mostly targeted to data reusers. You can find information on reusing TED data at the link:https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published[SIMAP Developers' Corner].
 
-However, all TED APIs manipulating notices that are not yet published, require the caller to be authenticated with an API Key.
+All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API Key.
 
 
 ## API Keys
@@ -26,7 +26,7 @@ NOTE: Only one API key is allowed per user. The creation of a new API Key implie
 
 ### API KEY Generation
 
-You can generate an API Key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid link:https://webgate.ec.europa.eu/cas/[EU-Login]footnote:eu-login[{eu-login}] account. 
+You can generate an API Key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
 
 NOTE: For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy and safely store the provided API Key. If you lose it you will have to generate a new one.
 
@@ -55,7 +55,21 @@ https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html
 Visualisation:: Render notices in PDF or HTML; translate notices: + 
 https://viewer.preview.ted.europa.eu/swagger-ui/index.html
 
-NOTE: The link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] allows developers to test their applications.
+NOTE: The URLs provided above are for the eForms Preview Environment. For production URLs just remove the `.preview` subdomain from the provided URL.
 
-Information about eSentool, the legacy API to submit and manage notices, is available on the link:https://webgate.ec.europa.eu/fpfis/wikis/display/TEDeSender[legacy eSenders wiki].
+## Testing your apps
+To allow developers to test their  applications, an **eForms Preview Environment** is available. You can find more xref:eforms:preview/index.adoc[details on the eForms Preview Environment here].
 
+CAUTION: To use the eForms Preview Environment you will need an API Key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU-Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+
+NOTE: Information about eSentool, the legacy API to submit and manage notices, is available on the link:https://webgate.ec.europa.eu/fpfis/wikis/display/TEDeSender[legacy eSenders Wiki].
+
+## Status & Roadmap
+
+The TED API endpoints currently available are the first generation of APIs for the new TED web services for eForms. 
+
+These APIs have been initially released in June 2022 together with the "eForms Preview Environment" and have since remain unchanged. These endpoints will also remain unchanged throughout their lifetime. 
+
+We are currently in the process of simplifying, better documenting and rationalising our APIs to improve user experience and to allow us to keep enriching them in the future for offering better and consistent services to our developer community. 
+
+A second generation of TED APIs will soon therefore be released. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints listed above, and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning **undisrupted**. The current endpoints will only be discontinued when no 3rd party applications use them any more.
