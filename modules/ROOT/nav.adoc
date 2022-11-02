@@ -1,1 +1,7 @@
 * xref:index.adoc[Home]
+
+* [.separated]#**Available APIs**#
+* apidoc::https://cvs.ted.europa.eu/v3/api-docs[Validation API]
+* apidoc::https://enotices2.ted.europa.eu/esenders/api/notice/v3/api-docs/public[Publication API]
+* apidoc::https://viewer.ted.europa.eu/v3/api-docs[Visualisation API]
+* apidoc::https://ted.europa.eu/api/v2/api-docs[Search API]
