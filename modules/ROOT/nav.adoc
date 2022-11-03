@@ -1,1 +1,7 @@
 * xref:index.adoc[Home]
+
+* [.separated]#**Available APIs**#
+* apidoc::attachment$specs/cvs-ted-europa-eu.yaml[Validation API]
+* apidoc::attachment$specs/enotices2-ted-europa-eu-esenders.yaml[Publication API]
+* apidoc::attachment$specs/viewer-ted-europa-eu.yaml[Visualisation API]
+* apidoc::attachment$specs/ted-europa-eu.yaml[Search API]
