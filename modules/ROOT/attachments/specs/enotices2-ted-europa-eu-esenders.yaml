@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Public API Documentation
-  description: Public API documentation aims to describe the Public API endpoints.
+  title: Publication API 
+  description: This API provides operations for submission of notices for publication and their follow-up
   license:
     name: EUPL
     url: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
@@ -12,14 +12,16 @@ servers:
 security:
   - esenders-token: []
 paths:
-  /api/notice/notices/{businessId}/validation-report:
+  /api/notice/notices/{NoticeId}/validation-report:
     get:
       tags:
         - Notice
       summary: Get notice validation report
+      description: Get validation report created during notice submission request
       operationId: getValidationReport
       parameters:
-        - name: businessId
+        - name: NoticeId
+          description: Notice identifier
           in: path
           required: true
           schema:
@@ -27,20 +29,37 @@ paths:
             format: uuid
       responses:
         '200':
-          description: OK
+          description: The report is returned.
           content:
             '*/*':
               schema:
                 type: string
                 format: binary
-  /api/notice/notices/{businessId}/stop-publication-esentool:
+        '404': 
+          description: |-
+            Possible issues:
+            - Notice with given NoticeId not found
+            - Report for given NoticeId not found (it can be that is temporarily not available, please re-try later)
+          content:
+            application/json: {}
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Several versions of notice with given NoticeId exist.
+          content:
+            application/json: {}
+         
+  /api/notice/notices/{NoticeId}/stop-publication-esentool:
     post:
       tags:
         - Notice
-      summary: send stop notice publication to ted monitor
+      summary: Request stop notice publication
       operationId: stopPublicationEsentool
       parameters:
-        - name: businessId
+        - name: NoticeId
+          description: Notice identifier
           in: path
           required: true
           schema:
@@ -48,11 +67,32 @@ paths:
             format: uuid
       responses:
         '200':
-          description: OK
+          description: Notice publication stopped
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/EsentoolNoticeDto'
+        '403': 
+          description: |-
+            Possible issues:
+            - Notice publication cannot be stopped
+          content:
+            application/json: {}
+        '404': 
+          description: |-
+            Possible issues:
+            - Notice with given NoticeId not found
+          content:
+            application/json: {}
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Several versions of notice with given NoticeId exist.
+          content:
+            application/json: {}
+
   /api/notice/notices/submit:
     post:
       tags:
@@ -63,7 +103,7 @@ paths:
         - name: metadata
           description: the metadata are used to identify the original author of the notice
           schema:
-            $ref: '#/components/schemas/EsenderAuthor'
+            $ref: '#/components/schemas/NoticeAuthor'
       requestBody:
         content:
           multipart/form-data:
@@ -77,14 +117,30 @@ paths:
                   type: string
                   format: binary
                 metadata:
-                  $ref: '#/components/schemas/EsenderAuthor'
+                  $ref: '#/components/schemas/NoticeAuthor'
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Notice created. Notice status, Submitted or Validation_failed depends on the results of the validation - success=true/false)
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '404':
+          description: |-
+            Possible issues:
+            - No compatible SDK version found
+          content:
+            application/json: {} 
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Notice cannot be created (parsing errors)
+            - Notice with the same NoticeId and versionId already exists.
+          content:
+            application/json: {}
+  
   /api/notice/notices/search-esentool:
     get:
       tags:
@@ -93,6 +149,7 @@ paths:
       operationId: searchProceduresEsentool
       parameters:
         - name: page
+          description: Sequence number of the page from the search results list.
           in: query
           required: false
           schema:
@@ -101,6 +158,7 @@ paths:
             format: int32
             default: 0
         - name: size
+          description: Number of search results per page.
           in: query
           required: false
           schema:
@@ -109,11 +167,13 @@ paths:
             format: int32
             default: 20
         - name: sortProperty
+          description: Selected property used in ordering the search results.
           in: query
           required: false
           schema:
             type: string
         - name: sortDirection
+          description: Ascending or descending order, in case ordering is set.
           in: query
           required: false
           schema:
@@ -134,6 +194,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json: {}
 components:
   schemas:
     EsentoolNoticeDto:
@@ -179,7 +246,7 @@ components:
           type: array
           items:
             type: string
-    EsenderAuthor:
+    NoticeAuthor:
       type: object
       properties:
         noticeAuthorEmail:
@@ -242,6 +309,6 @@ components:
     esenders-token:
       type: http
       name: esenders-token
-      description: API Key generated using TED API
+      description: TED API Key generated by TED Developer Portal
       scheme: bearer
       bearerFormat: JWT
