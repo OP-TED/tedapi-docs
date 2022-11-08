@@ -19,7 +19,7 @@ paths:
     post:
       tags:
         - notice-render-controller
-      summary: Get HTML or PDF rendering of a notice sent on body.
+      summary: Get HTML or PDF rendering of a notice sent in the request body.
       operationId: renderNotice
       parameters:
         - name: X-API-Key

@@ -12,23 +12,23 @@ TED API allows application developers to connect their 3rd party applications to
 
 TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). These APIs are mostly targeted to data reusers. You can find information on reusing TED data at the link:https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published[SIMAP Developers' Corner].
 
-All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API Key.
+All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
 
-== API Keys
+== API keys
 
-User authentication and authorisation (for those TED APIs that require it) is controlled with the use of API Keys. TED API Keys are essentially UUIDs (Universally Unique Identifiers), without hyphens (dashes). 
+User authentication and authorisation (for those TED APIs that require it) is controlled with the use of API keys. TED API keys are essentially UUIDs (Universally Unique Identifiers), without hyphens (dashes). 
 
-You can generate and manage your own API Keys by logging-in to your account in the link:https://developer.ted.europa.eu[**TED Developer Portal**]footnote:portal[{dev-portal}].
+You can generate and manage your own API keys by logging-in to your account in the link:https://developer.ted.europa.eu[**TED Developer Portal**]footnote:portal[{dev-portal}].
 
-NOTE: Only one API key is allowed per user. The creation of a new API Key implies the automatic revocation of the previous one.
+NOTE: Only one API key is allowed per user. The creation of a new API key implies the automatic revocation of the previous one.
 
 
-=== API KEY Generation
+=== API key Generation
 
-You can generate an API Key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
+You can generate an API key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
 
-NOTE: For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy and safely store the provided API Key. If you lose it you will have to generate a new one.
+NOTE: For security reasons API keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API key will be delivered to you only at the time of generation. Copy and safely store the provided API key. If you lose it you will have to generate a new one.
 
 
 === API key lifetime
@@ -36,7 +36,7 @@ NOTE: For security reasons API Keys are not stored and cannot be retrieved via t
 Expiry:: Every API key is valid for 24 months. After its validity period elapses, the API key expires. 
 
 Renewal:: 
-API Key renewal extends the validity of an API Key for 12 months. 
+API key renewal extends the validity of an API key for 12 months. 
 + 
 An automated notification will be sent four (4) weeks before the expiration of the API key to the email address associated with the EU-Login account of the user that created the API key. The email will contain a hyperlink that can be used to renew the API key. If you don't click on the hyperlink within 21 days, the link will expire and a new email will be sent to you with a new hyperlink.
 
@@ -60,7 +60,7 @@ NOTE: The URLs provided above are for the eForms Preview Environment. For produc
 == Testing your apps
 To allow developers to test their  applications, an **eForms Preview Environment** is available. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
 
-CAUTION: To use the eForms Preview Environment you will need an API Key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU-Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU-Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
 
 NOTE: Information about eSentool, the legacy API to submit and manage notices, is available on the link:https://webgate.ec.europa.eu/fpfis/wikis/display/TEDeSender[legacy eSenders Wiki].
 
