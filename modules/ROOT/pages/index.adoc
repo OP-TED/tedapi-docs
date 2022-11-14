@@ -26,7 +26,7 @@ NOTE: Only one API key is allowed per user. The creation of a new API key implie
 
 === API key Generation
 
-You can generate an API key by logging-in to the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API keys" button. To login to the TED Developer Portal you will need a valid EU-Loginfootnote:eu-login[{eu-login}] account. 
+You can generate an API Key by logging into the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU Loginfootnote:eu-login[{eu-login}] account. 
 
 NOTE: For security reasons API keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API key will be delivered to you only at the time of generation. Copy and safely store the provided API key. If you lose it you will have to generate a new one.
 
@@ -44,23 +44,21 @@ Revocation:: You can revoke any unused API keys as needed in the TED Developer P
 
 == Available APIs
 
-You can find below the Swagger pages documenting the TED API endpoints that are currently available:
+You can find below the Swagger pages documenting the TED API endpoints that are currently available in production:
 
 Validation:: Validate notices, get validation report. + 
-https://cvs.preview.ted.europa.eu/swagger-ui/index.html
+https://cvs.ted.europa.eu/swagger-ui/index.html
 
-Publication:: Submit notices; search amongst submitted notices; stop publication: + 
-https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html
+Publication:: Submit notices; search submitted notices; stop publication: + 
+https://enotices2.ted.europa.eu/esenders/webjars/swagger-ui/index.html
 
 Visualisation:: Render notices in PDF or HTML: + 
-https://viewer.preview.ted.europa.eu/swagger-ui/index.html
-
-NOTE: The URLs provided above are for the eForms Preview Environment. For production URLs just remove the `.preview` subdomain from the provided URL.
+https://viewer.ted.europa.eu/swagger-ui/index.html
 
 == Testing your apps
-To allow developers to test their  applications, an **eForms Preview Environment** is available. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
+An **eForms Preview Environment** is available to allow and encourage developers to test their applications. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
 
-CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU-Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
 
 NOTE: Information about eSentool, the legacy API to submit and manage notices, is available on the link:https://webgate.ec.europa.eu/fpfis/wikis/display/TEDeSender[legacy eSenders Wiki].
 
@@ -72,4 +70,4 @@ These APIs have been initially released in June 2022 together with the "eForms P
 
 We are currently in the process of simplifying, better documenting and rationalising our APIs to improve user experience and to allow us to keep enriching them in the future for offering better and consistent services to our developer community. 
 
-A second generation of TED APIs will soon therefore be released. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints listed above, and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning **undisrupted**. The current endpoints will only be discontinued when no 3rd party applications use them any more.
+A second generation of TED APIs is being developed. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning **undisrupted**. The current endpoints will only be discontinued when no 3rd party applications use them any more.
