@@ -67,7 +67,7 @@ paths:
             format: uuid
       responses:
         '200':
-          description: Notice publication stopped
+          description: Notice publication stopped successfully.
           content:
             '*/*':
               schema:
@@ -103,7 +103,7 @@ paths:
         - name: metadata
           description: the metadata are used to identify the original author of the notice
           schema:
-            $ref: '#/components/schemas/NoticeAuthor'
+            $ref: '#/components/schemas/EsenderAuthor'
       requestBody:
         content:
           multipart/form-data:
@@ -117,7 +117,7 @@ paths:
                   type: string
                   format: binary
                 metadata:
-                  $ref: '#/components/schemas/NoticeAuthor'
+                  $ref: '#/components/schemas/EsenderAuthor'
       responses:
         '201':
           description: Notice created. Notice status, Submitted or Validation_failed depends on the results of the validation - success=true/false)
@@ -246,7 +246,7 @@ components:
           type: array
           items:
             type: string
-    NoticeAuthor:
+    EsenderAuthor:
       type: object
       properties:
         noticeAuthorEmail:
