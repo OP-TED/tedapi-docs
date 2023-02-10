@@ -84,7 +84,7 @@ components:
             - static
         eFormsSdkVersion:
           type: string
-          description: Specify the eForms SDK version to use for validating the XML document encoded in base64.
+          description: Specify the eForms SDK version to use for validating the notice. This parameter should be omitted unless you want to override the version indicated in the cbc:CustomizationID element in the notice.
           example: eforms-sdk-1.0
       description: Request parameters for validation
     ErrorResponse:
