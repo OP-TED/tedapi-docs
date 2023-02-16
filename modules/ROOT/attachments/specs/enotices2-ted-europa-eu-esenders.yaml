@@ -141,6 +141,7 @@ paths:
               - publicationDate
               - noticeType
               - legalBasis
+              - noticeAuthor
         - name: sortDirection
           in: query
           description: the sort direction, ascending (ASC) or descending (DESC)
@@ -223,6 +224,10 @@ components:
           items:
             type: string
             description: the notice languages.
+        noticeAuthor:
+          type: string
+          description: the notice author.
+          example: minimal@email.eu
     NoticeStatus:
       type: string
       description: the notice status.
@@ -306,6 +311,10 @@ components:
               - CONVERTED_FROM_PUBLISHED
               - ARCHIVED
               - VALIDATION_FAILED
+        noticeAuthor:
+          type: string
+          description: the notice author
+          example: minimal@email.eu
     EsentoolPageDtoEsentoolNoticeDto:
       type: object
       properties:
