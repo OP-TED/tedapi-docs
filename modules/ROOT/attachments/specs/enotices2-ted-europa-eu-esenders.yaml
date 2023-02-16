@@ -234,12 +234,10 @@ components:
       enum:
         - DRAFT
         - SUBMITTED
-        - STOPPED
-        - PUBLISHING
+        - STOPPED        
         - PUBLISHED
         - DELETED
-        - NOT_PUBLISHED
-        - CONVERTED_FROM_PUBLISHED
+        - NOT_PUBLISHED        
         - ARCHIVED
         - VALIDATION_FAILED
     Metadata:
@@ -303,12 +301,10 @@ components:
             enum:
               - DRAFT
               - SUBMITTED
-              - STOPPED
-              - PUBLISHING
+              - STOPPED              
               - PUBLISHED
               - DELETED
-              - NOT_PUBLISHED
-              - CONVERTED_FROM_PUBLISHED
+              - NOT_PUBLISHED              
               - ARCHIVED
               - VALIDATION_FAILED
         noticeAuthor:
