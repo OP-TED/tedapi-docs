@@ -74,24 +74,24 @@ paths:
       summary: Submit XML notice
       operationId: submitNotice
       parameters:
-        - name: esenderAuthor
+        - name: metadata
           description: the metadata that is used to identify the original author of the notice.
           schema:
-            $ref: '#/components/schemas/EsenderAuthor'
+            $ref: '#/components/schemas/Metadata'
       requestBody:
         content:
           multipart/form-data:
             schema:
               required:
-                - esenderAuthor
+                - metadata
                 - notice
               type: object
               properties:
                 notice:
                   type: string
                   format: binary
-                esenderAuthor:
-                  $ref: '#/components/schemas/EsenderAuthor'
+                metadata:
+                  $ref: '#/components/schemas/Metadata'
       responses:
         '201':
           description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'cvsLink' response property.
@@ -237,7 +237,7 @@ components:
         - CONVERTED_FROM_PUBLISHED
         - ARCHIVED
         - VALIDATION_FAILED
-    EsenderAuthor:
+    Metadata:
       type: object
       properties:
         noticeAuthorEmail:
