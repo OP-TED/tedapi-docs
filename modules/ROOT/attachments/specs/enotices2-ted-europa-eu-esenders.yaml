@@ -94,7 +94,7 @@ paths:
                   $ref: '#/components/schemas/Metadata'
       responses:
         '201':
-          description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'cvsLink' response property.
+          description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'validationReportUrl' response property.
           content:
             application/json:
               schema:
@@ -251,9 +251,9 @@ components:
     XmlNoticeSubmissionDto:
       type: object
       properties:
-        cvsLink:
+        validationReportUrl:
           type: string
-          description: the link to use to retrieve the CVS report
+          description: the url to use to retrieve the CVS validation report
         success:
           type: boolean
           description: the status of the submission. True if success, otherwise false.
