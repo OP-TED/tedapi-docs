@@ -1,3 +1,7 @@
+CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable.
+
+
+
 :eu-login: EU Login is the European Commission's user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don't have one, you can link:https://ecas.ec.europa.eu/cas/eim/external/register.cgi[create an EU Login account here].
 
 :dev-portal: The link:https://developer.ted.europa.eu[TED Developer Portal] is the single point of access for all TED developers.
