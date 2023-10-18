@@ -123,25 +123,12 @@ paths:
         - Notice
       summary: Submit XML notice
       operationId: submitNotice
-      parameters:
-        - name: metadata
-          description: the metadata that is used to identify the original author of the notice.
-          schema:
-            $ref: '#/components/schemas/Metadata'
       requestBody:
         content:
           multipart/form-data:
             schema:
-              required:
-                - esenderAuthor
-                - notice
-              type: object
-              properties:
-                notice:
-                  type: string
-                  format: binary
-                metadata:
-                  $ref: '#/components/schemas/Metadata'
+              $ref: '#/components/schemas/MetadataAndNotice'
+        required: true
       responses:
         '201':
           description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'validationReportUrl' response property.
