@@ -317,6 +317,7 @@ components:
         - SUBMITTED
         - STOPPED        
         - PUBLISHED
+        - PUBLISHING
         - DELETED
         - NOT_PUBLISHED        
         - ARCHIVED
@@ -384,6 +385,7 @@ components:
               - SUBMITTED
               - STOPPED              
               - PUBLISHED
+              - PUBLISHING
               - DELETED
               - NOT_PUBLISHED              
               - ARCHIVED
