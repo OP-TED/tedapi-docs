@@ -244,6 +244,43 @@ paths:
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json: {}
+  /api/v2/notice/notices/convert:
+    post:
+      tags:
+        - Notice
+      summary: Convert an XML notice
+      operationId: convert
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                type: string
+                format: byte
+        required: true
+      responses:
+        '200':
+          description: The notice was successfully converted.
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - The request body is incomplete or invalid.
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+        '500':
+          description: |-
+            Possible issues:
+            - The provided TED API key cannot be currently validated.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
 components:
   schemas:
     ExceptionBody:
