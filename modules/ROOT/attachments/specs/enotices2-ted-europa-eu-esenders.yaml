@@ -136,6 +136,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Notice with the same noticeId and versionId already exists.
+            - Notice cannot be created (parsing errors)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: |-
             Possible issues:
@@ -147,10 +163,8 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Notice cannot be created (parsing errors)
-            - Notice with the same noticeId and versionId already exists.
           content:
             application/json:
               schema:
