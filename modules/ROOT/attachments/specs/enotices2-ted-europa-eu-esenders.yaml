@@ -237,13 +237,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
   /api/v2/notice/notices/convert:
     post:
       tags:
