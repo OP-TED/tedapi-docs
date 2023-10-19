@@ -34,6 +34,18 @@ paths:
               schema:
                 type: string
                 format: binary
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: Notice or notice report was not found.
           content:
@@ -43,9 +55,8 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Several versions of notice with given noticeId exist.
           content:
             application/json:
               schema:
@@ -71,6 +82,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolNoticeDto'
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '403': 
           description: |-
             Possible issues:
@@ -88,9 +111,8 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Several versions of notice with given noticeId exist.
           content:
             application/json:
               schema:
@@ -101,25 +123,12 @@ paths:
         - Notice
       summary: Submit XML notice
       operationId: submitNotice
-      parameters:
-        - name: metadata
-          description: the metadata that is used to identify the original author of the notice.
-          schema:
-            $ref: '#/components/schemas/Metadata'
       requestBody:
         content:
           multipart/form-data:
             schema:
-              required:
-                - esenderAuthor
-                - notice
-              type: object
-              properties:
-                notice:
-                  type: string
-                  format: binary
-                metadata:
-                  $ref: '#/components/schemas/Metadata'
+              $ref: '#/components/schemas/MetadataAndNotice'
+        required: true
       responses:
         '201':
           description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'validationReportUrl' response property.
@@ -127,6 +136,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Notice with the same noticeId and versionId already exists.
+            - Notice cannot be created (parsing errors)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: |-
             Possible issues:
@@ -138,10 +163,8 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Notice cannot be created (parsing errors)
-            - Notice with the same noticeId and versionId already exists.
           content:
             application/json:
               schema:
@@ -214,13 +237,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /api/v2/notice/notices/convert:
+    post:
+      tags:
+        - Notice
+      summary: Convert an XML notice in the old TED XML format to an eForms notice.
+      operationId: convert
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                type: string
+                format: byte
+        required: true
+      responses:
+        '200':
+          description: The notice was successfully converted.
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - The request body is incomplete or invalid.
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+        '500':
+          description: |-
+            Possible issues:
+            - The provided TED API key cannot be currently validated.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
 components:
   schemas:
     ExceptionBody:
@@ -294,6 +368,7 @@ components:
         - SUBMITTED
         - STOPPED        
         - PUBLISHED
+        - PUBLISHING
         - DELETED
         - NOT_PUBLISHED        
         - ARCHIVED
@@ -361,6 +436,7 @@ components:
               - SUBMITTED
               - STOPPED              
               - PUBLISHED
+              - PUBLISHING
               - DELETED
               - NOT_PUBLISHED              
               - ARCHIVED
