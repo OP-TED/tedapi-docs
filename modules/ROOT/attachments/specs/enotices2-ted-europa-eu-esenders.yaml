@@ -262,7 +262,7 @@ paths:
     post:
       tags:
         - Notice
-      summary: Convert an XML notice
+      summary: Convert an XML notice in the old TED XML format to an eForms notice.
       operationId: convert
       requestBody:
         content:
