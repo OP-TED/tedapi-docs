@@ -1,0 +1,734 @@
+openapi: 3.0.1
+info:
+  title: Public API Documentation
+  description: |+
+    <h1>Introduction</h1>
+    Public API documentation aims to describe the Public API endpoints.
+    
+    <h1 id="terms-of-usage">Terms of Usage</h1>
+
+    <li><a href="https://ted.europa.eu/en/legal-notice">Legal notice</a></li>
+
+  version: 3.0.0
+
+security:
+  - en2-token: []
+paths:
+  /v3/notices/{businessId}/validation-report:
+    get:
+      tags:
+        - Endpoints
+      summary: Retrieve the notice validation report
+      operationId: getValidationReport
+      parameters:
+        - name: businessId
+          in: path
+          description: The notice business identifier (notice identifier - version)
+          required: true
+          schema:
+            type: string
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6-01
+      responses:
+        '200':
+          description: Provides the notice validation report in SVRL (Schematron Validation Report Language) format.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Notice or notice report was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /v3/notices/submit:
+    post:
+      tags:
+        - Endpoints
+      summary: Submit XML notice
+      operationId: submitNotice
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetadataAndNotice'
+        required: true
+      responses:
+        '201':
+          description: The notice is created. If the validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from the 'validationReportUrl' response property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Notice with the same noticeId and versionId already exists.
+            - Notice cannot be created (parsing errors)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '404':
+          description: |-
+            Possible issues:
+            - No compatible SDK version found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '500':
+          description: |-
+            Possible issues:
+            - The provided TED API key cannot be currently validated.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /v3/notices/validate:
+    post:
+      tags:
+        - Endpoints
+      summary: Validate a notice
+      description: Validate a notice sent in the request body. This operation returns a schematron validation report which describes all the tests performed.
+      operationId: validate
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InputNoticeValidation'
+        required: true
+      responses:
+        '200':
+          description: The report is returned.
+          content:
+            application/xml: { }
+        '400':
+          description: |-
+            Possible issues:
+            - The 'language' parameter is not valid.
+            - The 'validationMode' parameter is not valid. The 'validationMode' parameter is not valid.
+            - The rules are missing for the following version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v3/notices/render:
+    post:
+      tags:
+        - Endpoints
+      summary: Get HTML or PDF rendering of a notice sent in the request body.
+      operationId: render
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoticeRenderRequestDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+            application/pdf:
+              schema:
+                type: string
+        '400':
+          description: |-
+            Possible issues:
+            - 'file', 'format' or 'language' is missing
+            - The language is not valid
+            - Notice cannot be created (parsing errors)
+
+  /v3/notices/search:
+    post:
+      tags:
+        - Endpoints
+      description: |+
+        This API provides multiple read-only operations on the TED website data.
+        The endpoint 'Notice Search API' can be used to search notices both TED schema notices and eForms notices.
+        More information is available on the help pages of the TED website:
+        <ul>
+            <li><a href="https://ted.europa.eu">TED - Website</a></li>
+            <li><a href="https://ted.europa.eu/en/search/expert-search">Expert Search</a></li>
+            <li><a href="https://ted.europa.eu/en/contact">Contact</a></li>
+            <li><a href="https://ted.europa.eu/en/legal-notice">Legal notice</a></li>
+        </ul>
+        
+        The API is accessible to the general public and can be utilized by anyone in accordance with the <a href="#terms-of-usage">term of usage</a>.
+        
+        <h1>Public API search modes</h1>
+        
+        This section describes the different search modes provided by the public search API.
+        Each parameter of the search API is detailed in the OpenAPI documentation of the API.
+        
+        <h2>Pagination mode</h2>
+        The pagination mode is the default mode of the public search API.
+        This mode is stateless: the user can retrieve any result page, and not necessary in order. It also means that there is no mechanism to ensure consistency between two retrieved pages: if the user retrieves multiple pages and an OJS is released between two retrieved pages, then the user might miss some notices or have duplicated notices.
+        Also, due to how Elasticsearch works internally, a limit on the number of retrievable notices for a given query has been put in place. This limit is described in the <i>Definition of limits</i> section.
+        
+        The user must provide the following parameters to the API to paginate results:
+        <ul>
+            <li>limit: the number of notices returned per page. For example, limit=10 means that 10 notices will be returned.
+            </li>
+            <li>page: the page number to retrieve. For example, page=1 means that the first result page will be retrieved.</li>
+        </ul>
+        
+        <h2>Scroll mode</h2>
+        The scroll mode allows user to retrieve all notices for a given query, without limitations defined in section <i>Definition of limits</i>.
+        With this mode, the user calls the search API to retrieve the first result page and a token. This token can then be included in the next query sent to the search API to retrieve the next result page. The user knows all notices have been retrieved once there is no more notice returned.
+        The Elasticsearch point in time feature is used to ensure a consistency between all returned pages, which means that the user cannot miss notices or have duplicated notices. An Elasticsearch point in time is a freeze of the Elasticsearch instance at a specific time. If notices are added or removed during the lifetime of a point in time, the notices registered in the point in time don’t change.
+        The point in time has an expiration time. This expiration time is defined as the date of the next OJS release plus 24 hours. It means that the user has always at least 24 hours to retrieve all the notices for a given query.
+        
+        The user must provide the following parameters to the API to retrieve results in scroll mode:
+        <ul>
+            <li>paginationMode should be set to “ITERATION”.</li>
+            <li>limit: the number of notices to return for the next page.</li>
+            <li>iterationNextToken: the token returned by the previous call to the search API. If this is the first call (i.e.,
+                to retrieve the first page), this parameter shouldn’t be provided.
+            </li>
+        </ul>
+        
+        <h1>Definition of limits</h1>
+        Here is a definition of the different limits defined for the SEM (Search Engine Module) endpoints in the next sections:
+        <ul>
+            <li>Maximum number of retrievable notices: this corresponds to the number of notices that can be retrieved once the
+                user has queried all pages. For example, if the user retrieves all notices for a given query with page size 250,
+                and the limit of retrievable notices is 10k, it means the SEM will return no more notice after page 10k / 250 =
+                40, even if the query matches more than 10k notices.
+            </li>
+            <li>Maximum number of notices per page: if this limit is X, then it means the user can retrieve X or less notices
+                per page, but not more than X notices per page.
+            </li>
+            <li>Maximum number of fields per page: the number of fields per page is defined as the number of notices per page
+                multiplied by the number of fields retrieved for each notice. For example, with a limit of 250, the user is
+                allowed to retrieve 50 notices per page and 4 fields per notice (50 * 4 < 250). However, they are not allowed to
+                retrieve 100 notices per page and 4 fields per notice (100 * 4 > 250).
+            </li>
+        </ul>
+        
+        <h2>Search using pagination mode of public API</h2>
+        
+        The pagination mode of the public search API has the following limits:
+        <ul>
+            <li>Maximum number of retrievable notices: 15k.</li>
+            <li>Maximum number of notices per page: 250.</li>
+            <li>Maximum number of fields per page: 10k.</li>
+        </ul>
+        In case a limit is reached, the search API will return an error to the user.
+        
+        <h2>Search using scroll mode of public API</h2>
+        
+        The scroll mode of the public search API has the following limits:
+        <ul>
+            <li>Maximum number of notices per page: 250.</li>
+            <li>Maximum number of fields per page: 10k.</li>
+        </ul>
+        In case a limit is reached, the search API will return an error to the user.
+        There is no limit on the number of retrievable notices.
+        
+        <h1>Versioning</h1>
+        
+        The versioning of the TED Public API is managed by including the major version in the URL (eg. v1). An upgrade of the major version will denote a breaking changes of the API whereas minor and maintenance will be transparent to the client. The <a href="#change-log">change logs</a> will contain the details of any modifications made to the API, serving as a means to notify clients about newly added features or bug fixes. The list of <i>fields</i> by their variable nature are excluded from the versioning, addition, removal or update of a fields will not change the versioning.
+        
+        <h1>Frequently Asked Questions</h1>
+        
+        <h3>How can I create, test or validate an expert query?</h3>
+        <h3>The API returns an error regarding an invalid field, format or value, how can I debug?</h3>
+        
+        The <a href="https://ted.europa.eu/en/search/expert-search">TED Expert Search</a> page can be used for that purpose. It includes the capabilities to write a query,
+        check the syntax, list all the fields and execute the query. The query once tailored can be reused in the query field parameter.
+
+      summary: Search procedures.
+      operationId: searchProcedures
+      security: []
+      parameters:
+        - name: page
+          in: query
+          description: The current page of results
+          required: false
+          schema:
+            minimum: 0
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          description: The size of the page
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+            default: 20
+        - name: sortProperty
+          in: query
+          description: The property to use to sort the results
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - versionId
+              - procedureId
+              - status
+              - updatedAt
+              - submittedAt
+              - publicationId
+              - publicationDate
+              - noticeType
+              - legalBasis
+              - noticeAuthor
+        - name: sortDirection
+          in: query
+          description: The sort direction, ascending (ASC) or descending (DESC)
+          required: false
+          schema:
+            type: string
+            enum:
+              - ASC
+              - DESC
+        - name: searchNotices
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SearchNoticesEsentool'
+      responses:
+        '200':
+          description: All notices based on filters. Even if 0 results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+
+  /v3/notices/convert:
+    post:
+      tags:
+        - Endpoints
+      summary: Convert an XML notice
+      description: Convert an XML notice from the format pre-eforms to an eForms notice.
+      operationId: convertNotice
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                type: string
+                format: byte
+        required: true
+      responses:
+        "400":
+          description: The request body is incomplete or invalid.
+        "200":
+          description: The notice was successfully converted.
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /v3/api-keys/{token}/renew:
+    post:
+      tags:
+        - Endpoints
+      summary: Renew the user API Key
+      description: Extends the validity of an active API Key. If the API Key is already inactive, a new one must be created. This endpoint is designed to be accessed indirectly, through the link provided in the email notification sent as the key approaches its expiration date.
+      operationId: renewApiKey
+      parameters:
+        - name: token
+          in: path
+          description: The token receive in the notification email
+          required: true
+          schema:
+            type: string
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+      responses:
+        '200':
+          description: The API Key validity has been extended
+        '400':
+          description: |-
+            Possible issues:
+            - The token as expired
+            - The API Key has expired or has been revoked
+
+  /v3/notices/{businessId}/stop-publication:
+    post:
+      tags:
+        - Endpoints
+      summary: Stop the notice publication
+      operationId: stopPublication
+      parameters:
+        - name: businessId
+          in: path
+          description: The notice business identifier (notice identifier - version)
+          required: true
+          schema:
+            type: string
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6-01
+      responses:
+        '200':
+          description: The publication of the notice has been stopped.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsentoolNoticeDto'
+        '404':
+          description: Notice was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /v3/notices:
+    get:
+      tags:
+        - Endpoints
+      summary: Search procedures
+      operationId: getNotices
+      parameters:
+        - name: page
+          in: query
+          description: The current page of results
+          required: false
+          schema:
+            minimum: 0
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          description: The size of the page
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+            default: 20
+        - name: sortProperty
+          in: query
+          description: The property to use to sort the results
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - versionId
+              - procedureId
+              - status
+              - updatedAt
+              - submittedAt
+              - publicationId
+              - publicationDate
+              - noticeType
+              - legalBasis
+              - noticeAuthor
+        - name: sortDirection
+          in: query
+          description: The sort direction, ascending (ASC) or descending (DESC)
+          required: false
+          schema:
+            type: string
+            enum:
+              - ASC
+              - DESC
+        - name: searchNotices
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SearchNoticesEsentool'
+      responses:
+        '200':
+          description: All notices based on filters. Even if 0 results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+components:
+  schemas:
+    InputNoticeValidation:
+      required:
+        - notice
+      type: object
+      properties:
+        notice:
+          type: string
+          description: Payload in base64 for the XML document
+          format: byte
+          example: aGVsbG8=
+        language:
+          type: string
+          description: 'Language to generate the SVRL report. Enum: [bg, cs, da, de, el, en, es, et, fi, fr, ga, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv, hr]'
+          example: en
+          default: en
+        validationMode:
+          type: string
+          description: Specify the validation mode that will be applied, selecting the corresponding set of rules from the eForms SDK that will be applied.
+          example: static
+          default: static
+          enum:
+            - dynamic
+            - static
+        eFormsSdkVersion:
+          type: string
+          description: Specify the eForms SDK version to use for validating the notice. This parameter should be omitted unless you want to override the version indicated in the cbc:CustomizationID element in the notice.
+          example: eforms-sdk-1.0
+      description: Request parameters for validation
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: HTTP error code
+          format: int32
+        message:
+          type: string
+          description: Error description
+        timestamp:
+          type: string
+          description: Error timestamp in RFC 3339 format
+      description: Error response
+    NoticeRenderRequestDto:
+      required:
+        - file
+        - format
+        - language
+      type: object
+      properties:
+        file:
+          type: string
+          description: XML notice encoded in base 64
+        language:
+          type: string
+          description: |-
+            Language used to render the notice
+             * Notice labels: use the specified 
+             * Notice content: use the specified language when it exists in the XML notice otherwise use the first notice original language
+          enum:
+            - bg
+            - cs
+            - da
+            - de
+            - el
+            - en
+            - es
+            - et
+            - fi
+            - fr
+            - ga
+            - hu
+            - it
+            - lt
+            - lv
+            - mt
+            - nl
+            - pl
+            - pt
+            - ro
+            - sk
+            - sl
+            - sv
+            - hr
+        format:
+          type: string
+          description: Output format
+          enum:
+            - PDF
+            - HTML
+        textToHighlight:
+          type: string
+          description: Highlight specific text in the notice rendering
+        summary:
+          type: boolean
+          description: Render notice by displaying only the specific elements
+      description: Notice Render Request
+    EsentoolNoticeDto:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The notice identifier (without the version).
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        versionId:
+          type: string
+          description: The version identifier.
+          example: '01'
+        procedureId:
+          type: string
+          description: The procedure identifier.
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa5
+        status:
+          $ref: '#/components/schemas/NoticeStatus'
+        updatedAt:
+          type: string
+          description: The notice updated date/time.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        submittedAt:
+          type: string
+          description: The notice submitted date/time.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        publicationId:
+          type: string
+          description: The notice publication identifier.
+        publicationDate:
+          type: string
+          description: The notice publication date.
+          format: date
+        noticeType:
+          type: string
+          description: The notice notice type.
+        legalBasis:
+          type: string
+          description: The notice legal basis code.
+        languages:
+          type: array
+          description: The notice languages.
+          items:
+            type: string
+            description: The notice languages.
+        noticeAuthor:
+          type: string
+          description: The notice author.
+          example: example@email.eu
+        expectedPublicationDate:
+          type: string
+          description: The notice expected publication date
+          format: date
+    NoticeStatus:
+      type: string
+      description: The notice status.
+      enum:
+        - DRAFT
+        - SUBMITTED
+        - STOPPED
+        - PUBLISHED
+        - PUBLISHING
+        - DELETED
+        - NOT_PUBLISHED
+        - ARCHIVED
+        - VALIDATION_FAILED
+    ExceptionBody:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The exception code.
+        message:
+          type: string
+          description: The exception message.
+    Metadata:
+      required:
+        - noticeAuthorEmail
+        - noticeAuthorLang
+      type: object
+      properties:
+        noticeAuthorEmail:
+          type: string
+          description: The notice author email.
+          example: john@doe.com
+        noticeAuthorLang:
+          type: string
+          description: The notice author language.
+          example: en
+      description: The metadata that is used to identify the original author of the notice.
+    MetadataAndNotice:
+      required:
+        - metadata
+        - notice
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        notice:
+          type: string
+          description: The notice XML content.
+          format: binary
+    XmlNoticeSubmissionDto:
+      type: object
+      properties:
+        validationReportUrl:
+          type: string
+          description: The url to use to retrieve the CVS validation report
+        success:
+          type: boolean
+          description: The status of the submission. True if success, otherwise false.
+    SearchNoticesEsentool:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The notice identifier (without the version).
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        versionId:
+          type: string
+          description: The version identifier.
+          example: '01'
+        submittedAfter:
+          type: string
+          description: The minimum date/time value used to find notices submitted after this point.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        submittedBefore:
+          type: string
+          description: The maximum date/time value used to find notices submitted before this point.
+          format: date-time
+          example: '2022-12-01T23:00:00Z'
+        publishedAfter:
+          type: string
+          description: The minimum date/time value used to find notices published after this point.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        publishedBefore:
+          type: string
+          description: The maximum date/time value used to find notices published before this point.
+          format: date-time
+          example: '2022-12-01T23:00:00Z'
+        statuses:
+          type: array
+          description: The list of status to include in the search
+          items:
+            type: string
+            description: The list of status to include in the search
+            enum:
+              - DRAFT
+              - SUBMITTED
+              - STOPPED
+              - PUBLISHED
+              - PUBLISHING
+              - DELETED
+              - NOT_PUBLISHED
+              - ARCHIVED
+              - VALIDATION_FAILED
+        noticeAuthor:
+          type: string
+          description: The notice author
+          example: example@email.eu
+    EsentoolPageDtoEsentoolNoticeDto:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          description: The total size of entities found
+          format: int64
+          example: 99
+        content:
+          type: array
+          description: The content of entities found
+          items:
+            $ref: '#/components/schemas/EsentoolNoticeDto'
+  securitySchemes:
+    en2-token:
+      type: http
+      description: Bearer token generated using EULogin identity (eNotices2 UI)
+      scheme: bearer
+      bearerFormat: JWT
