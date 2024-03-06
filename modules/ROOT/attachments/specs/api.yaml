@@ -601,7 +601,7 @@ components:
           example: example@email.eu
         expectedPublicationDate:
           type: string
-          description: The notice expected publication date
+          description: The notice expected publication date as assigned by the Publications Office based on the OJ S calendar
           format: date
     NoticeStatus:
       type: string
