@@ -236,7 +236,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+                $ref: '#/components/schemas/SearchNoticeResult'
         '400':
           description: Missing Authorization header in request
           content:
@@ -445,7 +445,7 @@ components:
           type: string
           description: the notice author
           example: minimal@email.eu
-    EsentoolPageDtoEsentoolNoticeDto:
+    SearchNoticeResult:
       type: object
       properties:
         totalSize:
