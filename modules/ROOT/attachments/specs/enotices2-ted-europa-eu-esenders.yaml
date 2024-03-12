@@ -81,7 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EsentoolNoticeDto'
+                $ref: '#/components/schemas/Notice'
         '400':
           description: Missing Authorization header in request
           content:
@@ -308,7 +308,7 @@ components:
           type: string
           description: the exception message.
           example: No notice found
-    EsentoolNoticeDto:
+    Notice:
       type: object
       properties:
         id:
@@ -457,7 +457,7 @@ components:
           type: array
           description: the content of entities found.
           items:
-            $ref: '#/components/schemas/EsentoolNoticeDto'
+            $ref: '#/components/schemas/Notice'
   securitySchemes:
     esenders-token:
       type: http
