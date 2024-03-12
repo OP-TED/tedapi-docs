@@ -229,7 +229,7 @@ paths:
           in: query
           required: true
           schema:
-            $ref: '#/components/schemas/SearchNoticesEsentool'
+            $ref: '#/components/schemas/SearchNotice'
       responses:
         '200':
           description: All notices based on filters. Even if 0 results.
@@ -393,7 +393,7 @@ components:
         success:
           type: boolean
           description: the status of the submission. True if success, otherwise false.
-    SearchNoticesEsentool:
+    SearchNotice:
       type: object
       properties:
         id:
