@@ -344,12 +344,15 @@ components:
           $ref: '#/components/schemas/NoticeStatus'
         updatedAt:
           type: string
-          description: the notice updated date/time.
+          description: >-
+            The exact moment of the latest update of the notice by either user
+            or system.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
-          description: the notice submitted date/time.
+          description: The user performed the latest update of the notice (can be system).
+          format: date-time
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publicationId:
@@ -373,7 +376,9 @@ components:
             description: the notice languages.
         noticeAuthor:
           type: string
-          description: the notice author.
+          description: >-
+            The email is used to identify the person responsible for the notice,
+            i.e. the Contracting Authority.
           example: minimal@email.eu
         expectedPublicationDate:
           type: string
@@ -397,11 +402,15 @@ components:
       properties:
         noticeAuthorEmail:
           type: string
-          description: the notice author email.
+          description: >-
+            The email is used to identify the person responsible for the notice,
+            i.e. the Contracting Authority.
           example: john@doe.com
         noticeAuthorLocale:
           type: string
-          description: the notice author locale.
+          description: >-
+            The EU official language in which the Contracting Authority wishes
+            to be notified by the Publications Office.
           example: en
     MetadataAndNotice:
       required:
@@ -460,10 +469,28 @@ components:
           example: '2022-12-01T23:00:00Z'
         statuses:
           type: array
-          description: the list of status to include in the search
+            description: |-
+              The list of status to include in the search: 
+               * DRAFT - The notice is being drafted. 
+               * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
+               * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
+               * PUBLISHED - The notice is published online on TED. 
+               * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
+               * DELETED - The notice has been deleted by front-end user. 
+               * NOT_PUBLISHED - The notice was received but not published on TED. 
+               * ARCHIVED - The notice has been archived by front-end user.
           items:
             type: string
-            description: the list of status to include in the search
+            description: |-
+              The list of status to include in the search: 
+               * DRAFT - The notice is being drafted. 
+               * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
+               * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
+               * PUBLISHED - The notice is published online on TED. 
+               * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
+               * DELETED - The notice has been deleted by front-end user. 
+               * NOT_PUBLISHED - The notice was received but not published on TED. 
+               * ARCHIVED - The notice has been archived by front-end user.
             enum:
               - DRAFT
               - SUBMITTED
@@ -492,6 +519,7 @@ components:
           description: the content of entities found.
           items:
             $ref: '#/components/schemas/Notice'
+      description: The information returned after a notice search.
   securitySchemes:
     esenders-token:
       type: http
