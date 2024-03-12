@@ -374,6 +374,10 @@ components:
           type: string
           description: the notice author.
           example: minimal@email.eu
+        expectedPublicationDate:
+          type: string
+          description: The notice expected publication date.
+          format: date
     NoticeStatus:
       type: string
       description: the notice status.
