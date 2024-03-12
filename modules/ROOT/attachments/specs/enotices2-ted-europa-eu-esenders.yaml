@@ -46,6 +46,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: Notice or notice report was not found.
           content:
@@ -56,7 +62,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -98,6 +103,7 @@ paths:
           description: |-
             Possible issues:
             - Notice publication cannot be stopped
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -112,7 +118,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -152,6 +157,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: |-
             Possible issues:
@@ -164,7 +175,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -249,11 +259,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -294,7 +309,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
 components:
   schemas:
     ExceptionBody:
