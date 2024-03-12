@@ -322,6 +322,7 @@ components:
           type: string
           description: the exception message.
           example: No notice found
+      description: The information related to the Exception that occurred.
     Notice:
       type: object
       properties:
@@ -411,6 +412,7 @@ components:
         success:
           type: boolean
           description: the status of the submission. True if success, otherwise false.
+      description: The CVS report details after the notice xml submission.
     SearchNotice:
       type: object
       properties:
@@ -463,6 +465,7 @@ components:
           type: string
           description: the notice author
           example: minimal@email.eu
+      description: The information used in a notice search.
     SearchNoticeResult:
       type: object
       properties:
