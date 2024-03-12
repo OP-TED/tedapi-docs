@@ -403,6 +403,19 @@ components:
           type: string
           description: the notice author locale.
           example: en
+    MetadataAndNotice:
+      required:
+        - metadata
+        - notice
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        notice:
+          type: string
+          description: The notice XML content.
+          format: binary
+      description: The metadata and notice used during the submission of the notice.
     CVSReport:
       type: object
       properties:
