@@ -135,7 +135,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+                $ref: '#/components/schemas/CVSReport'
         '400':
           description: |-
             Possible issues:
@@ -384,7 +384,7 @@ components:
           type: string
           description: the notice author locale.
           example: en
-    XmlNoticeSubmissionDto:
+    CVSReport:
       type: object
       properties:
         validationReportUrl:
