@@ -222,6 +222,7 @@ paths:
               - noticeType
               - legalBasis
               - noticeAuthor
+              - expectedPublicationDate
         - name: sortDirection
           in: query
           description: The sort direction, ascending (ASC) or descending (DESC)
