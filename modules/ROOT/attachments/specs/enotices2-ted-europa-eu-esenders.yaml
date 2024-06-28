@@ -88,7 +88,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Notice'
         '400':
-          description: Missing Authorization header in request
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Invalid business id.
           content:
             application/json:
               schema:
@@ -102,7 +105,7 @@ paths:
         '403': 
           description: |-
             Possible issues:
-            - Notice publication cannot be stopped
+            - Notice publication cannot be stopped because it is not in SUBMITTED status.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
@@ -114,10 +117,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '423':
+          description: Cannot acquire lock because notice is already locked.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
+            - Ted Monitor connection issue.
           content:
             application/json:
               schema:
