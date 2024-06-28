@@ -75,7 +75,7 @@ paths:
       parameters:
         - name: businessId
           in: path
-          description: the notice business identifier (notice identifier - version)
+          description: The notice business identifier (notice identifier - version)
           required: true
           schema:
             type: string
