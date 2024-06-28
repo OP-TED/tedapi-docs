@@ -35,7 +35,10 @@ paths:
                 type: string
                 format: binary
         '400':
-          description: Missing Authorization header in request
+          description:|-
+            Possible issues:
+            - Missing Authorization header in request
+            - Invalid business id.
           content:
             application/json:
               schema:
