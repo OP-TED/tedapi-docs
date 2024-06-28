@@ -354,6 +354,7 @@ components:
         publicationId:
           type: string
           description: the notice publication identifier.
+          example: 8164123-2024
         publicationDate:
           type: string
           description: the notice publication date.
@@ -361,15 +362,21 @@ components:
         noticeType:
           type: string
           description: the notice notice type.
+          example: '2'
         legalBasis:
           type: string
           description: the notice legal basis code.
+          example: 32014L0025
         languages:
           type: array
           description: the notice languages.
+          example: '["ENG","DEU"]'
           items:
             type: string
-            description: the notice languages.
+            description: the notice language.
+            example:
+            - ENG
+            - DEU
         noticeAuthor:
           type: string
           description: >-
@@ -383,6 +390,7 @@ components:
     NoticeStatus:
       type: string
       description: the notice status.
+      example: STOPPED
       enum:
         - DRAFT
         - SUBMITTED
