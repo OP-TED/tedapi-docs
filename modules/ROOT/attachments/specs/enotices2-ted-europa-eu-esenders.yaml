@@ -187,9 +187,8 @@ paths:
       operationId: searchProceduresEsentool
       parameters:
         - name: page
-          description: Sequence number of the page from the search results list.
           in: query
-          description: the current page of results
+          description: Indicates the page number of the paginated result list
           required: false
           schema:
             minimum: 0
@@ -197,9 +196,8 @@ paths:
             format: int32
             default: 0
         - name: size
-          description: Maximum number of search results per page.
           in: query
-          description: the size of the page
+          description: Indicates the size of the paginated result list
           required: false
           schema:
             minimum: 1
@@ -207,9 +205,8 @@ paths:
             format: int32
             default: 20
         - name: sortProperty
-          description: Property to use to sort the search results.
           in: query
-          description: the property to use to sort the results
+          description: The property to use to sort the results
           required: false
           schema:
             type: string
@@ -226,9 +223,8 @@ paths:
               - legalBasis
               - noticeAuthor
         - name: sortDirection
-          description: Ascending or descending order, in case sortProperty is set.
           in: query
-          description: the sort direction, ascending (ASC) or descending (DESC)
+          description: The sort direction, ascending (ASC) or descending (DESC)
           required: false
           schema:
             type: string
