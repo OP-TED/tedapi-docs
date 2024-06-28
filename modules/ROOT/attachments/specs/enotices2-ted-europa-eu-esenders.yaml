@@ -146,7 +146,12 @@ paths:
             Possible issues:
             - Missing Authorization header in request
             - Notice with the same noticeId and versionId already exists.
+            - NoticeAuthorEmail and noticeAuthorLocale are mandatory.
+            - Notice author email is not valid.
+            - Notice parameter cannot be empty.
             - Notice cannot be created (parsing errors)
+            - Could not find given procedure and cannot create new one for this type of notice.
+            - Missing procedure id in the notice.
           content:
             application/json:
               schema:
@@ -170,11 +175,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExceptionBody'    
+                $ref: '#/components/schemas/ExceptionBody'
+        '409':
+          description: |-
+            Possible issues: 
+            - Multiple objects are created/updated at the same time.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
+            - The CVS service is not available to validate the notice.
+            - CVS service failed to validate the notice.
           content:
             application/json:
               schema:
