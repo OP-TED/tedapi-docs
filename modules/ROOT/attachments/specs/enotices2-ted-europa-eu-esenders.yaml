@@ -430,6 +430,9 @@ components:
         - ARCHIVED
         - VALIDATION_FAILED
     Metadata:
+      required:
+        - noticeAuthorEmail
+        - noticeAuthorLocale
       type: object
       properties:
         noticeAuthorEmail:
@@ -444,6 +447,7 @@ components:
             The EU official language in which the Contracting Authority wishes
             to be notified by the Publications Office.
           example: en
+      description: The metadata that is used to identify the original author of the notice.
     MetadataAndNotice:
       required:
         - metadata
