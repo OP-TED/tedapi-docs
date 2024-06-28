@@ -35,7 +35,7 @@ paths:
                 type: string
                 format: binary
         '400':
-          description:|-
+          description: |-
             Possible issues:
             - Missing Authorization header in request
             - Invalid business id.
@@ -378,7 +378,6 @@ components:
           type: string
           description: The notice submission date/time.
           format: date-time
-          format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publicationId:
           type: string
@@ -502,7 +501,7 @@ components:
           example: '2022-12-01T23:00:00Z'
         statuses:
           type: array
-            description: |-
+          description: |-
               The list of status to include in the search: 
                * DRAFT - The notice is being drafted. 
                * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
