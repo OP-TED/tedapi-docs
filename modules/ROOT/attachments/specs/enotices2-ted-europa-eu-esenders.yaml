@@ -351,7 +351,7 @@ components:
           example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
-          description: The user performed the latest update of the notice (can be system).
+          description: The notice submission date/time.
           format: date-time
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
