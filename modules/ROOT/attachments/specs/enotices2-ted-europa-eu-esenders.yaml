@@ -130,7 +130,7 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - Ted Monitor connection issue.
+            - Internal error while updating notice status.
           content:
             application/json:
               schema:
@@ -158,11 +158,14 @@ paths:
           description: |-
             Possible issues:
             - Missing Authorization header in request
+            - Missing metadata 
+            - Missing notice 
+            - Missing noticeAuthorEmail
+            - Missing noticeAuthorLocale
             - Notice with the same noticeId and versionId already exists.
-            - NoticeAuthorEmail and noticeAuthorLocale are mandatory.
-            - Notice author email is not valid.
+            - noticeAuthorEmaill is not valid.
             - Notice parameter cannot be empty.
-            - Notice cannot be created (parsing errors)
+            - Notice cannot be parsed, it is not valid.
             - Could not find given procedure and cannot create new one for this type of notice.
             - Missing procedure id in the notice.
           content:
@@ -202,7 +205,7 @@ paths:
             Possible issues:
             - The provided TED API key cannot be currently validated.
             - The CVS service is not available to validate the notice.
-            - CVS service failed to validate the notice.
+            - The CVS could not execute the validation.
           content:
             application/json:
               schema:
