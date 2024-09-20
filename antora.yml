@@ -1,6 +1,6 @@
 name: api
 title: TED API
-version: v2
+version: '2.0'
 prerelease:
 nav:
 - modules/ROOT/nav.adoc
