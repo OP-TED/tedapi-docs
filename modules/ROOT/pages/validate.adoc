@@ -4,7 +4,7 @@
 ----
 Abstract
 
-This API provides operation to validate a notice and get the validation
+This API provides an operation to validate a notice and get a validation
 report
 ----
 
@@ -62,7 +62,8 @@ Validate a notice sent in the request body. This operation returns a schematron 
 
 ===== Responses
 
-. http response codes
+. http Response Codes
+
 [cols="1,4,1"]
 |===
 
@@ -86,6 +87,7 @@ Validate a notice sent in the request body. This operation returns a schematron 
 |===
 
 #NB - change error response links in table above when the cvs-ted-europa-eu.html.adoc page is created#
+
 ====== Samples
 
 === VersionRange
