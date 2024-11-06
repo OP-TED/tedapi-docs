@@ -1,0 +1,212 @@
+= Validation API
+
+[source]
+----
+Abstract
+
+This API provides operation to validate a notice and get the validation
+report
+----
+
+== Endpoints
+
+=== Validation
+
+==== Validate
+
+[source]
+----
+POST /v1/notices/validation
+----
+
+Validate a notice
+
+==== Description
+Validate a notice sent in the request body. This operation returns a schematron validation report which describes all the tests performed.
+
+==== Parameters
+===== Body Parameter
+
+[cols="2,2,1,1,1"]
+|===
+|Name|Description|Required|Default|Pattern
+
+|InputNoticeValidation
+|https://docs.ted.europa.eu/docs-staging/api/latest/endpoints/cvs-ted-europa-eu.html#InputNoticeValidation[InputNoticeValidation]
+|X
+|
+|
+|===
+
+===== Header Parameters
+
+[cols="2,2,1,1,1"]
+|===
+|Name|Description|Required|Default|Pattern
+
+|X-API-Key
+|TED API key identifying the author of the request
+|X
+|null
+|
+|===
+
+===== Return Type +
+-
+
+===== Content Type
+
+* application/xml
+
+* application/json
+
+===== Responses
+
+. http response codes
+[cols="1,4,1"]
+|===
+
+|Code|Message|Datatype
+
+|200
+|The report is returned.
+|<<>>
+
+|400
+|Possible issues: - The 'language' parameter is not valid. - The 'validationMode' parameter is not valid. The 'validationMode' parameter is not valid. - The rules are missing for the following version.
+|https://docs.ted.europa.eu/docs-staging/api/latest/endpoints/cvs-ted-europa-eu.html#ErrorResponse[ErrorResponse]
+
+|401
+|Possible issues: - Missing key in header: X-API-Key
+|https://docs.ted.europa.eu/docs-staging/api/latest/endpoints/cvs-ted-europa-eu.html#ErrorResponse[ErrorResponse]
+
+|403
+|Possible issues: - Invalid key in header: X-API-Key
+|https://docs.ted.europa.eu/docs-staging/api/latest/endpoints/cvs-ted-europa-eu.html#ErrorResponse[ErrorResponse]
+|===
+
+#NB - change error response links in table above when the cvs-ted-europa-eu.html.adoc page is created#
+====== Samples
+
+=== VersionRange
+
+==== versionRange
+
+[source]
+----
+GET /v1/version-range
+----
+
+Return information on the SDK versions accepted for publication
+
+==== Description
+
+Return information on the versions of the eForms SDK currently accepted for publication, as a JSON response. This indicates the earliest and latest SDK versions accepted for publication, and any versions in between that are excluded.
+
+==== Parameters
+
+===== Header Parameters
+
+[cols="2,2,1,1,1"]
+|===
+|Name|Description|Required|Default|Pattern
+
+|X-API-Key
+|
+|X
+|null
+|
+
+|===
+
+===== Return Type +
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+
+[cols="1,4,1"]
+|===
+|Code|Message|Datatype
+
+|200
+|Information on accepted SDK versions is returned
+|<<>>
+
+|401
+|Possible issues: - Missing key in header: X-API-Key
+|ErrorResponse
+
+|403
+|Possible issues: - Invalid key in header: X-API-Key
+|ErrorResponse
+
+|===
+
+===== Samples
+
+=== Models
+==== _ErrorResponse_
+Error response
+
+[cols="2,2,1,1,1"]
+|===
+|Field Name|Required|Type|Description|Format
+
+|errorCode
+|
+|Integer
+|HTTP error code
+|int32
+
+|message
+|
+|String
+|Error description
+|
+
+|timestamp
+|
+|String
+|Error timestamp in RFC 3339 format
+|
+
+|===
+
+==== _InputNoticeValidation_
+Request parameters for validation
+
+[cols="2,2,1,1,1"]
+|===
+|Field Name|Required|Type|Description|Format
+
+|notice
+|X
+|byte[]
+|Payload in base64 for the XML document
+|byte
+
+|language
+|
+|String
+|Language to generate the SVRL report. Enum: [bg, cs, da, de, el, en, es, et, fi, fr, ga, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv, hr]
+|
+
+|validationMode
+|
+|String
+|Specify the validation mode that will be applied, selecting the corresponding set of rules from the eForms SDK that will be applied.
+|Enum: dynamic, static,
+
+|eFormsSdkVersion
+|
+|String
+|Specify the eForms SDK version to use for validating the notice. This parameter should be omitted unless you want to override the version indicated in the cbc:CustomizationID element in the notice.
+|
+
+|===
