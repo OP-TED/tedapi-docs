@@ -86,7 +86,6 @@ Validate a notice sent in the request body. This operation returns a schematron 
 |https://docs.ted.europa.eu/docs-staging/api/latest/endpoints/cvs-ted-europa-eu.html#ErrorResponse[ErrorResponse]
 |===
 
-#NB - change error response links in table above when the cvs-ted-europa-eu.html.adoc page is created#
 
 ====== Samples
 
