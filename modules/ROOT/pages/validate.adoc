@@ -1,12 +1,12 @@
 = Validation API
 
-[source]
-----
-Abstract
+//[source]
+//----
+== Abstract
 
 This API provides an operation to validate a notice and get a validation
 report
-----
+//----
 
 == Endpoints
 
