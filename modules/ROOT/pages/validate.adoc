@@ -37,6 +37,7 @@ Validate a notice sent in the request body. This operation returns a schematron 
 |X
 |
 |
+
 |===
 
 ===== Header Parameters
