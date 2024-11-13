@@ -404,6 +404,8 @@ paths:
               - status
               - updatedAt
               - submittedAt
+              #EI: to add transmittedAt
+              #EI: to add createdAt
               - publicationId
               - publicationDate
               - noticeType
@@ -900,6 +902,7 @@ components:
           example: minimal@email.eu
       description: The information used in a notice search.
     NoticeSearchResponse:
+    #EI: incorrect response - to correct  (TEDAPI-454)
       type: object
       properties:
         totalSize:
