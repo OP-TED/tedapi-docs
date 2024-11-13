@@ -52,7 +52,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '403':
-          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          description: No eNotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -98,6 +98,7 @@ paths:
             - Missing notice 
             - Missing noticeAuthorEmail
             - Missing noticeAuthorLocale
+            #EI: use noticeAuthorLang instead
             - Notice with the same noticeId and versionId already exists.
             - noticeAuthorEmaill is not valid.
             - Notice parameter cannot be empty.
@@ -115,7 +116,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '403':
-          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          description: No eNotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -339,7 +340,7 @@ paths:
           description: |-
             Possible issues:
             - Notice publication cannot be stopped because it is not in SUBMITTED status.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - No eNotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -443,7 +444,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '403':
-          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          description: No eNotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -786,6 +787,7 @@ components:
       required:
         - noticeAuthorEmail
         - noticeAuthorLocale
+        #EI: use noticeAuthorLang instead
       type: object
       properties:
         noticeAuthorEmail:
@@ -795,10 +797,12 @@ components:
             i.e. the Contracting Authority.
           example: john@doe.com
         noticeAuthorLocale:
+        #EI: use noticeAuthorLang instead
           type: string
           description: >-
             The EU official language in which the Contracting Authority wishes
             to be notified by the Publications Office.
+            #EI: Enum: [bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv]
           example: en
       description: The metadata that is used to identify the original author of the notice.
     NoticeSubmitRequest:
