@@ -1,0 +1,12 @@
+= Conversion API
+
+Conversion API provides operation:
+
+[source]
+----
+POST /v3/notices/convert	
+----
+
+* This operation returns a partial eForms notice as a result of conversion of XML notice in the old https://github.com/OP-TED/ted-xml-data-converter#current-status[TED XML format]
+* Request body contains notice content in TED XML format
+* `CustomizationID` element in the returned eForms notice is set to the latest value maintained for conversion and this value can change in time.
