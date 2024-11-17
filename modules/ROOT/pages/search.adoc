@@ -1,0 +1,19 @@
+= Search API
+
+Search API provides operation:
+
+[source]
+----
+POST /v3/notices/search	
+----
+
+* This operation returns list of published notices matching the search query and their data.
+* Parameter `query` is mandatory and contains query description using https://ted.europa.eu/en/expert-search[expert search] syntax.
+* Parameter `fields` is mandatory and contains list of fields to be returned with each notice matching the search query.
+* Parameter `page` specifies a sequential number of the page to be returned from the search results with a pagination applied. If not specified, value 0 is used as default.
+* Parameter `limit` specifies page size as number of results to be returned per page. If not specified, value 10 is used as default.
+* Parameter `scope` specifies scope of search. (LATEST: only notices of the current OJ S release, ACTIVE: only active notices, ALL: all notices). If not specified, value LATEST is used as default.
+* Parameter `checkQuerySyntax` specifies if the search is to be executed (false), or only the syntax of the query is to be checked, but the search query is not executed. When not specified, value false is used as default.
+* Parameter `paginationMode` specifies type of pagination to be applied. The PAGE_NUMBER mode allows retrieval up to 15000 notices for a given query, using pagination. To retrieve more notices, it is possible to use the ITERATION mode. ITERATION mode does not have limitation on the number of retrievable notices, but in this case it is not possible to choose the specific page. The first request will return an iterationNextToken that should be provided to the next call of the search endpoint in order to retrieve the next result page. If not specified, PAGE_NUMBER value is used as default.
+* Parameter `onlyLatestVersions` specifies if all versions of matching notices is to be returned, or only the latest versions. If not specified, value true is used as default.
+* Parameter `iterationNextToken` specifies Opaque token returned by the previous call to the search endpoint to retrieve the next result page. It shouldn't be provided in PAGE_NUMBER mode or if this is the first request in ITERATION mode.
