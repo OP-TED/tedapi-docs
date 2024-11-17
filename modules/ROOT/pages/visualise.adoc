@@ -1,0 +1,15 @@
+= Visualisation API
+
+Visualisation API provides operation:
+
+[source]
+----
+POST /v3/notices/render
+----
+
+* This operation returns a PDF or HTML rendering of a valid eForms notice.
+* Parameter `file` is mandatory and contains notice content encoded in base64 string.
+* Parameter `language` is mandatory and specifies language used for rendering of field labels and text values. If a text value doesn't exist in the notice in the specified language, first notice original language is used. 
+* Parameter `format` is mandatory and specifies the output format of the rendering, PDF or HTML.
+* Parameter `summary` specifies if the rendered output should contain only specific elements forming the summary. If not specified, the value false is used as default.
+* The rendering template and labels are taken from the SDK version that is specified by `CustomizationID` element from the notice content.
