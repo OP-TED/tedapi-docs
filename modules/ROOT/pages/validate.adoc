@@ -19,7 +19,7 @@ POST /v3/notices/validate
 ----
 
 * This operation returns a https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_introduction[schematron] validation report which describes all the tests performed.
-* Parameter notice is mandatory and contains notice content encoded in base64 string.
+* Parameter `notice` is mandatory and contains notice content encoded in base64 string.
 * Parameter language specifies language used for text messages related to failed assertions. If it is not specified, then "en" value is used as default.
 * Parameter validationMode specifies https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files[types of rules] applied for the validation. If it is not specified, then "static" value is used as default.
 * Parameter eFormsSdkVersion specifies active SDK version against which the notice is being validated. If it is not specified, then value from CustomizationID element from the notice is used as default. 
