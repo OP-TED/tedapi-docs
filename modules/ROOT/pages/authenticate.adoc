@@ -7,5 +7,5 @@ Authentication API provides operation:
 POST /v3/api-keys/{token}/renew	
 ----
 
-* This operation allows to extend a validity of an expiring https://docs.ted.europa.eu/api/index.html#_api_key_lifetime[API key]
-* Parameter `token` is mandatory and it can be found in the hyperlink in the sent email with subject [Ted Developer Portal] Your API key will soon expire, please renew it
+* This operation extends the validity of an expiring https://docs.ted.europa.eu/api/index.html#_api_key_lifetime[API key].
+* Parameter `token` is mandatory and it can be found in the hyperlink in the sent email with subject _[Ted Developer Portal] Your API key will soon expire, please renew it_.
