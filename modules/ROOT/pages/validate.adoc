@@ -7,19 +7,19 @@ Validation API provides 2 operations:
 GET /v3/config/sdk-versions	
 ----
 
-This operation provides information on the set of currently https://docs.ted.europa.eu/eforms-common/active-versions/index.html#_terminology[active SDK] versions in JSON format. 
-It doesn't use any input parameter. 
-Information is valid at the moment when the operation is called and can be changed over the time.
-History of the changes cannot be retrieved, only the last update. 
-Information content and how to get the set of active SDK versions from it is described on the page https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[sdk-versions]
+* This operation provides information on the set of currently https://docs.ted.europa.eu/eforms-common/active-versions/index.html#_terminology[active SDK] versions in JSON format. 
+* It doesn't use any input parameter. 
+* Information is valid at the moment when the operation is called and can be changed over the time.
+* History of the changes cannot be retrieved, only the last update. 
+* Information content and how to get the set of active SDK versions from it is described on the page https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[sdk-versions].
 
 [source]
 ----
 POST /v3/notices/validate
 ----
 
-This operation returns a https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_introduction[schematron] validation report which describes all the tests performed.
-Parameter notice is mandatory and contains notice content encoded in base64 string.
-Parameter language specifies language used for text messages related to failed assertions. If it is not specified, then "en" value is used as default.
-Parameter validationMode specifies https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files[types of rules] applied for the validation. If it is not specified, then "static" value is used as default.
-Parameter eFormsSdkVersion specifies active SDK version against which the notice is being validated. If it is not specified, then value from CustomizationID element from the notice is used as default. 
+* This operation returns a https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_introduction[schematron] validation report which describes all the tests performed.
+* Parameter notice is mandatory and contains notice content encoded in base64 string.
+* Parameter language specifies language used for text messages related to failed assertions. If it is not specified, then "en" value is used as default.
+* Parameter validationMode specifies https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files[types of rules applied for the validation. If it is not specified, then "static" value is used as default.
+* Parameter eFormsSdkVersion specifies active SDK version against which the notice is being validated. If it is not specified, then value from CustomizationID element from the notice is used as default. 
