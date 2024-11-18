@@ -1,10 +1,9 @@
 * xref:index.adoc[Home]
 
 * [.separated]#**Available APIs**#
-* apidoc::attachment$specs/api.yaml[TED API v3]
-* [.separated]#**Legacy API**#
-//* apidoc::attachment$specs/cvs-ted-europa-eu.yaml[Validation API]
+* xref:authenticate.adoc[Authentication API]
+* xref:convert.adoc[Conversion API]
+* xref:publish.adoc[Publication API]
 * xref:validate.adoc[Validation API]
-* apidoc::attachment$specs/enotices2-ted-europa-eu-esenders.yaml[Publication API]
-* apidoc::attachment$specs/viewer-ted-europa-eu.yaml[Visualisation API]
-* apidoc::attachment$specs/ted-europa-eu.yaml[Search API]
+* xref:visualise.adoc[Visualisation API]
+* xref:search.adoc[Search API]
