@@ -1,4 +1,4 @@
-* xref:index.adoc[Home]
+* xref:api-home::index.adoc[Home]
 
 * [.separated]#**Available APIs**#
 * apidoc::attachment$specs/cvs-ted-europa-eu.yaml[Validation API]
