@@ -4,8 +4,8 @@
 
 Short paragraph introducing the TED api, mentioning v2 and (new/updated) v3
 
-* V2 structure, includes, validity period (very brief)
-* V3 structure, includes, changes, validity period (very brief)
+* v2 structure, includes, validity period (very brief)
+* v3 structure, includes, changes, validity period (very brief)
 
 Mention that both versions running in parallel & click on version you want below
 
@@ -14,20 +14,20 @@ Mention that both versions running in parallel & click on version you want below
 --
 
 [.tile]
-.TED API v2.0
+.TED API v2
 
 ****
-Learn about the functionality of TED API V2.0
+Learn about the functionality of TED API v2
 
-xref:2.0@api::index.adoc[TED API V2.0]
+xref:2.0@api::index.adoc[TED API v2]
 ****
 
 [.tile]
-.TED API v3.0
+.TED API v3
 
 ****
-Learn about the functionality of TED API V3.0 
+Learn about the functionality of TED API v3 
 
-xref:3.0@api::index.adoc[TED API V3.0]
+xref:3.0@api::index.adoc[TED API v3]
 ****
 --
