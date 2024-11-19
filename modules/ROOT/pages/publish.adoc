@@ -1,0 +1,54 @@
+= Publication API
+
+Publication API provides 4 operations:
+
+[source]
+----
+POST /v3/notices/submit	
+----
+
+* This operation tries to create a new notice instance and returns information about its https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_forms_and_procedures[status].
+* Parameter `noticeAuthorEmail` is mandatory and should contain valid email address of the buyer to be notified about rejection/ publication of the notice.
+* Parameter `noticeAuthorLang` is mandatory and should indicate the EU official language in which the buyer wishes to be notified by the Publications Office.
+* Parameter `notice` is mandatory binary string representing content of the eForms XML notice.
+* Notice XML must contain a new unique `businessId` (concatenated string from noticeId-versionId)
+* When notice parsing was successful and notice content was successfully validated, new notice instance is created, status is set to _SUBMITTED_. Notice is added into the publication process.
+* When notice parsing was successful and notice content was not successfully validated, the notice status is set to _VALIDATION-FAILED_.
+* When notice parsing was not successful or new unique `businessId` was not found, no notice instance is created.
+
+[source]
+----
+POST /v3/notices/{businessId}/stop-publication
+----
+
+* This operation tries to stop the notice publication and returns the new notice status.
+* Parameter `businessId` is mandatory and identifies the unique notice which was submitted for publication.
+* When notice was found and its status is _SUBMITTED_, the notice is removed from the publication process and the status is set to _STOPPED_.
+* When notice was found and its status is not _SUBMITTED_, no change is done.
+
+[source]
+----
+GET /v3/notices/{businessId}/validation-report	
+----
+
+* This operation returns validation report created during submit operation 
+* Parameter `businessId` is mandatory and identifies the unique notice which was submitted for publication.
+* When notice was found, validation report created during submit operation is returned.
+
+[source]
+----
+GET /v3/notices/	
+----
+
+* This operation returns list of created notices matching the search criteria and their metadata.
+* Parameter `id` sets a filter on _noticeId_.
+* Parameter `versionId` sets a filter on _versionId_.
+* Parameter `submittedAfter` and `submittedBefore` define a filter on _submittedAt_ value.
+* Parameter `publishedAfter` and `publishedBefore` define a filter on _publicationDate_ value.
+* Parameter `statuses` sets a filter on _status_ value.
+* Parameter `noticeAuthor` sets a filter on _noticeAuthor_ value.
+* Parameter `sortProperty` specifies the property used for the sorting.
+* Parameter `sortDirection` specifies the direction used for the sorting, ascending (ASC) or descending (DESC).
+* Parameter `page` specifies the page number of the paginated result list, if not specified, value 0 is used as default.
+* Parameter `size` specifies the page size of the paginated result list, if not specified, value 20 is used as default.
+* For every notice matching the search criteria the following metadata are returned in JSON format: id, versionId, procedureId, status, updatedAt, submittedAt, publicationId, publicationDate, noticeType, legalBasis, languages, noticeAuthor, expectedPublicationDate.
