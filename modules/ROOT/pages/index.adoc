@@ -15,20 +15,20 @@ Mention that both versions running in parallel & click on version you want below
 --
 
 [.tile]
-.TED API V2.0
+.TED API v2.0
 
 ****
 Learn about the functionality of TED API V2.0
 
-xref:2.0::index.adoc[TED API V2.0]
+xref:2.0@api::index.adoc[TED API V2.0]
 ****
 
 [.tile]
-.TED API V3.0
+.TED API v3.0
 
 ****
 Learn about the functionality of TED API V3.0 
 
-xref:3.0::index.adoc[TED API V3.0]
+xref:3.0@api::index.adoc[TED API V3.0]
 ****
 --
