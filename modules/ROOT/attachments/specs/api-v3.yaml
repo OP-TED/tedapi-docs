@@ -948,6 +948,7 @@ components:
           description: >-
             The EU official language in which the Contracting Authority wishes
             to be notified by the Publications Office.
+            Enum: [bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv]
           example: en
       description: The metadata that is used to identify the original author of the notice.
     NoticeSubmitRequest:
