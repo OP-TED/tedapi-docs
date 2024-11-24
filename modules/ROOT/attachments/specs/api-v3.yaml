@@ -445,7 +445,7 @@ paths:
   /v3/notices:
     get:
       tags:
-        - Visualization
+        - Publication
       summary: Search procedures
       operationId: getNotices
       parameters:
