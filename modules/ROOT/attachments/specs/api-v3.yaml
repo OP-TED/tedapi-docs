@@ -478,16 +478,16 @@ paths:
               - versionId
               - procedureId
               - status
-              - updatedAt
+              - transmittedAt
               - submittedAt
+              - createdAt
+              - updatedAt
               - publicationId
               - publicationDate
               - noticeType
               - legalBasis
               - noticeAuthor
               - expectedPublicationDate
-              - createdAt
-              - transmittedAt
         - name: sortDirection
           in: query
           description: The sort direction, ascending (ASC) or descending (DESC)
