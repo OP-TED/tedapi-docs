@@ -17,7 +17,7 @@ paths:
   /v3/notices/{businessId}/validation-report:
     get:
       tags:
-        - Validation
+        - Publication
       summary: Retrieve the notice validation report
       operationId: getValidationReport
       parameters:
