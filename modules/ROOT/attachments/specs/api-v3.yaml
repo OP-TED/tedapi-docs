@@ -539,7 +539,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - Visualization
+        - Search
       description: |+
         This API provides multiple read-only operations on the TED website data.
         The endpoint 'Notice Search API' can be used to search notices both TED schema notices and eForms notices.
