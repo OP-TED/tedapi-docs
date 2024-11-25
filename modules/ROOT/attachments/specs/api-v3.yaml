@@ -221,7 +221,7 @@ paths:
   /v3/notices/render:
     post:
       tags:
-        - Visualization
+        - Visualisation
       summary: Get HTML or PDF rendering of a notice sent in the request body.
       operationId: render
       requestBody:
@@ -269,7 +269,7 @@ paths:
   /v3/notices/render-async:
     post:
       tags:
-        - Visualization
+        - Visualisation
       summary: Get HTML or PDF rendering of a notice sent in the request body.
       operationId: renderWithCallback
       requestBody:
