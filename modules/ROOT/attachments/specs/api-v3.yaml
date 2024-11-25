@@ -318,7 +318,7 @@ paths:
   /v3/notices/convert:
     post:
       tags:
-        - Publication
+        - Conversion
       summary: Convert an XML notice
       description: Convert an XML notice in the old TED XML format to an eForms notice.
       operationId: convertNotice
