@@ -969,11 +969,11 @@ components:
       properties:
         validationReportUrl:
           type: string
-          description: the url to use to retrieve the CVS validation report
+          description: The URL to use to retrieve the CVS validation report.
         success:
           type: boolean
-          description: the status of the submission. True if success, otherwise false.
-      description: The CVS report details after the notice xml submission.
+          description: The status of the submission. True if success, otherwise false.
+      description: The details of the CVS report following XML submission.
     NoticeSearchRequest:
       type: object
       properties:
