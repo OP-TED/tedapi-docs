@@ -986,6 +986,18 @@ components:
           type: string
           description: the version identifier.
           example: '01'
+        createdAfter:
+          type: string
+          description: The minimum date/time value used to find notices created after
+            this point.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        createdBefore:
+          type: string
+          description: The maximum date/time value used to find notices created before
+            this point.
+          format: date-time
+          example: '2022-12-01T23:00:00Z'
         submittedAfter:
           type: string
           description: the minimum date/time value used to find notices submitted after this point.
@@ -1004,6 +1016,18 @@ components:
         publishedBefore:
           type: string
           description: the maximum date/time value used to find notices published before this point.
+          format: date-time
+          example: '2022-12-01T23:00:00Z'
+        transmittedAfter:
+          type: string
+          description: The minimum date/time value used to find notices transmitted
+            after this point.
+          format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        transmittedBefore:
+          type: string
+          description: The maximum date/time value used to find notices transmitted
+            before this point.
           format: date-time
           example: '2022-12-01T23:00:00Z'
         statuses:
