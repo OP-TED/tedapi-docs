@@ -537,7 +537,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionBody'
   /v3/notices/search:
     post:
-      deprecated: true
       tags:
         - Search
       description: |+
@@ -635,7 +634,7 @@ paths:
         The <a href="https://ted.europa.eu/en/search/expert-search">TED Expert Search</a> page can be used for that purpose. It includes the capabilities to write a query,
         check the syntax, list all the fields and execute the query. The query once tailored can be reused in the query field parameter.
 
-      summary: Search for notices using expert search query (deprecated in favor of /v4/notices/search)
+      summary: Search for notices using expert search query
       operationId: search
       security: []
       requestBody:
