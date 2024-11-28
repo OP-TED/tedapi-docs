@@ -46,7 +46,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '401':
-          description: The provided TED API key doesn't exist or it is invalid.
+          description: The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -66,7 +66,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
           content:
             application/json:
               schema:
@@ -109,7 +109,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '401':
-          description: The provided TED API key doesn't exist or it is invalid.
+          description: The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -139,7 +139,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
             - The CVS service is not available to validate the notice.
             - The CVS could not execute the validation.
           content:
@@ -177,7 +177,7 @@ paths:
         '403':
           description: |-
             Possible issues:
-            - The provided TED API key doesn't exist or it is invalid.
+            - The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -185,7 +185,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
           content:
             application/json:
               schema:
@@ -253,7 +253,7 @@ paths:
         '403':
           description: |-
             Possible issues:
-            - The provided TED API key doesn't exist or it is invalid.
+            - The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -261,7 +261,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
           content:
             application/json:
               schema:
@@ -347,11 +347,11 @@ paths:
             - Missing Authorization header in request
             - The request body is incomplete or invalid.
         '401':
-          description: The provided TED API key doesn't exist or it is invalid.
+          description: The provided API key doesn't exist or it is invalid.
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
   /v3/api-keys/{token}/renew:
     post:
       tags:
@@ -407,7 +407,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '401':
-          description: The provided TED API key doesn't exist or it is invalid.
+          description: The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -436,7 +436,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
             - Internal error while updating notice status.
           content:
             application/json:
@@ -516,7 +516,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
         '401':
-          description: The provided TED API key doesn't exist or it is invalid.
+          description: The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
@@ -530,7 +530,7 @@ paths:
         '500':
           description: |-
             Possible issues:
-            - The provided TED API key cannot be currently validated.
+            - The provided API key cannot be currently validated.
           content:
             application/json:
               schema:
