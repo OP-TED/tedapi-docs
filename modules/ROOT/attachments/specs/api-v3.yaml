@@ -168,7 +168,14 @@ paths:
       tags:
         - Validation
       summary: Validate a notice
-      description: Validate a notice sent in the request body. This operation returns a schematron validation report which describes all the tests performed.
+      description: |+
+        <ul>
+            <li>This operation returns a <a href="https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_introduction">schematron</a>  validation report which describes all the tests performed.
+            <li>Parameter `notice` is mandatory and contains notice content encoded in base64 string.
+            <li>Parameter `language` specifies language used for text messages related to failed assertions. If it is not specified, then "en" value is used as default.
+            <li>Parameter `validationMode` specifies <a href="https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files">schematron</a> types of rules applied for the validation. If it is not specified, then "static" value is used as default.
+            <li>Parameter `eFormsSdkVersion` specifies active SDK version against which the notice is being validated. If it is not specified, then value from `CustomizationID` element from the notice is used as default. 
+        </ul>
       operationId: validate
       requestBody:
         content:
