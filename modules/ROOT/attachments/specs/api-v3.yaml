@@ -246,6 +246,15 @@ paths:
     post:
       tags:
         - Visualisation
+      description: |+
+        <ul>
+            <li>This operation returns a PDF or HTML rendering of a valid eForms notice.
+            <li>Parameter `file` is mandatory and contains notice content encoded in base64 string.
+            <li>Parameter `language` is mandatory and specifies language used for rendering of field labels and text values. If a text value doesn't exist in the notice in the specified language, first notice original language is used. 
+            <li>Parameter `format` is mandatory and specifies the output format of the rendering, PDF or HTML.
+            <li>Parameter `summary` specifies if the rendered output should contain only specific elements forming the summary. If not specified, the value false is used as default.
+            <li>The rendering template and labels are taken from the SDK version that is specified by `CustomizationID` element from the notice content.
+        </ul>
       summary: Get HTML or PDF rendering of a notice sent in the request body.
       operationId: render
       requestBody:
