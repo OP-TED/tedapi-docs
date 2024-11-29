@@ -18,6 +18,12 @@ paths:
     get:
       tags:
         - Publication
+      description: |+
+        <ul>
+            <li>This operation returns validation report created during submit operation. 
+            <li>Parameter `businessId` is mandatory and identifies the unique notice which was submitted for publication.
+            <li>When notice was found, validation report created during submit operation is returned.
+        </ul>            
       summary: Retrieve the notice validation report
       operationId: getValidationReport
       parameters:
