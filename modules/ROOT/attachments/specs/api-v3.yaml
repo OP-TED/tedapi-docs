@@ -21,8 +21,10 @@ paths:
         - Publication
       description: |+
         <ul>
-            <li>This endpoint creates a notice instance after validating the submitted content. A notice with a valid and unique businessId that passes validation is marked as SUBMITTED for publication.
-            <li>If validation fails, the notice receives a VALIDATION-FAILED status. No instance is created if the notice cannot be parsed or if the businessId is not unique.
+            <li>Creates a notice instance after validating the request. 
+            <li>A notice with a valid and unique businessId that passes validation, receives status SUBMITTED and can be published.
+            <li>If validation fails, the notice receives a VALIDATION_FAILED status and the notice cannot be published.
+            <li>No instance is created if the notice cannot be parsed or if the businessId is not unique.
         </ul>
       summary: Submit XML notice
       operationId: submitNotice
@@ -863,16 +865,16 @@ components:
       properties:
         id:
           type: string
-          description: the notice identifier (without the version).
+          description: The notice identifier (without the version).
           format: uuid
           example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
         versionId:
           type: string
-          description: the version identifier.
+          description: The version identifier.
           example: '01'
         procedureId:
           type: string
-          description: the procedure identifier.
+          description: The procedure identifier.
           format: uuid
           example: 3fa85f64-5717-4562-b3fc-2c963f66afa5
         status:
@@ -880,56 +882,54 @@ components:
         updatedAt:
           type: string
           description: >-
-            The exact moment of the latest update of the notice by either user
-            or system.
+            Indicates the timestamp of the latest notice update by user or the system, e.g. when publication was stopped.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
-          description: The notice submission date/time.
+          description: Captures the Notice Dispatch Date (BT-05) as entered by the eSender.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         createdAt:
           type: string
-          description: The notice creation date/time.
+          description: Captures the timepstamp the instance was created in eNotices2.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         transmittedAt:
           type: string
-          description: The notice transmission date/time.
+          description: Matches the BT-803 (Notice Dispatch Date eSender) timestamp from the XML, when available. When empty, the value is "null".
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publicationId:
           type: string
-          description: the notice publication identifier.
+          description: The notice publication identifier.
           example: 8164123-2024
         publicationDate:
           type: string
-          description: the notice publication date.
+          description: The notice publication date.
           format: date
         noticeType:
           type: string
-          description: the notice notice type.
+          description: The notice subtype.
           example: '2'
         legalBasis:
           type: string
-          description: the notice legal basis code.
+          description: The notice legal basis code.
           example: 32014L0025
         languages:
           type: array
-          description: the notice languages.
+          description: The official EU languages in which the whole notice is available.
           example: '["ENG","DEU"]'
           items:
             type: string
-            description: the notice language.
+            description: Identifies the language code used for the text. 
             example:
               - ENG
               - DEU
         noticeAuthor:
           type: string
           description: >-
-            The email is used to identify the person responsible for the notice,
-            i.e. the Contracting Authority.
+            The email used to identify the person responsible for the notice, i.e. the Contracting Authority.
           example: minimal@email.eu
         expectedPublicationDate:
           type: string
@@ -937,7 +937,7 @@ components:
           format: date
     NoticeStatus:
       type: string
-      description: the notice status.
+      description: The notice status.
       example: STOPPED
       enum:
         - DRAFT
@@ -1060,27 +1060,22 @@ components:
         statuses:
           type: array
           description: |-
-            The list of status to include in the search: 
-             * DRAFT - The notice is being drafted. 
-             * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
-             * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
-             * PUBLISHED - The notice is published online on TED. 
-             * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
-             * DELETED - The notice has been deleted by front-end user. 
-             * NOT_PUBLISHED - The notice was received but not published on TED. 
-             * ARCHIVED - The notice has been archived by front-end user.
+              The list of statuses to include in the search.
           items:
             type: string
             description: |-
-              The list of status to include in the search: 
-               * DRAFT - The notice is being drafted. 
-               * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
-               * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
-               * PUBLISHED - The notice is published online on TED. 
-               * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
-               * DELETED - The notice has been deleted by front-end user. 
-               * NOT_PUBLISHED - The notice was received but not published on TED. 
-               * ARCHIVED - The notice has been archived by front-end user.
+             Possible statuses to include in the search: 
+              * SUBMITTED - The notice is successfully received, validated, and sent to OP (received by internal system TED Monitor).
+              * STOPPED - Publication of the notice was stopped by the buyer/eSender before publication, and the request was accepted. End status.
+              * PUBLISHING - Publication process in progress, i.e., the notice has been added to the daily export for TED.
+              * PUBLISHED - The notice is published online on TED. End status.
+              * NOT_PUBLISHED - The notice was received but not published on TED. End status.
+              * VALIDATION_FAILED - The notice was submitted but failed CVS validation upon submission. End status.
+              * DRAFT - The notice is being drafted.
+              * DELETED - The notice has been deleted by front-end user.
+              * ARCHIVED - The notice has been archived by front-end user.
+              
+              Note: "DRAFT", "DELETED" and "ARCHIVED" reflect actions taken exclusively via the web interface. API users should manage notices through API operations without using the web interface to maintain system integrity.
             enum:
               - DRAFT
               - SUBMITTED
@@ -1093,7 +1088,7 @@ components:
               - VALIDATION_FAILED
         noticeAuthor:
           type: string
-          description: the notice author
+          description: The notice author
           example: minimal@email.eu
       description: The information used in a notice search.
     NoticeSearchResponse:
