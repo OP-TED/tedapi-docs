@@ -161,10 +161,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TedAppsErrorReponse'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TedAppsErrorReponse'
         "200":
           description: The information on accepted SDK versions is returned.
           content:
