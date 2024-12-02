@@ -104,7 +104,7 @@ paths:
       summary: Validate a notice
       description: |+
         <ul>
-            <li>This endpoint performs schematron validation on a provided notice and returns a detailed report.The notice content must be submitted as a base64 string. 
+            <li>Performs schematron validation on a provided notice and returns a detailed report.The notice content must be submitted as a base64 string. 
             <li>Optional parameters allow for specifying the language for error messages, the validation mode, and the eForms SDK version to validate against, with defaults for unspecified values.
         </ul>
       operationId: validate
@@ -129,7 +129,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TedAppsErrorReponse'
-        '403':
+        '401':
           description: |-
             Possible issues:
             - The provided API key doesn't exist or it is invalid.
@@ -150,21 +150,17 @@ paths:
       tags:
         - Developer Operations
       summary: Return version-range.json
-      description: This operation returns content of the 'version-range.json' file as a JSON response body.
+      description: Returns content of the 'version-range.json' file as a JSON response body.
       operationId: sdk-range
       responses:
         "401":
-          description: |-
+          description:  |-
             Possible issues:
-            - Missing API key
+            - The provided API key doesn't exist or it is invalid.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TedAppsErrorReponse'
-        "403":
-          description: |-
-            Possible issues:
-            - Missing API key
           content:
             application/json:
               schema:
@@ -179,12 +175,12 @@ paths:
         - Visualisation
       description: |+
         <ul>
-            <li>This endpoint generates a PDF or HTML version of an eForms notice. 
+            <li>Generates a PDF or HTML version of an eForms notice. 
             <li>The notice content must be submitted as a base64-encoded string. 
             <li>The rendering includes mandatory language specification for field labels and text, with fallback to the notice's original language if needed. 
             <li>The rendering is based on the SDK version indicated within the notice content.
         </ul>
-      summary: Get HTML or PDF rendering of a notice sent in the request body.
+      summary: Get HTML or PDF rendering of a notice sent in the request body
       operationId: render
       requestBody:
         content:
@@ -205,14 +201,14 @@ paths:
         '400':
           description: |-
             Possible issues:
-            - 'file', 'format' or 'language' is missing
-            - The language is not valid
-            - Notice cannot be created (parsing errors)
+            - 'file', 'format' or 'language' is missing.
+            - The language is not valid.
+            - Notice cannot be parsed (parsing errors).
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TedAppsErrorReponse'
-        '403':
+        '401':
           description: |-
             Possible issues:
             - The provided API key doesn't exist or it is invalid.
@@ -234,9 +230,9 @@ paths:
         - Visualisation
       description: |+
         <ul>
-            This endpoint generates a PDF or HTML version of an eForms notice in an asynchronous process and sends back the generated rendering at the specified call-back URL.
+            Generates a PDF or HTML version of an eForms notice in an asynchronous process and sends back the generated rendering at the specified call-back URL.
         </ul>
-      summary: Get HTML or PDF rendering of a notice sent in the request body.
+      summary: Get HTML or PDF rendering of a notice sent in the request body
       operationId: renderWithCallback
       requestBody:
         content:
@@ -246,12 +242,12 @@ paths:
         required: true
       responses:
         "400":
-          description: Bad Request
+          description: Bad Request.
           content:
             application/json:
               examples:
                 Bad Request:
-                  description: Invalid format
+                  description: Invalid format.
                   value:
                     errorCode: 400
                     message: "Invalid 'format' parameter value. Possible values are:\
@@ -263,7 +259,7 @@ paths:
             text/html:
               examples:
                 get HTML notice:
-                  description: The HTML rendering of the notice
+                  description: The HTML rendering of the notice.
                   value: |-
                     <!DOCTYPE html>
                     <html lang="en">
@@ -277,9 +273,15 @@ paths:
             application/pdf:
               examples:
                 get PDF notice:
-                  description: The PDF rendering of the notice
-        "403":
-          description: Forbidden
+                  description: The PDF rendering of the notice.
+        "401":
+          description: |-
+            Possible issues:
+            - The provided API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TedAppsErrorReponse'
 
   /v3/notices/convert:
     post:
@@ -310,7 +312,7 @@ paths:
         '400':
           description: |-
             Possible issues:
-            - Missing Authorization header in request
+            - Missing Authorization header in request.
             - The request body is incomplete or invalid.
         '401':
           description: The provided API key doesn't exist or it is invalid.
@@ -328,34 +330,36 @@ paths:
       parameters:
         - name: token
           in: path
-          description: The token received in the notification email
+          description: The token received in the notification email.
           required: true
           schema:
             type: string
           example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
       responses:
         '200':
-          description: The API Key validity has been extended
+          description: The API Key validity has been extended.
         '400':
           description: |-
             Possible issues:
-            - The token provided is invalid
-            - The token provided is not active anymore
-            - The API Key has expired or has been revoked
+            - The token provided is invalid.
+            - The token provided is not active anymore.
+            - The API Key has expired or has been revoked.
   /v3/notices/{businessId}/stop-publication:
     post:
       tags:
         - Publication
       description: |+
         <ul>
-            This endpoint stops the ongoing publication process for a notice identified by a given businessId. If the notice is currently SUBMITTED, its status is changed to STOPPED and it's withdrawn from publication. If the notice's status is not SUBMITTED, there is no effect.
+            <li>Stops the ongoing publication process for a notice identified by a given businessId. 
+            <li>If the notice's status is SUBMITTED, its status is changed to STOPPED and it's withdrawn from publication. 
+            <li>If the notice's status is not SUBMITTED, there is no effect.
         </ul>
       summary: Stop the notice publication
       operationId: stopPublication
       parameters:
         - name: businessId
           in: path
-          description: The notice business identifier (notice identifier - version)
+          description: The notice business identifier (notice identifier - version).
           required: true
           schema:
             type: string
@@ -385,7 +389,7 @@ paths:
         '403':
           description: |-
             Possible issues:
-            - Notice publication cannot be stopped because it is not in SUBMITTED status.
+            - Notice publication cannot be stopped, because it is not in SUBMITTED status.
             - eNotices2 account not found.
           content:
             application/json:
@@ -418,9 +422,8 @@ paths:
         - Publication
       description: |+
         <ul>
-            This endpoint retrieves the validation report generated during the submission process of a notice; the notice must be identified by its businessId.
- 
-        </ul>            
+            Retrieves the validation report generated during the submission process of a notice; the notice must be identified by its businessId.
+         </ul>            
       summary: Retrieve the notice validation report
       operationId: getValidationReport
       parameters:
@@ -442,7 +445,7 @@ paths:
         '400':
           description: |-
             Possible issues:
-            - Missing Authorization header in request
+            - Missing Authorization header in request.
             - Invalid business id.
           content:
             application/json:
@@ -480,14 +483,14 @@ paths:
         - Publication
       description: |-
         <ul>
-            This endpoint provides a paginated list of a user's submitted notices and their associated data, based on applied search and sorting criteria. Access is restricted to notices submitted by the requesting user.
+            Provides a paginated list of a user's submitted notices and their associated data, based on applied search and sorting criteria. Access is restricted to notices submitted by the requesting user.
         </ul>
       summary: Search procedures
       operationId: getNotices
       parameters:
         - name: page
           in: query
-          description: Indicates the page number of the paginated result list
+          description: Indicates the page number of the paginated result list.
           required: false
           schema:
             minimum: 0
@@ -496,7 +499,7 @@ paths:
             default: 0
         - name: size
           in: query
-          description: Indicates the size of the paginated result list
+          description: Indicates the size of the paginated result list.
           required: false
           schema:
             minimum: 1
@@ -505,7 +508,7 @@ paths:
             default: 20
         - name: sortProperty
           in: query
-          description: The property to use to sort the results
+          description: The property to use to sort the results.
           required: false
           schema:
             type: string
@@ -526,7 +529,7 @@ paths:
               - expectedPublicationDate
         - name: sortDirection
           in: query
-          description: The sort direction, ascending (ASC) or descending (DESC)
+          description: The sort direction, ascending (ASC) or descending (DESC).
           required: false
           schema:
             type: string
@@ -546,7 +549,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoticeSearchResponse'
         '400':
-          description: Missing Authorization header in request
+          description: Missing Authorization header in request.
           content:
             application/json:
               schema:
@@ -716,7 +719,7 @@ components:
       properties:
         notice:
           type: string
-          description: Payload in base64 for the XML document
+          description: Payload in base64 for the XML document.
           format: byte
           example: aGVsbG8=
         language:
@@ -736,21 +739,21 @@ components:
           type: string
           description: Specify the eForms SDK version to use for validating the notice. This parameter should be omitted unless you want to override the version indicated in the cbc:CustomizationID element in the notice.
           example: eforms-sdk-1.0
-      description: Request parameters for validation
+      description: Request parameters for validation.
     TedAppsErrorReponse:
       type: object
       properties:
         errorCode:
           type: integer
-          description: HTTP error code
+          description: HTTP error code.
           format: int32
         message:
           type: string
-          description: Error description
+          description: Error description.
         timestamp:
           type: string
-          description: Error timestamp in RFC 3339 format
-      description: Error response
+          description: Error timestamp in RFC 3339 format.
+      description: Error response.
     NoticeRenderRequest:
       required:
         - file
@@ -760,13 +763,13 @@ components:
       properties:
         file:
           type: string
-          description: XML notice encoded in base 64
+          description: XML notice encoded in base 64.
         language:
           type: string
           description: "Language used to render the notice\n * Notice labels are displayed
             in the specified language \n *  The content of the notice is displayed
             in the specified language when it exists in the XML notice, otherwise
-            the content is displayed with the first official language of the notice"
+            the content is displayed with the first official language of the notice."
           enum:
             - bg
             - cs
@@ -794,15 +797,15 @@ components:
             - hr
         format:
           type: string
-          description: Output format
+          description: Output format.
           enum:
             - PDF
             - HTML
         summary:
           type: boolean
-          description: Render notice by displaying only the specific elements
+          description: Render notice by displaying only the specific elements.
           example: false
-      description: eForms Notice Render Request
+      description: eForms Notice Render Request.
     NoticeRenderAsyncRequest:
       required:
         - callbackUrl
@@ -813,13 +816,13 @@ components:
       properties:
         file:
           type: string
-          description: XML notice encoded in base 64
+          description: XML notice encoded in base 64.
         language:
           type: string
           description: "Language used to render the notice\n * Notice labels are displayed\
                 \ in the specified language \n *  The content of the notice is displayed\
                 \ in the specified language when it exists in the XML notice, otherwise\
-                \ the content is displayed with the first official language of the notice"
+                \ the content is displayed with the first official language of the notice."
           enum:
             - bg
             - cs
@@ -853,13 +856,13 @@ components:
             - HTML
         summary:
           type: boolean
-          description: Render notice by displaying only the specific elements
+          description: Render notice by displaying only the specific elements.
           example: false
         callbackUrl:
           type: string
           description: this URL is called to return the rendered notice instead of
-            returning it as response to the HTTP call
-      description: eForms Notice Render Request
+            returning it as response to the HTTP call.
+      description: eForms Notice Render Request.
     Notice:
       type: object
       properties:
@@ -1006,12 +1009,12 @@ components:
       properties:
         id:
           type: string
-          description: the notice identifier (without the version).
+          description: The notice identifier (without the version).
           format: uuid
           example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
         versionId:
           type: string
-          description: the version identifier.
+          description: The version identifier.
           example: '01'
         createdAfter:
           type: string
@@ -1027,22 +1030,22 @@ components:
           example: '2022-12-01T23:00:00Z'
         submittedAfter:
           type: string
-          description: the minimum date/time value used to find notices submitted after this point.
+          description: The minimum date/time value used to find notices submitted after this point.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         submittedBefore:
           type: string
-          description: the maximum date/time value used to find notices submitted before this point.
+          description: The maximum date/time value used to find notices submitted before this point.
           format: date-time
           example: '2022-12-01T23:00:00Z'
         publishedAfter:
           type: string
-          description: the minimum date/time value used to find notices published after this point.
+          description: The minimum date/time value used to find notices published after this point.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publishedBefore:
           type: string
-          description: the maximum date/time value used to find notices published before this point.
+          description: The maximum date/time value used to find notices published before this point.
           format: date-time
           example: '2022-12-01T23:00:00Z'
         transmittedAfter:
@@ -1088,7 +1091,7 @@ components:
               - VALIDATION_FAILED
         noticeAuthor:
           type: string
-          description: The notice author
+          description: The notice author.
           example: minimal@email.eu
       description: The information used in a notice search.
     NoticeSearchResponse:
@@ -1096,12 +1099,12 @@ components:
       properties:
         totalSize:
           type: integer
-          description: the total size of entities found.
+          description: The total size of entities found.
           format: int64
           example: 99
         content:
           type: array
-          description: the content of entities found.
+          description: The content of entities found.
           items:
             $ref: '#/components/schemas/Notice'
       description: The information returned after a notice search.
@@ -1116,7 +1119,7 @@ components:
               description: A text in language [lang], where lang is any of the 24
                 official languages (ISO 639-2), eg. eng, deu, fra
           description: A i18n field mapping to any of the 24 official languages (ISO
-            639-2) a text
+            639-2) a text.
         organisation-name-mediator-part:
           type: object
           properties:
@@ -11760,6 +11763,6 @@ components:
   securitySchemes:
     token:
       type: http
-      description: The token generated using TED Developer Portal
+      description: The API key generated using TED Developer Portal.
       scheme: bearer
       bearerFormat: JWT
