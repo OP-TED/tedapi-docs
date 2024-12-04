@@ -26,5 +26,6 @@ This API does not require authentication, making it accessible to any system or 
 * Commercial organisations providing added-value services to vendors and buyers by integrating TED data into their platforms. 
 * Researchers analysing public procurement trends. 
 * Developers creating transparency tools or reusing public data. 
-* eNotices2 web interface when a user imports a notice from TED to continue a procedure. 
+* eNotices2 web interface when a user imports a notice from TED to continue a procedure.
+
 Explore the full documentation here: Developers' corner: APIs for your own integration - ted.europa.eu - TED 
