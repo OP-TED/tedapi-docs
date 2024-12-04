@@ -15,10 +15,10 @@ As eForms replaced legacy TED XML notices, the Conversion API simplifies the tra
 
 [source]
 ----
-POST /v3/notices/convert	
+POST /v3/notices/convert    Convert TED XML notices into partial eForms notices
 ----
 
-Convert TED XML notices into partial eForms notices. 
+
 
 == Who Uses This API 
 
