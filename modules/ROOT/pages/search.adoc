@@ -28,4 +28,4 @@ This API does not require authentication, making it accessible to any system or 
 * Developers creating transparency tools or reusing public data. 
 * eNotices2 web interface when a user imports a notice from TED to continue a procedure.
 
-Explore the full documentation here: Developers' corner: APIs for your own integration - ted.europa.eu - TED 
+Explore the full documentation here: https://ted.europa.eu/en/simap/developers-corner-for-reusers[Developers' corner: APIs for your own integration - ted.europa.eu - TED] 
