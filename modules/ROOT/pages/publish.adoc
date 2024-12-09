@@ -16,10 +16,10 @@ The Publication API automates the handling of procurement notices, reducing reli
 
 [source]
 ----
-POST /v3/notices/submit			  Submit new notices for publication on TED
+POST /v3/notices/submit			        Submit new notices for publication on TED
 POST /v3/notices/{businessId}/stop-publication	Request to stop the publication of submitted notice
 GET /v3/notices/{businessId}/validation-report	Retrieve validation report for submitted notice
-GET /v3/notices/			    Query submitted notices
+GET /v3/notices/			        Query submitted notices
 
 ----  
 
