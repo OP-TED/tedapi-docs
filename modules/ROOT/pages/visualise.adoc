@@ -13,7 +13,7 @@ The Visualisation API makes procurement notices easier to read and share by conv
 
 [source]
 ----
-POST /v3/notices/render			Generate formatted notices (synchronous rendering)
+POST /v3/notices/render			    Generate formatted notices (synchronous rendering)
 POST /v3/notices/render-async 	Generate formatted notices (asynchronous rendering)
 ----  
 
