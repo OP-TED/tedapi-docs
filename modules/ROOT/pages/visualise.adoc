@@ -1,15 +1,28 @@
-= Visualisation API
+= Visualisation API  
 
-Visualisation API provides operation:
+== Purpose 
+Render procurement notices into user-friendly formats for publication or internal use.
+
+== What It Does 
+* Converts XML notices into visually accessible formats like PDF or HTML. 
+
+== Why This API Exists
+The Visualisation API makes procurement notices easier to read and share by converting them into familiar formats. It supports both public dissemination and internal workflows.
+
+== Endpoint
 
 [source]
 ----
-POST /v3/notices/render
-----
+POST /v3/notices/render			Generate formatted notices (synchronous rendering)
+POST /v3/notices/render-async 	Generate formatted notices (asynchronous rendering)
+----  
 
-* This operation returns a PDF or HTML rendering of a valid eForms notice.
-* Parameter `file` is mandatory and contains notice content encoded in base64 string.
-* Parameter `language` is mandatory and specifies language used for rendering of field labels and text values. If a text value doesn't exist in the notice in the specified language, first notice original language is used. 
-* Parameter `format` is mandatory and specifies the output format of the rendering, PDF or HTML.
-* Parameter `summary` specifies if the rendered output should contain only specific elements forming the summary. If not specified, the value false is used as default.
-* The rendering template and labels are taken from the SDK version that is specified by `CustomizationID` element from the notice content.
+== Note
+This API provides operations in two variants. For larger, more complex notices, the asynchronous API should be used to prevent request time-outs.  
+
+== Who Uses This API
+* Organisations integrating visualised notices into their platforms. 
+* TED developers generating previews for notices. 
+* eNotices2 for the rendering of notices. 
+
+Explore more about view templates used in rendering here: https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html
