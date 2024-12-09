@@ -1,25 +1,28 @@
-= Validation API
+= Validation API  
 
-Validation API provides 2 operations:
+== Purpose 
+Validate procurement notices to ensure compliance with EU standards and eForms regulations. 
+
+== What It Does 
+* Checks notices for errors (e.g., missing fields, incorrect values). 
+* Issues/ Returns warnings for potential lawfulness concerns that require further human review. 
+
+== Why This API Exists
+The Validation API ensures notices meet mandatory legal and procedural standards at any time before or upon submission, preventing errors and reducing the risk of non-compliance.
+
+== Endpoint
 
 [source]
 ----
-GET /v3/config/sdk-versions	
-----
+POST /v3/notices/validate		Validate notices for compliance at any time before or upon submission
+----  
 
-* This operation provides information on the set of currently https://docs.ted.europa.eu/eforms-common/active-versions/index.html#_terminology[active SDK] versions in JSON format. 
-* It doesn't use any input parameter. 
-* Information is valid at the moment when the operation is called and can be changed over the time.
-* History of the changes cannot be retrieved, only the last update. 
-* Information content and how to get the set of active SDK versions from it is described on the page https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[sdk-versions].
+== Special Features
 
-[source]
-----
-POST /v3/notices/validate
-----
+This API does not require authentication, making it accessible to any system or user. 
 
-* This operation returns a https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_introduction[schematron] validation report which describes all the tests performed.
-* Parameter `notice` is mandatory and contains notice content encoded in base64 string.
-* Parameter `language` specifies language used for text messages related to failed assertions. If it is not specified, then "en" value is used as default.
-* Parameter `validationMode` specifies https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files[types of rules] applied for the validation. If it is not specified, then "static" value is used as default.
-* Parameter `eFormsSdkVersion` specifies active SDK version against which the notice is being validated. If it is not specified, then value from `CustomizationID` element from the notice is used as default. 
+== Who Uses This API
+* Developers ensuring notices meet requirements, especially before submission. 
+* eSenders avoiding compliance errors during submission. 
+* eNotices2 web interface for validating notices before or upon submission. 
+Explore more about schematron rules and validation reports here: https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files
