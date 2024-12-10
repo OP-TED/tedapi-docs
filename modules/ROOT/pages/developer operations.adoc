@@ -1,0 +1,51 @@
+= Developer Operations API  
+
+== Purpose 
+Provides auxiliary operations to support integration and compatibility with TED APIs, ensuring smooth functionality and uninterrupted service. 
+
+== What It Does 
+* Allows systems to programmatically renew API keys, maintaining access to TED services. 
+* Provides configuration details, such as the https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[active SDK versions] range, to ensure compatibility with supported SDK versions during submissions. 
+* Lays the foundation for future developer-focused tools and operations. 
+
+== Endpoint
+
+[source]
+----
+POST /v3/api-keys/{token}/renew		extend the validity of an API key
+----  
+
+== What It Does 
+* Enables systems to autonomously renew API keys nearing expiration. 
+* Prevents disruptions by avoiding manual interventions. 
+
+== Why This API Exists
+It ensures continuous access for applications that rely on TED services, particularly in unattended environments or automated workflows.
+
+== Who Uses This API
+* Developers automating API key management. 
+* Systems requiring uninterrupted access to TED APIs over extended periods. 
+
+== Note
+To manage notices that are not yet published, TED API requires the \cas\logincaller to be authenticated with an API key. Developers can generate and manage their own API keys by logging in to their account in the https://developer.ted.europa.eu/[TED Developer Portal].
+
+An API key is valid for 24 months. Users are notified to renew their API key via an email that contains a token. The link can be clinked on to update a key manually, or applications can be configured to extract the token and use it in the /renew endpoint programmatically.   
+
+
+== Endpoint
+
+[source]
+----
+GET /v3/config/sdk-versions		Retrieve the active range of SDK versions
+----  
+
+== What It Does 
+* Returns the current range of SDK versions supported by the TED Central Validation Service (CVS). 
+* Helps developers ensure that notices submitted via their applications use a compatible SDK version. 
+
+== Why This API Exists
+Submissions to TED require notices to conform to an https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[active SDK versions] range. This endpoint ensures developers can align their submissions with supported versions, avoiding compatibility issues.
+
+== Who Uses This API
+* Developers validating SDK compatibility before submitting notices. 
+* Applications automating notice creation and submission processes.
