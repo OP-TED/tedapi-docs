@@ -1,7 +1,7 @@
 * xref:index.adoc[Home]
 
 * [.separated]#**Available APIs**#
-* xref:authenticate.adoc[Authentication API]
+* xref:developer operations.adoc[Developer Operations API]
 * xref:convert.adoc[Conversion API]
 * xref:publish.adoc[Publication API]
 * xref:validate.adoc[Validation API]
