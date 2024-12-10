@@ -26,7 +26,7 @@ It ensures continuous access for applications that rely on TED services, particu
 * Developers automating API key management. 
 * Systems requiring uninterrupted access to TED APIs over extended periods. 
 
-== Note
+=== Note
 To manage notices that are not yet published, TED API requires the \cas\logincaller to be authenticated with an API key. Developers can generate and manage their own API keys by logging in to their account in the https://developer.ted.europa.eu/[TED Developer Portal].
 
 An API key is valid for 24 months. Users are notified to renew their API key via an email that contains a token. The link can be clinked on to update a key manually, or applications can be configured to extract the token and use it in the /renew endpoint programmatically.   
