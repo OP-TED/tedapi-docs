@@ -1,7 +1,3 @@
-CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable.
-
-
-
 :eu-login: EU Login is the European Commission's user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don't have one, you can link:https://ecas.ec.europa.eu/cas/eim/external/register.cgi[create an EU Login account here].
 
 :dev-portal: The link:https://developer.ted.europa.eu[TED Developer Portal] is the single point of access for all TED developers.
@@ -18,6 +14,7 @@ TED API allows anonymous access to all services manipulating published notices (
 
 All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
+CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable.
 
 == API keys
 
@@ -48,12 +45,6 @@ An automated notification will be sent four (4) weeks before the expiration of t
 
 Revocation:: You can revoke any unused API keys as needed in the TED Developer Portal. Revoked API keys are invalidated permanently.
 
-= TED API v3 Documentation 
-
-== Welcome to TED API 
-
-TED API is a set of programmatic tools that allows third-party developers to integrate their applications with the TED ecosystem. By using TED API, organisations can automate and streamline processes related to public procurement, enabling efficient interaction with TED services across Europe. This makes TED API an essential resource for governments, businesses, and developers (e.g. eSenders or reusers of TED Data) who need to work with public procurement notices. 
-
 == What is an API? 
 
 An API (Application Programming Interface) is a technical bridge that allows one system to interact with another. Think of it as a way for software applications to "talk" to TED services, enabling systems to exchange information and perform tasks automatically without manual input. 
@@ -68,6 +59,8 @@ Public procurement is vital for fostering transparency, accountability, and comp
  * Visualise notices in readable formats such as PDFs or HTML. 
 
 TED API bridges the gap between systems, ensuring efficient and reliable access to TED services. 
+
+TED API is a set of programmatic tools that allows third-party developers to integrate their applications with the TED ecosystem. By using TED API, organisations can automate and streamline processes related to public procurement, enabling efficient interaction with TED services across Europe. This makes TED API an essential resource for governments, businesses, and developers (e.g. eSenders or reusers of TED Data) who need to work with public procurement notices. 
 
 == How TED API Connects to TED services 
 
