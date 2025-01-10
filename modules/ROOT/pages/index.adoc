@@ -103,98 +103,76 @@ Visualisation:: Render notices in PDF or HTML: +
 https://viewer.ted.europa.eu/swagger-ui/index.html
 
 == Testing your apps
+
 An **eForms Preview Environment** is available to allow and encourage developers to test their applications. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
 
 CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
 
-How to Get Started 
+== How to Get Started 
 
-Obtain an API Key 
+. Obtain an API Key 
+. Visit the TED Developer Portal. 
+. Log in with your EU Login credentials. 
+. Generate your API Key via the Manage API Keys section. 
 
-Visit the TED Developer Portal. 
+NOTE: Copy your API key upon creation; it cannot be retrieved later. 
 
-Log in with your EU Login credentials. 
+NOTE: The Search API does not require a key.
 
-Generate your API Key via the Manage API Keys section. 
+[start=5]
+. Authenticate your application. 
+. Use your API Key in the header of requests to access TED services. 
 
-[Note]: Copy your API key upon creation; it cannot be retrieved later. 
-
-[Note]: The Search API does not require a key. 
-
-Authenticate Your Application 
-
-Use your API Key in the header of requests to access TED services. 
-
- 
-
-Test in the Preview Environment 
+== Test in the Preview Environment 
 
 Use the eForms Preview Environment to test your applications before deployment. To use the eForms Preview Environment you will need an API key generated on the TED Developer Portal of the Preview Environment. This means that you will also need an EU Login account from the EU-Login Acceptance Environment. 
 
-[Important]: If you are using the Publication API, you also need to create an eNotices2 account in the respective environment by logging in with the same EU Login account.  
+IMPORTANT: If you are using the Publication API, you also need to create an eNotices2 account in the respective environment by logging in with the same EU Login account.  
 
-[Note]: The Search API and the TED Website are not available in the Preview environment; notices submitted in the Preview environment do not get published. 
+NOTE: The Search API and the TED Website are not available in the Preview environment; notices submitted in the Preview environment do not get published. 
 
-
-Transitioning from TED API v2 
+== Transitioning from TED API v2 
 
 TED API v2 will remain supported for at least six months until July 2025, ensuring a smooth transition to the latest version. 
 
 Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
-Shape 
-
-Versioning Policy 
+== Versioning Policy 
 
 TED API is committed to providing a stable and reliable environment for developers. Our versioning policy ensures clarity and minimises disruption when introducing updates. 
 
-Supported Versions 
+=== Supported Versions 
 
 At any given time, TED API supports two active versions. to allow users ample time to transition to the latest version. 
 
-Current Active Versions: 
+=== Current Active Versions: 
 
-Version 2 (Legacy, recommended for migration). 
-
-Version 3 (Primary focus, unified and improved features). 
+ * Version 2 (Legacy, recommended for migration). 
+ * Version 3 (Primary focus, unified and improved features). 
 
 Future transitions will maintain the two-version policy, with older versions being deprecated only after ensuring most users have migrated. 
 
- 
+== When Do We Change Versions? 
 
-Breaking Changes 
+New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when: 
+New functionalities or services are added that cannot be accommodated within the current version. 
+Technical or compliance requirements necessitate modifications that constitute breaking changes. 
+A need arises to consolidate or rationalise APIs for better usability. 
+We commit to keeping version transitions smooth by offering extensive support, backward compatibility, and clear timelines. 
+
+=== Breaking Changes 
 
 We strive to avoid breaking changes within a single version. Breaking changes are defined as changes that can disrupt or require updates to existing integrations. These include: 
 
-Removing an endpoint: Users rely on stable access to endpoints for their systems. 
-
-Adding a new required request parameter: This introduces incompatibility for existing requests. Adding a new optional parameter is not considered a breaking change. 
-
-Removing or changing the type of a request parameter or response attribute: This impacts how applications handle data. 
+ * Removing an endpoint: Users rely on stable access to endpoints for their systems. 
+ * Adding a new required request parameter: This introduces incompatibility for existing requests. Adding a new optional parameter is not considered a breaking change. 
+ * Removing or changing the type of a request parameter or response attribute: This impacts how applications handle data. 
 
 When a breaking change is necessary, a new version will be introduced to preserve compatibility for existing users. We will always provide clear migration guidance and sufficient notice before deprecating an older version. 
 
-Shape 
+== Resources and Support 
 
-When Do We Change Versions? 
-
-New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when: 
-
-New functionalities or services are added that cannot be accommodated within the current version. 
-
- 
-
-Technical or compliance requirements necessitate modifications that constitute breaking changes. 
-
-A need arises to consolidate or rationalise APIs for better usability. 
-
-We commit to keeping version transitions smooth by offering extensive support, backward compatibility, and clear timelines. 
-
-Shape 
-
-Resources and Support 
-
-Unified Swagger Interface: https://api.ted.europa.eu/v3. 
+Unified Swagger Interface: https://api.ted.europa.eu/v3 
 
 Developer Portal:  https://developer.ted.europa.eu/ 
 
@@ -203,7 +181,3 @@ Developers’ Corner: Explore additional tools and resources for reusing TED dat
 eForms Preview Environment: Read what it is and how to test your eSender integration before production at eForms Preview environment :: TED Developer Documentation. 
 
 Technical issues related to the eForms SDK: Please go to the discussions on GitHub at https://github.com/OP-TED/eForms-SDK/discussions 
-
- 
-
- 
