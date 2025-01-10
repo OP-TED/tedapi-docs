@@ -72,7 +72,7 @@ TED API bridges the gap between systems, ensuring efficient and reliable access 
 == How TED API Connects to TED services 
 
 The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices, which went into production use on 14 November 2022. TED API serves as the programmatic gateway that connects external systems to these TED services. Each API aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured: 
- 
+
  * eNotices2: This is the single entry point for submitting and managing eForms notices. It interacts with the Publication API to allow programmatic submissions, queries, and publication management. The eNotices2 web user interface was designed with front-end users in mind, whereas applications and developers should interact directly with the Publication API. It also interacts with the TED Central Validation Service for validating notices before and upon submission. 
 
  * TED Central Validation Service (TED CVS): This service – which exists only as an API – ensures notices meet compliance standards. The Validation API provides a mechanism to check notices for errors and warnings. This service can be used independently at any time to detect and correct errors in notices prior to sending them for publication via the Publication API. Any notice that passes validation through CVS upon submission to the Publication API or the eNotices2 front-end, can be considered technically valid for publication on TED. 
