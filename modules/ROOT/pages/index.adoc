@@ -50,7 +50,6 @@ Revocation:: You can revoke any unused API keys as needed in the TED Developer P
 
 = TED API v3 Documentation 
  
-Home Page 
 == Welcome to TED API 
 TED API is a set of programmatic tools that allows third-party developers to integrate their applications with the TED ecosystem. By using TED API, organisations can automate and streamline processes related to public procurement, enabling efficient interaction with TED services across Europe. This makes TED API an essential resource for governments, businesses, and developers (e.g. eSenders or reusers of TED Data) who need to work with public procurement notices. 
 == What is an API? 
