@@ -112,7 +112,7 @@ CAUTION: To use the eForms Preview Environment you will need an API key generate
 
 . Visit the TED Developer Portal. 
 . Log in with your EU Login credentials. 
-. Generate your API Key via the Manage API Keys section.
+. Generate your API Key via the *Manage API Keys* section.
 
 NOTE: Copy your API key upon creation; it cannot be retrieved later. 
 
