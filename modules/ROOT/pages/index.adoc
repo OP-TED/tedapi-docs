@@ -83,7 +83,6 @@ The Publications Office (OP) has developed a range of applications for the submi
 This interconnected structure ensures that developers can automate every stage of notice processing, from submission to publication and visualisation, while adhering to EU standards. 
 Other systems, such as TED Monitor, are internal to the Publications Office and support the preparation of notices for publication. Additionally, auxiliary developer operations provide essential tools for both developers and OP systems. 
  
- 
 == What’s New in TED API v3? 
 
 The new TED API v3 simplifies access, consolidates services under a unified gateway, and improves user experience for developers and organisations alike. 
@@ -91,14 +90,11 @@ TED API v3 introduces a range of improvements to address feedback from developer
 
  * Unified Gateway: All APIs are accessible through a single domain: https://api.ted.europa.eu/v3. 
  * Rationalised and standardised API endpoints: The structure of API URLs has been harmonised:  
-o https://api.ted.europa.eu/{api-version}/{resource}/{action}  
+ ** https://api.ted.europa.eu/{api-version}/{resource}/{action}  
  * Consolidated Swagger Interface: Explore all endpoints in one place for easier navigation and integration. 
-o https://api.ted.europa.eu/webjars/swagger-ui/ 
+ ** https://api.ted.europa.eu/webjars/swagger-ui/ 
  * Streamlined API transitions: One unified version number for all APIs. 
  * Backward Compatibility: TED API v2 remains active, allowing for a smooth transition to v3. 
-
-
-
 
 == Available APIs
 
