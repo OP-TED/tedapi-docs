@@ -66,7 +66,7 @@ TED API is a set of programmatic tools that allows third-party developers to int
 
 The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices, which went into production use on 14 November 2022. TED API serves as the programmatic gateway that connects external systems to these TED services. Each API aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured: 
 
-[image connections.png]
+image::api_connections.png[]
 
  * *eNotices2:* This is the single entry point for submitting and managing eForms notices. It interacts with the Publication API to allow programmatic submissions, queries, and publication management. The eNotices2 web user interface was designed with front-end users in mind, whereas applications and developers should interact directly with the Publication API. It also interacts with the TED Central Validation Service for validating notices before and upon submission. 
 
