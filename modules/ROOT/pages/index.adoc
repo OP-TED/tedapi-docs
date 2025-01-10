@@ -14,7 +14,7 @@ TED API allows application developers to connect their 3rd party applications to
  * Submit new public procurement notices for publication,
  * Validate or render notices.
 
-TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). These APIs are mostly targeted to data reusers. You can find information on reusing TED data at the link:https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published[SIMAP Developers' Corner].
+TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). 
 
 All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
