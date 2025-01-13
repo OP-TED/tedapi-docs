@@ -16,7 +16,7 @@ TED APIs allow anonymous access to all services manipulating published notices (
 
 All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
-CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable. See section xref:index.adoc#Testing your apps[Testing your apps].
+
 
 == How TED APIs connect to TED services 
 
@@ -119,9 +119,19 @@ https://viewer.ted.europa.eu/swagger-ui/index.html
 
 == Testing your apps
 
-An **eForms Preview Environment** is available to allow and encourage developers to test their applications. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
+A **eForms Preview Environment** is available to allow and encourage developers to test their applications. You can find more xref:home:eforms:preview/index.adoc[details on the eForms Preview Environment here].
 
-CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+Use the eForms Preview Environment to test your applications before deployment. To use the eForms Preview Environment you will need an API key generated on the TED Developer Portal of the Preview Environment. This means that you will also need an EU Login account from the EU-Login Acceptance Environment
+
+Notices submitted in the Preview environment do not get published. Nor are the  Search API and the TED Website available in the Preview environment.
+
+NOTE: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+
+CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable. See section xref:index.adoc#Testing your apps[Testing your apps].
+
+IMPORTANT: If you are using the Publication API, you also need to create an eNotices2 account in the respective environment by logging in with the same EU Login account.  
+
+
 
 ////
 
@@ -143,13 +153,7 @@ NOTE: The Search API does not require a key.
 
 ////
 
-== Testing in the Preview Environment 
 
-Use the eForms Preview Environment to test your applications before deployment. To use the eForms Preview Environment you will need an API key generated on the TED Developer Portal of the Preview Environment. This means that you will also need an EU Login account from the EU-Login Acceptance Environment. 
-
-IMPORTANT: If you are using the Publication API, you also need to create an eNotices2 account in the respective environment by logging in with the same EU Login account.  
-
-NOTE: The Search API and the TED Website are not available in the Preview environment; notices submitted in the Preview environment do not get published. 
 
 == Transitioning from TED API v2 
 
