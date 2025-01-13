@@ -2,7 +2,7 @@
 
 :dev-portal: The link:https://developer.ted.europa.eu[TED Developer Portal] is the single point of access for all TED developers.
 
-= TED API Documentation
+= The TED APIs
 
 TED API allows application developers to connect their 3rd party applications to the TED web services. Using TED APIs you can create applications that:
 
@@ -15,6 +15,32 @@ TED API allows anonymous access to all services manipulating published notices (
 All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
 CAUTION: Please refrain from testing in the Production environment of eNotices2. This is reserved for notices that will be published in TED. TED Apps for eForms are available in the link:https://docs.ted.europa.eu/home/eforms/preview/index.html[Preview environment] for testing purposes. If you are an eSender, please note that URLs and API keys in "Production" and "Preview" environments are not interchangeable. See section xref:index.adoc#Testing your apps[Testing your apps].
+
+== How TED APIs connect to TED services 
+
+The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices, which went into production use on 14 November 2022. TED API serves as the programmatic gateway that connects external systems to these TED services. Each API aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured: 
+
+image::api_connections.png[]
+
+ * *eNotices2:* This is the single entry point for submitting and managing eForms notices. It interacts with the Publication API to allow programmatic submissions, queries, and publication management. The eNotices2 web user interface was designed with front-end users in mind, whereas applications and developers should interact directly with the Publication API. It also interacts with the TED Central Validation Service for validating notices before and upon submission. 
+
+ * *TED Central Validation Service (TED CVS):* This service – which exists only as an API – ensures notices meet compliance standards. The Validation API provides a mechanism to check notices for errors and warnings. This service can be used independently at any time to detect and correct errors in notices prior to sending them for publication via the Publication API. Any notice that passes validation through CVS upon submission to the Publication API or the eNotices2 front-end, can be considered technically valid for publication on TED. 
+ * *TED Viewer:* Used for rendering notices into readable formats such as HTML and PDF. The Visualisation API facilitates this functionality. It also interacts with eNotices2 to preview a notice in PDF or HTML and can be called directly by external parties to preview their XML notices. 
+ * *TED Website:* This is the public-facing platform for published notices. The Search API enables access to these notices for reuse or analysis. Expert queries built on the TED Website can also be used via the API. 
+ * *TED XML Data Converter (TEDXDC):* This service – which exists only as an API – was designed to help with the process of converting a notice published in the legacy TED XML schemas, to a draft form of the same notice in eForms. It is used by eNotices2 when the user imports a published TED XML notice in the interface to continue a procedure in eForms; however, it can also be used as a stand-alone API by developers. 
+
+This interconnected structure ensures that developers can automate every stage of notice processing, from submission to publication and visualisation, while adhering to EU standards. 
+Other systems, such as TED Monitor, are internal to the Publications Office and support the preparation of notices for publication. Additionally, auxiliary developer operations provide essential tools for both developers and OP systems. 
+
+== How to get started 
+
+. Visit the TED Developer Portal. 
+. Log in with your EU Login credentials. 
+. Generate your API Key via the *Manage API Keys* section.
+
+NOTE: Copy your API key upon creation; it cannot be retrieved later. 
+
+NOTE: The Search API does not require a key.
 
 == API keys
 
@@ -34,7 +60,7 @@ You can generate an API Key by logging into the TED Developer Portalfootnote:por
 NOTE: For security reasons API keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API key will be delivered to you only at the time of generation. Copy and safely store the provided API key. If you lose it you will have to generate a new one.
 
 
-=== API key lifetime
+=== API key lifespan
 
 Expiry:: Every API key is valid for 24 months. After its validity period elapses, the API key expires. 
 
@@ -45,6 +71,7 @@ An automated notification will be sent four (4) weeks before the expiration of t
 
 Revocation:: You can revoke any unused API keys as needed in the TED Developer Portal. Revoked API keys are invalidated permanently.
 
+////
 == What is an API? 
 
 An API (Application Programming Interface) is a technical bridge that allows one system to interact with another. Think of it as a way for software applications to "talk" to TED services, enabling systems to exchange information and perform tasks automatically without manual input. 
@@ -61,22 +88,8 @@ Public procurement is vital for fostering transparency, accountability, and comp
 TED API bridges the gap between systems, ensuring efficient and reliable access to TED services. 
 
 TED API is a set of programmatic tools that allows third-party developers to integrate their applications with the TED ecosystem. By using TED API, organisations can automate and streamline processes related to public procurement, enabling efficient interaction with TED services across Europe. This makes TED API an essential resource for governments, businesses, and developers (e.g. eSenders or reusers of TED Data) who need to work with public procurement notices. 
+////
 
-== How TED API Connects to TED services 
-
-The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices, which went into production use on 14 November 2022. TED API serves as the programmatic gateway that connects external systems to these TED services. Each API aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured: 
-
-image::api_connections.png[]
-
- * *eNotices2:* This is the single entry point for submitting and managing eForms notices. It interacts with the Publication API to allow programmatic submissions, queries, and publication management. The eNotices2 web user interface was designed with front-end users in mind, whereas applications and developers should interact directly with the Publication API. It also interacts with the TED Central Validation Service for validating notices before and upon submission. 
-
- * *TED Central Validation Service (TED CVS):* This service – which exists only as an API – ensures notices meet compliance standards. The Validation API provides a mechanism to check notices for errors and warnings. This service can be used independently at any time to detect and correct errors in notices prior to sending them for publication via the Publication API. Any notice that passes validation through CVS upon submission to the Publication API or the eNotices2 front-end, can be considered technically valid for publication on TED. 
- * *TED Viewer:* Used for rendering notices into readable formats such as HTML and PDF. The Visualisation API facilitates this functionality. It also interacts with eNotices2 to preview a notice in PDF or HTML and can be called directly by external parties to preview their XML notices. 
- * *TED Website:* This is the public-facing platform for published notices. The Search API enables access to these notices for reuse or analysis. Expert queries built on the TED Website can also be used via the API. 
- * *TED XML Data Converter (TEDXDC):* This service – which exists only as an API – was designed to help with the process of converting a notice published in the legacy TED XML schemas, to a draft form of the same notice in eForms. It is used by eNotices2 when the user imports a published TED XML notice in the interface to continue a procedure in eForms; however, it can also be used as a stand-alone API by developers. 
-
-This interconnected structure ensures that developers can automate every stage of notice processing, from submission to publication and visualisation, while adhering to EU standards. 
-Other systems, such as TED Monitor, are internal to the Publications Office and support the preparation of notices for publication. Additionally, auxiliary developer operations provide essential tools for both developers and OP systems. 
 
 == What’s New in TED API v3? 
 
@@ -91,7 +104,7 @@ TED API v3 introduces a range of improvements to address feedback from developer
 
 == Available APIs
 
-You can find below the Swagger pages documenting the TED API endpoints that are currently available in production:
+Below, listed, are the Swagger pages documenting the TED API endpoints that are currently available in production:
 
 Validation:: Validate notices, get validation report. + 
 https://cvs.ted.europa.eu/swagger-ui/index.html
@@ -108,6 +121,8 @@ An **eForms Preview Environment** is available to allow and encourage developers
 
 CAUTION: To use the eForms Preview Environment you will need an API key generated using the link:https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment]. This means that you will also need an EU Login account from the link:https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
 
+////
+
 == How to Get Started 
 
 . Visit the TED Developer Portal. 
@@ -118,11 +133,15 @@ NOTE: Copy your API key upon creation; it cannot be retrieved later.
 
 NOTE: The Search API does not require a key.
 
+
+
 [start=5]
 . Authenticate your application. 
 . Use your API Key in the header of requests to access TED services. 
 
-== Test in the Preview Environment 
+////
+
+== Testing in the Preview Environment 
 
 Use the eForms Preview Environment to test your applications before deployment. To use the eForms Preview Environment you will need an API key generated on the TED Developer Portal of the Preview Environment. This means that you will also need an EU Login account from the EU-Login Acceptance Environment. 
 
@@ -151,7 +170,7 @@ At any given time, TED API supports two active versions. to allow users ample ti
 
 Future transitions will maintain the two-version policy, with older versions being deprecated only after ensuring most users have migrated. 
 
-== When Do We Change Versions? 
+== When are Versions Changed? 
 
 New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when: 
 New functionalities or services are added that cannot be accommodated within the current version. 
