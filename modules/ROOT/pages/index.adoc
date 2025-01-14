@@ -104,20 +104,6 @@ TED API v3 introduces a range of improvements to address feedback from developer
 
 The new TED API v3 simplifies access, consolidates services under a unified gateway, and improves user experience for developers and organisations alike. 
 
-== Available APIs
-
-Below, listed, are the Swagger pages documenting the TED API endpoints that are currently available in production:
-
-Validation:: Validate notices, get validation report. + 
-https://cvs.ted.europa.eu/swagger-ui/index.html
-
-Publication:: Submit notices; search submitted notices; stop publication: + 
-https://enotices2.ted.europa.eu/esenders/webjars/swagger-ui/index.html
-
-Visualisation:: Render notices in PDF or HTML: + 
-https://viewer.ted.europa.eu/swagger-ui/index.html
-
-
 === Transitioning from TED API v2 
 
 TED API v2 will remain supported for at least six months until July 2025, ensuring a smooth transition to the latest version. 
