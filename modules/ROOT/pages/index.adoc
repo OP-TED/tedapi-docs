@@ -62,7 +62,7 @@ You can generate an API Key by logging into the TED Developer Portalfootnote:por
 NOTE: For security reasons API keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API key will be delivered to you only at the time of generation. Copy and safely store the provided API key. If you lose it you will have to generate a new one.
 
 
-=== API key lifespan
+=== API key life span
 
 Expiry:: Every API key is valid for 24 months. After its validity period elapses, the API key expires. 
 
@@ -93,16 +93,18 @@ TED API is a set of programmatic tools that allows third-party developers to int
 ////
 
 
-== What’s New in TED API v3? 
+== What is new in TED API v3 
 
-The new TED API v3 simplifies access, consolidates services under a unified gateway, and improves user experience for developers and organisations alike. 
-TED API v3 introduces a range of improvements to address feedback from developers and streamline integration: 
+
+TED API v3 introduces a range of improvements to address feedback from developers and streamline integration 
 
  * *Unified Gateway:* All APIs are accessible through a single domain: https://api.ted.europa.eu/v3 
  * *Rationalised and standardised API endpoints:* The structure of API URLs has been harmonised: https://api.ted.europa.eu/{api-version}/{resource}/{action}  
  * *Consolidated Swagger Interface:* Explore all endpoints in one place for easier navigation and integration: https://api.ted.europa.eu/webjars/swagger-ui/ 
  * *Streamlined API transitions:* One unified version number for all APIs
  * *Backward Compatibility:* TED API v2 remains active, allowing for a smooth transition to v3
+
+The new TED API v3 simplifies access, consolidates services under a unified gateway, and improves user experience for developers and organisations alike. 
 
 == Available APIs
 
@@ -155,28 +157,28 @@ NOTE: The Search API does not require a key.
 
 
 
-== Transitioning from TED API v2 
+=== Transitioning from TED API v2 
 
 TED API v2 will remain supported for at least six months until July 2025, ensuring a smooth transition to the latest version. 
 
 Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
-== Versioning Policy 
+== Versioning policy 
 
 TED API is committed to providing a stable and reliable environment for developers. Our versioning policy ensures clarity and minimises disruption when introducing updates. 
 
-=== Supported Versions 
+=== Supported versions 
 
 At any given time, TED API supports two active versions. to allow users ample time to transition to the latest version. 
 
-=== Current Active Versions: 
+=== Current active aersions 
 
  * Version 2 (Legacy, recommended for migration). 
  * Version 3 (Primary focus, unified and improved features). 
 
 Future transitions will maintain the two-version policy, with older versions being deprecated only after ensuring most users have migrated. 
 
-== When are Versions Changed? 
+=== When versions are changed
 
 New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when: 
 New functionalities or services are added that cannot be accommodated within the current version. 
