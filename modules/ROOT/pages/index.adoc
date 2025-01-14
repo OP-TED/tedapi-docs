@@ -6,19 +6,19 @@
 
 == Introduction
 
-The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices. These went into production use on 14 November 2022 and serve as a programmatic gateway that connects external systems to TED services.  TED APIs (or API suite) allow application developers to connect their 3rd party applications to the TED web services. Using TED APIs you can create applications that:
+The Publications Office (OP) has developed a range of applications for the submission, validation, processing, visualisation and dissemination of eForms notices. These went into production on 14 November 2022 and serve as a programmatic gateway that connects external systems to TED services.  The TED APIs (or API suite), known as "Ted API", allow application developers to connect their 3rd party applications to the TED web services. Using TED APIs you can create applications that:
 
  * Search for and retrieve published notices from the TED Website,
  * Submit new public procurement notices for publication,
  * Validate or render notices.
 
-TED APIs allow anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). 
+TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). 
 
 All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.
 
 
 
-== How TED APIs connect to TED services 
+== How TED API connects to TED services 
 
 Each API aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured: 
 
@@ -93,7 +93,7 @@ TED API is a set of programmatic tools that allows third-party developers to int
 ////
 
 
-== What is new in TED API v3 
+== New in TED API v3 
 
 
 TED API v3 introduces a range of improvements to address feedback from developers and streamline integration 
@@ -171,7 +171,7 @@ TED API is committed to providing a stable and reliable environment for develope
 
 At any given time, TED API supports two active versions. to allow users ample time to transition to the latest version. 
 
-=== Current active aersions 
+=== Current active versions 
 
  * Version 2 (Legacy, recommended for migration). 
  * Version 3 (Primary focus, unified and improved features). 
@@ -180,11 +180,13 @@ Future transitions will maintain the two-version policy, with older versions bei
 
 === When versions are changed
 
-New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when: 
-New functionalities or services are added that cannot be accommodated within the current version. 
-Technical or compliance requirements necessitate modifications that constitute breaking changes. 
-A need arises to consolidate or rationalise APIs for better usability. 
-We commit to keeping version transitions smooth by offering extensive support, backward compatibility, and clear timelines. 
+New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when:
+
+* New functionalities or services are added that cannot be accommodated within the current version. 
+* Technical or compliance requirements necessitate modifications that constitute breaking changes. 
+* A need arises to consolidate or rationalise APIs for better usability. 
+
+The team is committed to providing smooth version transitions by offering extensive support, backwards compatibility, and clear timelines. 
 
 === Breaking Changes 
 
