@@ -1,29 +1,29 @@
 = Conversion API 
 
-== Purpose 
-Converts legacy TED XML notices into current eForms notices, to facilitate continuity and consistency in data. 
+As eForms replaced legacy TED XML notices, the Conversion API simplifies this transition by enabling systems to convert older formats automatically. This ensures compatibility and preserves access to critical procurement data. By converting legacy TED XML notices into current eForms notices, the API facilitates continuity and consistency in managing procurement information. 
 
-== What It Does
-
-* Transforms legacy TED XML notice formats into "partial" eForms notices, which can then be completed by users. 
-* Bridges the gap between legacy systems and the eForms standard that is currently in use. 
-
-== Why This API Exists 
-As eForms replaced legacy TED XML notices, the Conversion API simplifies the transition by enabling systems to convert older formats automatically. This ensures compatibility and preserves access to critical procurement data.  
-
-== Endpoint 
-
+== Available operations 
 [source]
 ----
 POST /v3/notices/convert    Convert TED XML notices into partial eForms notices
 ----
 
+==== What It Does
+
+* Transforms legacy TED XML notices into "partial" eForms notices, which users can complete and submit. 
+* Bridges the gap between legacy systems and the eForms standard in use today. 
+
+
+==== Swagger API Endpoint 
+
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Conversion/convertNotice
+
 
 
 == Who Uses This API 
 
-* eSenders migrating legacy data to the eForms ecosystem. 
-* Developers managing legacy procurement notices. 
-* eNotices2 web user interface when users select to import a published TED XML notice to continue a procedure. 
+* eSenders: Migrating legacy data to the eForms ecosystem.
+* Developers: Managing legacy procurement notices programmatically.
+* eNotices2 Users: Importing published TED XML notices to continue procedures. 
 
 Explore the full documentation here: https://github.com/OP-TED/ted-xml-data-converter 
