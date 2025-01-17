@@ -41,8 +41,8 @@ Other systems, such as TED Monitor, are internal to the Publications Office and 
 
 . *Obtain an API key*
 
-  * Visit the https://developer.ted.europa.eu/home[TED Developer Portal]. 
-  * Log in with your EU Login credentials. 
+  * Visit the https://developer.ted.europa.eu/home[**TED Developer Portal**]footnote:portal[{dev-portal}]. 
+  * Log in with your **EU Login**footnote:eu-login[{eu-login}] credentials. 
   * Generate your API Key via the *Manage API Keys* section.
 
 NOTE: Copy and save your API key upon creation; it cannot be retrieved later. 
@@ -60,6 +60,8 @@ NOTE: The Search API does not require a key.
   * It is important that you refrain from testing in the Production environment. This is reserved for notices that will be published on TED. 
   * For more information, see section <<Testing your apps>>.
 
+IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
+
 == API keys
 
 User authentication and authorisation (for those TED APIs that require it) is controlled by the use of API keys. TED API keys are essentially UUIDs (Universally Unique Identifiers) without hyphens (dashes). 
@@ -69,6 +71,7 @@ You can generate and manage your own API keys by logging-in to your account in t
 If you use the Publication API, after you generate your key, log into the link:https://enotices2.ted.europa.eu[eNotices2 website] at least once to pair your account and perform at least one valid API request for the system to recognise you as an "eSender".
 
 NOTE: Only one API key is allowed per user. The creation of a new API key implies the automatic revocation of the previous one.
+
 
 
 === API key generation
@@ -144,11 +147,11 @@ When a breaking change is necessary, a new version will be introduced to preserv
 
 == Testing your apps
 
-The https://docs.ted.europa.eu/eforms-common/preview/index.html[**eForms Preview Environment**] was made available to allow and encourage developers to test their applications before or after deployment. 
+The https://docs.ted.europa.eu/eforms-common/preview/index.html[**eForms Preview Environment**] was made available to allow and encourage developers to test their applications before or after deployment. Here is how to get started:
 
 . *Obtain an API key*
 
-  * Create an EU Login account in the https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment] 
+  * Create an EU Login account in the https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
   * Generate an API key on the https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment] via the *Manage API Keys* section.
   
 NOTE: Copy and save your API key upon creation; it cannot be retrieved later. 
