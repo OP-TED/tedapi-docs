@@ -5,47 +5,52 @@ The Publication API automates the management of procurement notices, enabling eS
 
 == Available operations 
 
-=== Query submitted notices
+[sidebar]
+Query submitted notices
 
-==== Introduction
+=== Introduction
 
 hello this is the intro
 
-==== Source code
+=== Source code
 [source]
 ----
 GET /v3/notices/			        
 ----
 
-==== What It Does
+=== What It Does
 
 * Enables synchronization of notice metadata, such as publication status, during the publication process. 
 
-==== Swagger API Endpoint 
+=== Swagger API Endpoint 
 
 * https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
+'''
 
-=== Request to stop the publication of submitted notice
+[sidebar]
+Request to stop the publication of submitted notice
 
-==== Introduction
+=== Introduction
 
 hello this is the intro
 
-==== Source code
+=== Source code
 
 [source]
 ----
 POST /v3/notices/{businessId}/stop-publication	
 ----
 
-==== What It Does
+=== What It Does
 
 * Stops the publication of notices that are successfully submitted but not yet published. 
 
-==== Swagger API Endpoint 
+=== Swagger API Endpoint 
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
+
+'''
 
 === Retrieve validation report for submitted notice
 
