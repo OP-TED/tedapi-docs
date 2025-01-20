@@ -2,26 +2,69 @@
 
 The Publication API automates the management of procurement notices, enabling eSenders and public authorities to handle notices efficiently and at scale. This API connects with the eNotices2 system to provide programmatic control over the publication process. 
 
-== Available Operations 
-* Allows programmatic submission of notices for publication.  
-* Stops publication of notices that have been successfully submitted but not yet published. 
-* Retrieves the validation reports of one’s own submitted notices. 
-* Enables querying of one’s own submitted notices allowing synchronisation of the notice metadata, e.g. a notice status during the publication process. 
 
-== Why This API Exists
-The Publication API automates the handling of procurement notices, reducing reliance on manual processes. It empowers eSenders and public authorities to manage notices efficiently at scale.
+== Available operations 
 
-== Endpoint
+[source]
+----
+GET /v3/notices/			        Query submitted notices
+----
+
+==== What It Does
+
+* Enables synchronization of notice metadata, such as publication status, during the publication process. 
+
+==== Swagger API Endpoint 
+
+* https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
+
+[source]
+----
+POST /v3/notices/{businessId}/stop-publication	Request to stop the publication of submitted notice
+----
+
+==== What It Does
+
+* Stops the publication of notices that are successfully submitted but not yet published. 
+
+==== Swagger API Endpoint 
+
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
+
+
+[source]
+----
+GET /v3/notices/{businessId}/validation-report	Retrieve validation report for submitted notice
+----
+
+==== What It Does
+
+* Provides the validation report that is created when a notice is submitted for publication.  
+
+==== Swagger API Endpoint 
+
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
+
 
 [source]
 ----
 POST /v3/notices/submit			        Submit new notices for publication on TED
-POST /v3/notices/{businessId}/stop-publication	Request to stop the publication of submitted notice
-GET /v3/notices/{businessId}/validation-report	Retrieve validation report for submitted notice
-GET /v3/notices/			        Query submitted notices
+----
 
-----  
+==== What It Does
 
-== Who Uses This API
-* eSenders managing notices on behalf of contracting authorities. 
-* Public authorities managing their own procurement notices through an application that connects to the Publication API 
+* Allows programmatic submission of notices for publication.  
+
+==== Swagger API Endpoint 
+
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
+
+
+
+
+
+
+
+=== Who Uses This API
+* *eSenders*: Managing notices on behalf of contracting authorities. 
+* *Public Authorities*: Handling their own procurement notices through connected applications. 
