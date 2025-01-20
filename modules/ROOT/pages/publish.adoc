@@ -4,10 +4,10 @@ The Publication API automates the management of procurement notices, enabling eS
 
 == Available operations
 
-[.indent4]
+
 === Query submitted notices
 
-
+[.indent4]
 hello this is the intro
 
 
