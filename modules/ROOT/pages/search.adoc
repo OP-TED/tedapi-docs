@@ -1,27 +1,22 @@
 = Search API 
 
-== Purpose 
-Allows developers to search and retrieve published procurement notices and their data. 
+The Search API allows developers to search and retrieve published procurement notices and their data. It ensures transparency and accessibility by providing programmatic access to publicly available procurement information for analysis and reuse. 
 
-== What It Does 
-* Provides access to published notices via expert queries. 
-* Enables bulk downloads of notices in XML format for analysis or reuse. 
 
-== Why This API Exists
-The Search API is mostly targeted to data reusers; it ensures transparency and accessibility by making publicly available procurement data easy to find and reuse. 
-
-== Endpoint
+== Available Operations
 
 [source]
 ----
 POST /v3/notices/search		Search and retrieve published notices
 ----  
 
-== Special Features
+==== What it Does
+* Provides access to published notices via expert queries. 
+* Enables bulk downloads of notices in XML format for reuse or analysis. 
 
-This API does not require authentication, making it accessible to any system or user. 
+NOTE: The Search API is mostly targeted to data reusers; it does not require authentication, making it openly accessible to any system or user. 
 
-== Who Uses This API
+=== Who Uses This API
 
 * Commercial organisations providing added-value services to vendors and buyers by integrating TED data into their platforms. 
 * Researchers analysing public procurement trends. 
