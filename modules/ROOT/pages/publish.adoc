@@ -7,26 +7,26 @@ The Publication API automates the management of procurement notices, enabling eS
 [.indent4]
 === Query submitted notices
 
-[.indent4]
+
 hello this is the intro
 
-[.indent4]
+
 ==== Source code
 [source]
 ----
 GET /v3/notices/			        
 ----
 
-[.indent4]
+
 ==== What It Does
 
-[.indent4]
+
 * Enables synchronization of notice metadata, such as publication status, during the publication process. 
 
-[.indent4]
+
 ==== Swagger API Endpoint 
 
-[.indent4]
+
 * https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
 '''
