@@ -5,9 +5,16 @@ The Publication API automates the management of procurement notices, enabling eS
 
 == Available operations 
 
+=== Query submitted notices
+
+==== Introduction
+
+hello this is the intro
+
+==== Source code
 [source]
 ----
-GET /v3/notices/			        Query submitted notices
+GET /v3/notices/			        
 ----
 
 ==== What It Does
@@ -18,9 +25,18 @@ GET /v3/notices/			        Query submitted notices
 
 * https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
+
+=== Request to stop the publication of submitted notice
+
+==== Introduction
+
+hello this is the intro
+
+==== Source code
+
 [source]
 ----
-POST /v3/notices/{businessId}/stop-publication	Request to stop the publication of submitted notice
+POST /v3/notices/{businessId}/stop-publication	
 ----
 
 ==== What It Does
@@ -31,10 +47,16 @@ POST /v3/notices/{businessId}/stop-publication	Request to stop the publication o
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
+=== Retrieve validation report for submitted notice
 
+==== Introduction
+
+hello this is the intro
+
+==== Source code
 [source]
 ----
-GET /v3/notices/{businessId}/validation-report	Retrieve validation report for submitted notice
+GET /v3/notices/{businessId}/validation-report	
 ----
 
 ==== What It Does
@@ -45,10 +67,16 @@ GET /v3/notices/{businessId}/validation-report	Retrieve validation report for su
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
+=== Submit new notices for publication on TED
 
+==== Introduction
+
+hello this is the intro
+
+==== Source code
 [source]
 ----
-POST /v3/notices/submit			        Submit new notices for publication on TED
+POST /v3/notices/submit			        
 ----
 
 ==== What It Does
