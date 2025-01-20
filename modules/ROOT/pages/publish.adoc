@@ -6,7 +6,7 @@ The Publication API automates the management of procurement notices, enabling eS
 == Available operations 
 
 [sidebar]
-Query submitted notices
+=== Query submitted notices
 
 === Introduction
 
