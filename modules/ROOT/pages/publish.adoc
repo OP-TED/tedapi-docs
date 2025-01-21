@@ -24,7 +24,6 @@ GET /v3/notices/
 
 [.indent2]
 ==== Swagger API Endpoint 
-
 * https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
 '''
@@ -44,12 +43,10 @@ POST /v3/notices/{businessId}/stop-publication
 
 [.indent2]
 ==== What It Does
-
 * Stops the publication of notices that are successfully submitted but not yet published. 
 
 [.indent2]
 ==== Swagger API Endpoint 
-
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
 '''
