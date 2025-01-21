@@ -32,11 +32,11 @@ GET /v3/notices/
 [.hlist]
 * Request to stop the publication of submitted notice
 
+[.indent2]
 hello this is the intro
 
 [.indent2]
 ==== API request
-
 [source]
 ----
 POST /v3/notices/{businessId}/stop-publication	
@@ -47,7 +47,7 @@ POST /v3/notices/{businessId}/stop-publication
 
 * Stops the publication of notices that are successfully submitted but not yet published. 
 
-[.hlist]
+[.indent2]
 ==== Swagger API Endpoint 
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
@@ -69,18 +69,17 @@ GET /v3/notices/{businessId}/validation-report
 
 [.indent2]
 ==== What It Does
-
 * Provides the validation report that is created when a notice is submitted for publication.  
 
 [.indent2]
 ==== Swagger API Endpoint 
-
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
 '''
 [.hlist]
 * Submit new notices for publication on TED
 
+[.indent2]
 hello this is the intro
 
 [.indent2]
@@ -92,12 +91,10 @@ POST /v3/notices/submit
 
 [.indent2]
 ==== What It Does
-
 * Allows programmatic submission of notices for publication.  
 
 [.indent2]
 ==== Swagger API Endpoint 
-
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
 
 
