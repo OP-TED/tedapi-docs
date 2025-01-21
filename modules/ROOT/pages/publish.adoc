@@ -5,7 +5,7 @@ The Publication API automates the management of procurement notices, enabling eS
 == Available operations
 
 
-=== * Query submitted notices
+===  Query submitted notices
 
 hello this is the intro
 
@@ -29,7 +29,7 @@ GET /v3/notices/
 '''
 
 
-=== * Request to stop the publication of submitted notice
+=== Request to stop the publication of submitted notice
 
 hello this is the intro
 
@@ -53,7 +53,7 @@ POST /v3/notices/{businessId}/stop-publication
 
 '''
 
-=== * Retrieve validation report for submitted notice
+=== Retrieve validation report for submitted notice
 
 
 hello this is the intro
@@ -77,7 +77,7 @@ GET /v3/notices/{businessId}/validation-report
 
 '''
 
-=== * Submit new notices for publication on TED
+=== Submit new notices for publication on TED
 
 hello this is the intro
 
