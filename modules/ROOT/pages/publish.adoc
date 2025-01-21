@@ -5,23 +5,23 @@ The Publication API automates the management of procurement notices, enabling eS
 == Available operations
 
 
-=== Query submitted notices
+=== * Query submitted notices
 
 hello this is the intro
 
-[.indent4]
+[.indent3]
 ==== Source code
 [source]
 ----
 GET /v3/notices/			        
 ----
 
-[.indent4]
+[.indent3]
 ==== What It Does
 
 * Enables synchronization of notice metadata, such as publication status, during the publication process. 
 
-[.indent4]
+[.indent3]
 ==== Swagger API Endpoint 
 
 * https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
@@ -29,12 +29,11 @@ GET /v3/notices/
 '''
 
 
-=== Request to stop the publication of submitted notice
-
-==== Introduction
+=== * Request to stop the publication of submitted notice
 
 hello this is the intro
 
+[.indent3]
 ==== Source code
 
 [source]
@@ -42,54 +41,59 @@ hello this is the intro
 POST /v3/notices/{businessId}/stop-publication	
 ----
 
+[.indent3]
 ==== What It Does
 
 * Stops the publication of notices that are successfully submitted but not yet published. 
 
+[.indent3]
 ==== Swagger API Endpoint 
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
 '''
 
-=== Retrieve validation report for submitted notice
+=== * Retrieve validation report for submitted notice
 
-==== Introduction
 
 hello this is the intro
 
+[.indent3]
 ==== Source code
 [source]
 ----
 GET /v3/notices/{businessId}/validation-report	
 ----
 
+[.indent3]
 ==== What It Does
 
 * Provides the validation report that is created when a notice is submitted for publication.  
 
+[.indent3]
 ==== Swagger API Endpoint 
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
 '''
 
-=== Submit new notices for publication on TED
-
-==== Introduction
+=== * Submit new notices for publication on TED
 
 hello this is the intro
 
+[.indent3]
 ==== Source code
 [source]
 ----
 POST /v3/notices/submit			        
 ----
 
+[.indent3]
 ==== What It Does
 
 * Allows programmatic submission of notices for publication.  
 
+[.indent3]
 ==== Swagger API Endpoint 
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
