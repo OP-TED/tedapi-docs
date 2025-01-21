@@ -4,7 +4,7 @@ The Publication API automates the management of procurement notices, enabling eS
 
 == Available operations
 
-
+[.indent3]
 ===  Query submitted notices
 
 hello this is the intro
@@ -28,7 +28,7 @@ GET /v3/notices/
 
 '''
 
-
+[.indent3]
 === Request to stop the publication of submitted notice
 
 hello this is the intro
@@ -52,7 +52,7 @@ POST /v3/notices/{businessId}/stop-publication
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
 '''
-
+[.indent3]
 === Retrieve validation report for submitted notice
 
 
@@ -76,7 +76,7 @@ GET /v3/notices/{businessId}/validation-report
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
 '''
-
+[.indent3]
 === Submit new notices for publication on TED
 
 hello this is the intro
