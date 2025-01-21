@@ -19,7 +19,6 @@ GET /v3/notices/
 
 [.indent2]
 ==== What It Does
-
 * Enables synchronization of notice metadata, such as publication status, during the publication process. 
 
 [.indent2]
@@ -73,6 +72,7 @@ GET /v3/notices/{businessId}/validation-report
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
 '''
+
 [.hlist]
 * Submit new notices for publication on TED
 
