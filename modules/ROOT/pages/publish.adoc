@@ -1,6 +1,6 @@
 = Publication API  
 
-The Publication API automates the management of procurement notices, enabling eSenders and public authorities to handle notices efficiently and at scale. This API connects with the eNotices2 system to provide programmatic control over the publication process. 
+The Publication API automates the management of procurement notices, enabling eSenders and public authorities to handle notices efficiently and at scale. This API connects to the eNotices2 system to provide programmatic control over the publication process. 
 
 == Available operations
 
