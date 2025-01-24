@@ -25,8 +25,6 @@ GET /v3/notices/
 https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
 '''
-+
-
 
 === Stop Publication of Submitted Notice
 
