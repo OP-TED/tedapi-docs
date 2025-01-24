@@ -9,7 +9,9 @@ The Publication API automates the management of procurement notices, enabling eS
 [.hlist]
 * Query Submitted Notices
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This operation allows API users to access a paginated list of all the notices they have submitted. Users can filter and sort these notices based on relevant criteria. Access is exclusive to the user's own submissions, providing full insight into their notices. Additionally, it facilitates the synchronization of important metadata, such as publication status, during the notice management process.operation allows you to query the status and details of submitted notices.
+=== Query Submitted Notices
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This operation allows API users to access a paginated list of all the notices they have submitted. Users can filter and sort these notices based on relevant criteria. Access is exclusive to the user's own submissions, providing full insight into their notices. Additionally, it facilitates the synchronization of important metadata, such as publication status, during the notice management process.operation allows you to query the status and details of submitted notices.
 
 [.indent2]
 ==== API Request
@@ -24,7 +26,7 @@ https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/
 
 '''
 
-[.hlist]
+
 * Stop Publication of Submitted Notice
 
 This API operation allows API users to stop the publication process for a notice they have submitted. It must be done before the notice is exported to TED, at which point the publication process becomes irreversible. If a notice is halted in time, it prevents the notice from being published, offering control over the publication timeline. Once a notice reaches the "publishing" status, it cannot be stopped.
