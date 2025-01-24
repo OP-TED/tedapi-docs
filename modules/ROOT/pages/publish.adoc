@@ -9,7 +9,7 @@ The Publication API automates the management of procurement notices, enabling eS
 [.hlist]
 * Query Submitted Notices
 
-This operation allows API users to access a paginated list of all the notices they have submitted. Users can filter and sort these notices based on relevant criteria. Access is exclusive to the user's own submissions, providing full insight into their notices. Additionally, it facilitates the synchronization of important metadata, such as publication status, during the notice management process.operation allows you to query the status and details of submitted notices.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This operation allows API users to access a paginated list of all the notices they have submitted. Users can filter and sort these notices based on relevant criteria. Access is exclusive to the user's own submissions, providing full insight into their notices. Additionally, it facilitates the synchronization of important metadata, such as publication status, during the notice management process.operation allows you to query the status and details of submitted notices.
 
 [.indent2]
 ==== API Request
