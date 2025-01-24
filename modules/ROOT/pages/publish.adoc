@@ -79,7 +79,7 @@ POST /v3/notices/submit
 
 [.indent2]
 ==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
 
 == Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities.
