@@ -23,7 +23,6 @@ GET /v3/notices/
 https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
 
 '''
-'''
 
 === Stop Publication of Submitted Notice
 
@@ -41,7 +40,6 @@ POST /v3/notices/{businessId}/stop-publication
 https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
 '''
-'''
 
 === Retrieve Validation Report for Submitted Notice
 
@@ -56,7 +54,6 @@ GET /v3/notices/{businessId}/validation-report
 ==== Swagger API Endpoint 
 https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
-'''
 '''
 
 === Submit New Notices for Publication on TED
@@ -75,7 +72,6 @@ https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
 == Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities.
 * *Public Authorities*: Handling their own procurement notices through connected applications.
-
 
 ////
 
