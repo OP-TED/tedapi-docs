@@ -29,7 +29,7 @@ https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/
 * Stop Publication of Submitted Notice
 
 [.indent2]
-  This API operation allows API users to stop the publication process for a notice they have submitted. It must be done before the notice is exported to TED, at which point the publication process becomes irreversible. If a notice is halted in time, it prevents the notice from being published, offering control over the publication timeline. Once a notice reaches the "publishing" status, it cannot be stopped.
+This API operation allows API users to stop the publication process for a notice they have submitted. It must be done before the notice is exported to TED, at which point the publication process becomes irreversible. If a notice is halted in time, it prevents the notice from being published, offering control over the publication timeline. Once a notice reaches the "publishing" status, it cannot be stopped.
 
 [.indent2]
 ==== API Request
@@ -38,10 +38,9 @@ https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/
 POST /v3/notices/{businessId}/stop-publication
 ----
 
-
 [.indent2]
 ==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
 
 '''
 
@@ -49,7 +48,7 @@ POST /v3/notices/{businessId}/stop-publication
 * Retrieve Validation Report for Submitted Notice
 
 [.indent2]
-  Every submitted eForms notice undergoes a validation process to ensure it complies with regulatory business rules, resulting in a report even if it does not successfully pass validation. This API operation allows API users to obtain the validation report generated during the submission of their notice. It ensures users can review and address any validation issues identified during the submission.
+Every submitted eForms notice undergoes a validation process to ensure it complies with regulatory business rules, resulting in a report even if it does not successfully pass validation. This API operation allows API users to obtain the validation report generated during the submission of their notice. It ensures users can review and address any validation issues identified during the submission.
 
 [.indent2]
 ==== API Request
@@ -60,7 +59,7 @@ GET /v3/notices/{businessId}/validation-report
 
 [.indent2]
 ==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
 
 '''
 
@@ -68,7 +67,7 @@ GET /v3/notices/{businessId}/validation-report
 * Submit New Notices for Publication on TED
 
 [.indent2]
-  This API operation allows users to programmatically submit new notices in XML format for publication. The notice must have a unique identifier and meet specific requirements, such as including a valid notice author email and the preferred language for notifications. The email identifies the responsible party, like the Contracting Authority, while the language must be an official EU language. Upon submission, the notice is validated against a set of business rules. If it successfully passes, it is marked "SUBMITTED" and eligible for publication. If it fails, it is marked "VALIDATION_FAILED" and cannot be published.
+This API operation allows users to programmatically submit new notices in XML format for publication. The notice must have a unique identifier and meet specific requirements, such as including a valid notice author email and the preferred language for notifications. The email identifies the responsible party, like the Contracting Authority, while the language must be an official EU language. Upon submission, the notice is validated against a set of business rules. If it successfully passes, it is marked "SUBMITTED" and eligible for publication. If it fails, it is marked "VALIDATION_FAILED" and cannot be published.
 
 [.indent2]
 ==== API Request
@@ -82,17 +81,12 @@ POST /v3/notices/submit
 ==== Swagger API Endpoint 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
 
-=== Who Uses This API
+== Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities.
 * *Public Authorities*: Handling their own procurement notices through connected applications.
-```
 
 
-
-
-
-
-------
+////
 
 = Publication API  
 
@@ -201,3 +195,4 @@ POST /v3/notices/submit
 === Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities. 
 * *Public Authorities*: Handling their own procurement notices through connected applications. 
+////
