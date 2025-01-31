@@ -1,5 +1,42 @@
 = Validation API  
 
+The Validation API is part of the TED Central Validation Service (TED CVS), which ensures that procurement notices meet compliance standards. It allows users to check notices for errors and warnings independently at any time, ensuring they are correct before submission for publication.
+
+
+== Available Operations
+
+//[.doc h3]
+//* Validate Procurement Notices
+
+=== Validate Procurement Notices
+
+The Validation API ensures procurement notices meet EU standards by identifying errors and issuing warnings for potential legal issues. This independent service can validate notices anytime before they’re sent for publication, ensuring they are technically ready for TED. Any notice that passes validation through CVS upon submission to the Publication API or the eNotices2 front-end, can be considered technically valid for publication on TED.
+
+
+==== API Request
+[source]
+----
+POST /v3/notices/validate
+----
+
+==== Swagger API Endpoint 
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Validation/validate
+
+'''
+
+== Who Uses This API
+
+* Developers: Ensuring notices meet requirements, especially before submission. 
+* eSenders: Avoiding compliance errors during submission. 
+* eNotices2 web interface: For validating notices before or upon submission. 
+
+Explore more about schematron rules and validation reports here: https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files
+
+////
+
+
+= Validation API  
+
 == Purpose 
 Validate procurement notices to ensure compliance with EU standards and eForms regulations. 
 
