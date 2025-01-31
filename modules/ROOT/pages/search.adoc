@@ -1,3 +1,46 @@
+= Search API  
+
+The Search API allows access to published procurement notices for analysis and reuse, promoting transparency. It lets users search through different types of notices on the TED website. 
+
+
+== Available Operations
+
+//[.doc h3]
+//* Search and retrieve published notices
+
+=== Search and retrieve published notices
+
+The Search API provides access to published notices via expert queries and enables bulk downloads of notices in XML format for reuse or analysis. Note that this API is primarily targeted at data reusers and does not require authentication, making it openly accessible to any system or user.
+
+
+
+==== API Request
+[source]
+----
+POST /v3/notices/search
+----
+
+==== Swagger API Endpoint 
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Search/search
+
+
+'''
+
+== Who Uses This API
+
+* *Commercial Organisations*: Integrating TED data into platforms to provide added-value services for vendors and buyers. 
+* *Researchers*: Analysing public procurement trends and patterns. 
+* *Developers*: Creating transparency tools or reusing public data. 
+* *eNotices2 Users*: Importing a notice from TED via the web interface to continue a procedure. 
+
+Explore the full documentation here: https://ted.europa.eu/en/simap/developers-corner-for-reusers[Developers' corner: APIs for your own integration - ted.europa.eu - TED] 
+////
+
+
+
+
+
+
 = Search API 
 
 The Search API allows developers to search and retrieve published procurement notices and their data. It ensures transparency and accessibility by providing programmatic access to publicly available procurement information for analysis and reuse. 
