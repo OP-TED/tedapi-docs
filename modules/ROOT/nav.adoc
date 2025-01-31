@@ -1,6 +1,7 @@
 * xref:index.adoc[Home]
 
 * [.separated]#**Available APIs**#
+* xref:intro.adoc[Introduction]
 * xref:developer operations.adoc[Developer Operations API]
 * xref:convert.adoc[Conversion API]
 * xref:publish.adoc[Publication API]
