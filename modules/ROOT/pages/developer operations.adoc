@@ -1,5 +1,62 @@
 = Developer Operations API  
 
+The Developer Operations API provides auxiliary features to ensure smooth integration and compatibility with TED APIs, minimising disruptions and supporting uninterrupted service.
+
+== Available Operations
+
+//[.doc h3]
+//* Extend the validity of an API key
+
+=== Extend the validity of an API key
+
+The TED API requires the \cas\logincaller to be authenticated with an API key to manage notices that are not yet published. Developers can generate and manage their API keys by logging into their account in the https://developer.ted.europa.eu/[TED Developer Portal]. This operation enables systems to autonomously renew API keys nearing expiration, thus preventing disruptions by avoiding manual interventions.
+
+
+==== API Request
+[source]
+----
+POST /v3/api-keys/{token}/renew
+----
+
+==== Swagger API Endpoint 
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Developer%20Operations/renewApiKey
+
+NOTE: API Key Management: API keys are valid for 24 months and are required to manage unpublished notices. Renewal notifications include a token sent via email, which can be used to manually renew keys or programmatically through the /renew endpoint.
+
+'''
+
+=== Retrieve the active range of SDK versions
+
+Submissions to TED require notices to conform to an https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[active SDK versions] range. This endpoint ensures developers can align their submissions with supported versions, avoiding compatibility issues. This operation returns the current range of SDK versions supported by the TED Central Validation Service (CVS) and assists developers in ensuring that notices submitted through their applications use a compatible SDK version.
+
+
+
+==== API Request
+[source]
+----
+GET /v3/config/sdk-versions
+----
+
+
+==== Swagger API Endpoint 
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Developer%20Operations/sdk-range
+
+NOTE: SDK Version Compliance: All notices submitted to TED must conform to an active SDK version. This endpoint ensures submissions adhere to supported standards, avoiding compatibility issues.
+
+'''
+Read the documentation on Active SDK Versions here: https://docs.ted.europa.eu/eforms-common/active-versions/index.html
+
+== Who Uses This API
+* Developers: Automating API key management and ensuring SDK compatibility for seamless submissions. 
+* Applications: Validating SDK versions and maintaining uninterrupted integration with TED services. 
+* eSenders: Ensuring compliance with active SDK requirements during notice submissions.  
+
+////
+
+
+
+= Developer Operations API  
+
 The Developer Operations API provides auxiliary features to ensure smooth integration and compatibility with TED APIs, minimising disruptions and supporting uninterrupted service. 
 
 == Available Operations 
