@@ -1,5 +1,49 @@
 = Visualisation API  
 
+The Visualisation API enables the rendering of procurement notices into user-friendly formats, such as PDFs or HTML. This functionality supports both internal workflows and public dissemination, making notices easier to read and share. 
+
+
+== Available Operations
+
+//[.doc h3]
+//* Render Notices
+
+=== Render Notices
+
+The "/render" operation converts XML procurement notices into user-friendly formats like PDF or HTML, making the data easier to read and share. This API provides operations in two variants. For larger, more complex notices, the asynchronous API should be used to prevent request time-outs.  
+
+
+
+==== API Request
+[source]
+----
+POST /v3/notices/render
+----
+
+[source]
+----
+POST /v3/notices/render-async
+----
+
+==== Swagger API Endpoint 
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/render
+
+* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/renderWithCallback
+'''
+
+== Who Uses This API
+
+* *Organisations*: Integrating visualised notices into their platforms. 
+* *TED developers*: Generating previews for notices. 
+* *eNotices2*: For the rendering of notices via the web interface in PDF or HTML. 
+
+Explore more about view templates used in rendering here: https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html
+
+////
+
+
+= Visualisation API  
+
 == Available operations 
 
 [source]
@@ -17,7 +61,6 @@ POST /v3/notices/render-async 	Generate formatted notices (asynchronous renderin
 
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/render
 * https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/renderWithCallback
-
 
 NOTE: This API provides operations in two variants. For larger, more complex notices, the asynchronous API should be used to prevent request time-outs.  
 
