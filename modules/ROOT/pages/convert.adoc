@@ -1,9 +1,35 @@
 = Conversion API 
 
-As eForms replaced legacy TED XML notices, the Conversion API simplifies this transition by enabling systems to convert older formats automatically. This ensures compatibility and preserves access to critical procurement data. By converting legacy TED XML notices into current eForms notices, the API facilitates continuity and consistency in managing procurement information. 
+As eForms replaced legacy TED XML notices, the Conversion API simplified this transition by enabling systems to convert older formats automatically into partial eForms notices. By converting legacy TED XML notices into current eForms notices, the API facilitates continuity and consistency in managing procurement information.
 
-== Available operations 
+== Available Operations
+
+//[.doc h3]
+//* Convert TED XML Notices
+
+=== Convert TED XML Notices
+
+This operation enables users to convert notices from the legacy TED XML format to a draft version in eForms. It is primarily used by eNotices2 during the import of published TED XML notices, allowing users to seamlessly continue procedures in eForms. Additionally, developers can utilise this stand-alone API for integration purposes, streamlining the transition to eForms.
+
+==== API Request
 [source]
+----
+POST /v3/notices/convert
+----
+
+==== Swagger API Endpoint 
+https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Conversion/convertNotice
+
+== Who Uses This API 
+
+* eSenders: Migrating legacy data to the eForms ecosystem.
+* Developers: Managing legacy procurement notices programmatically.
+* eNotices2 Users: Importing published TED XML notices to continue procedures. 
+
+Explore the full documentation here: https://github.com/OP-TED/ted-xml-data-converter 
+
+////
+'''
 ----
 POST /v3/notices/convert    Convert TED XML notices into partial eForms notices
 ----
