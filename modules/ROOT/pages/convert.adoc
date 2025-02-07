@@ -9,7 +9,7 @@ As eForms replaced legacy TED XML notices, the Conversion API simplified this tr
 
 === Convert TED XML Notices
 
-This operation allows users to convert notices from the legacy TED XML format to draft eForms. Primarily used by eNotices2, it facilitates the import of TED XML notices, enabling users to seamlessly continue procedures in eForms initiated with the old schema. Additionally, developers can use this stand-alone API for integration, streamlining the transition to eForms.
+This operation allows users to convert notices from the legacy TED XML format to draft eForms. Primarily used by eNotices2, it facilitates the import of TED XML notices, enabling users to seamlessly continue procedures in eForms initiated with the old schema. After conversion, users can complete the draft notices with additional information required by eForms. Developers can also use this stand-alone API for integration, assisting in the migration process to eForms by supporting partial conversions.
 
 
 ==== API Request
