@@ -32,7 +32,6 @@ Provides access to published procurement notices, enabling data retrieval and an
 
 '''
 
-These APIs are designed to meet the diverse needs of procurement professionals, ensuring efficient processes, compliance, and accessibility. For detailed technical guidance, please refer to our full documentation.
-
+These APIs are designed to support the diverse needs of procurement professionals, ensuring efficient processes, compliance, and accessibility. For detailed technical guidance, please refer to our full documentation.
 
 
