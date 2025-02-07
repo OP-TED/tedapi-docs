@@ -20,16 +20,17 @@ POST /v3/notices/validate
 ----
 
 ==== Swagger API Endpoint 
-https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Validation/validate
+https://api.preview.ted.europa.eu/swagger/index.html#/Validation/validate
 
-'''
+
 
 == Who Uses This API
 
-* Developers: Ensuring notices meet requirements, especially before submission. 
-* eSenders: Avoiding compliance errors during submission. 
-* eNotices2 web interface: For validating notices before or upon submission. 
+* *Developers*: Ensuring notices meet requirements, especially before submission. 
+* *eSenders*: Avoiding compliance errors during submission. 
+* *eNotices2 application*: For validating notices before or upon submission. 
 
+'''
 Explore more about schematron rules and validation reports here: https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files
 
 ////
