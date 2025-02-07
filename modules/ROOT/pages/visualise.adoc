@@ -26,9 +26,9 @@ POST /v3/notices/render-async
 ----
 
 ==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/render
+* https://api.preview.ted.europa.eu/swagger/index.html#/Visualisation/render
 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/renderWithCallback
+* https://api.preview.ted.europa.eu/swagger/index.html#/Visualisation/renderWithCallback
 
 
 == Who Uses This API
