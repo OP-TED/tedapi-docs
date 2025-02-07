@@ -12,7 +12,7 @@ The Publication API allows users and systems to programmatically submit notices 
 
 === Query Submitted Notices
 
-This operation enables users to query the status and details of their submitted notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronization of important metadata, such as publication status, during the notice management process.
+This operation enables users to query the status and details of their submitted notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronisation of important metadata, such as publication status, during the notice management process.
 
 
 ==== API Request
@@ -22,11 +22,11 @@ GET /v3/notices/
 ----
 
 ==== Swagger API Endpoint 
-https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
+https://api.preview.ted.europa.eu/swagger/index.html#/Publication//getNotices
 
 '''
 
-=== Stop Publication of Submitted Notice
+=== Stop Publication
 
 This API operation enables users to stop the publication process for a notice they have submitted. This action must be taken before the notice is exported to TED, as the publication process becomes irreversible at that point. Halting a notice in time prevents it from being published, offering control over the publication timeline. Once a notice reaches the "publishing" status, it cannot be stopped.
 
@@ -40,11 +40,11 @@ POST /v3/notices/{businessId}/stop-publication
 
 
 ==== Swagger API Endpoint 
-https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
+https://api.preview.ted.europa.eu/swagger/index.html#/Publication/stopPublication
 
 '''
 
-=== Retrieve Validation Report for Submitted Notice
+=== Retrieve Validation Report
 
 Every submitted eForms notice undergoes a validation process to ensure compliance with regulatory business rules; this results in a report even if the notice does not pass validation successfully. This API operation enables users to obtain the validation report generated during their notice submission. It ensures users can review and address any validation issues identified during the submission.
 
@@ -56,11 +56,11 @@ GET /v3/notices/{businessId}/validation-report
 ----
 
 ==== Swagger API Endpoint 
-https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
+https://api.preview.ted.europa.eu/swagger/index.html#/Publication/getValidationReport
 
 '''
 
-=== Submit New Notices for Publication on TED
+=== Submit Notices for Publication
 
 This API operation enables users to programmatically submit new notices in XML format for publication. The notice must have a unique identifier and meet specific requirements, such as including a valid notice author email and the preferred language for notifications. The email identifies the responsible party, such as the Contracting Authority, and the language must be an official EU language. Upon submission, the notice is validated against a set of business rules. If it successfully passes, it is marked "SUBMITTED" and becomes eligible for publication. If it fails, it is marked "VALIDATION_FAILED" and cannot be published.
 
@@ -72,7 +72,7 @@ POST /v3/notices/submit
 ----
 
 ==== Swagger API Endpoint 
-https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
+https://api.preview.ted.europa.eu/swagger/index.html#/Publication/submitNotice
 
 == Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities.
