@@ -21,7 +21,7 @@ POST /v3/notices/search
 ----
 
 ==== Swagger API Endpoint 
-https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Search/search
+https://api.preview.ted.europa.eu/swagger/index.html#/Search/search
 
 
 '''
@@ -33,6 +33,7 @@ https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Search/search
 * *Developers*: Creating transparency tools or reusing public data. 
 * *eNotices2 Users*: Importing a notice from TED via the web interface to continue a procedure. 
 
+'''
 Explore the full documentation here: https://ted.europa.eu/en/simap/developers-corner-for-reusers[Developers' corner: APIs for your own integration - ted.europa.eu - TED] 
 ////
 
