@@ -21,7 +21,8 @@ POST /v3/notices/search
 ----
 
 ==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Search/search
+
+https://ted.europa.eu/api/documentation/index.html#/notice-search-v3/search
 
 
 '''
