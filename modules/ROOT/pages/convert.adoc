@@ -18,8 +18,14 @@ This operation allows users to convert notices from the legacy TED XML format to
 POST /v3/notices/convert
 ----
 
-==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Conversion/convertNotice
+==== Swagger API Endpoints
+
+- **Preview Environment:**  
+  link:https://api.preview.ted.europa.eu/swagger/index.html#/Conversion/convertNotice[Access the Swagger API Interface]
+
+- **Production Environment:**  
+  The Production environment is not yet available; please use the Preview environment for now.
+
 
 == Who Uses This API 
 
