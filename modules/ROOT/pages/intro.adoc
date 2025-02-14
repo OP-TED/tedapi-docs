@@ -1,37 +1,40 @@
-:doctitle: Welcome to the TED API Portal
+= Welcome to the TED API Portal
 
-TED API offers a comprehensive suite of APIs designed to streamline and enhance procurement processes. These APIs align with TED applications to support various procurement activities efficiently. Starting from version 3, TED API consolidates its services under a unified gateway, ensuring seamless integration and functionality.
+APIs, or Application Programming Interfaces, are tools that allow different software applications to communicate with each other. TED API provides a set of programmatic tools to simplify and improve procurement processes. These APIs work with the TED applications (TED Apps) to make procurement more efficient. From version 3, TED API brings all services together under a unified gateway for seamless use.
 
 == Available APIs and Their Purposes
 
-TED APIs are made to address specific needs within the procurement ecosystem. Here is a brief overview of each API and its purpose:
-
-=== Developer Operations API
-
-Provides developers with auxiliary features to ensure smooth integration and compatibility with TED APIs, such as programmatic renewanl of API keys.
+TED APIs are designed to meet specific needs within the TED procurement ecosystem. Below is an overview of each API and its purpose:
 
 === Conversion API
 
-Enables the transition from legacy TED XML notices to modern eForms for users and systems alike.
+* Enables the transition from legacy TED XML notices to modern eForms for users and systems alike.
 
+=== Developer Operations API
+
+* Offers tools to help developers integrate smoothly with TED APIs, including programmatic API key renewal.
 
 === Publication API
 
-Automates the management and submission of procurement notices, integrating seamlessly with the eNotices2 system for efficient notice handling.
-
-=== Validation API
-Ensures compliance with EU standards by validating procurement notices for errors and potential legal issues before and upon submission.
-
-=== Visualisation API
-
-Transforms procurement notices into user-friendly formats like PDFs or HTML, supporting both public dissemination and internal use.
+* Automates the management and submission of procurement notices.
+* Works seamlessly with the eNotices2 system for efficient handling.
 
 === Search API
 
-Provides access to published procurement notices, enabling data retrieval and analysis through expert queries and bulk downloads.
+* Provides access to published procurement notices.
+* Enables data retrieval and analysis through expert queries and bulk downloads.
+
+=== Validation API
+
+* Checks procurement notices for compliance with EU standards.
+* Identifies errors and warnings before and upon submission or independently.
+
+=== Visualisation API
+
+* Transforms procurement notices into user-friendly formats like PDFs or HTML.
+* Supports both public dissemination and internal use.
 
 '''
 
-These APIs are designed to support the diverse needs of procurement professionals, ensuring efficient processes, compliance, and accessibility. For detailed technical guidance, please refer to our full documentation.
-
+These APIs support diverse procurement needs, ensuring efficiency, compliance, and accessibility. For detailed guidance, please see our full documentation.
 
