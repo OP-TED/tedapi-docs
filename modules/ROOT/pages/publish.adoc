@@ -21,8 +21,13 @@ This operation enables users to query the status and details of their submitted 
 GET /v3/notices/
 ----
 
-==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Publication//getNotices
+==== Swagger API Endpoints
+
+- **Preview Environment:**  
+  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication//getNotices[Access the Swagger API Interface]
+
+- **Production Environment:**  
+  The Production environment is not yet available; please use the Preview environment for now.
 
 '''
 
@@ -39,8 +44,13 @@ POST /v3/notices/{businessId}/stop-publication
 ----
 
 
-==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Publication/stopPublication
+==== Swagger API Endpoints
+
+- **Preview Environment:**  
+  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/stopPublication[Access the Swagger API Interface]
+
+- **Production Environment:**  
+  The Production environment is not yet available; please use the Preview environment for now.
 
 '''
 
@@ -55,8 +65,13 @@ Every submitted eForms notice undergoes a validation process to ensure complianc
 GET /v3/notices/{businessId}/validation-report
 ----
 
-==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Publication/getValidationReport
+==== Swagger API Endpoints
+
+- **Preview Environment:**  
+  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/getValidationReport[Access the Swagger API Interface]
+
+- **Production Environment:**  
+  The Production environment is not yet available; please use the Preview environment for now.
 
 '''
 
@@ -71,12 +86,20 @@ This API operation enables users to programmatically submit new notices in XML f
 POST /v3/notices/submit
 ----
 
-==== Swagger API Endpoint 
-https://api.preview.ted.europa.eu/swagger/index.html#/Publication/submitNotice
+==== Swagger API Endpoints
+
+- **Preview Environment:**  
+  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/submitNotice[Access the Swagger API Interface]
+
+- **Production Environment:**  
+  The Production environment is not yet available; please use the Preview environment for now.
+
 
 == Who Uses This API
 * *eSenders*: Managing notices on behalf of contracting authorities.
 * *Public Authorities*: Handling their own procurement notices through connected applications.
+
+
 
 ////
 
