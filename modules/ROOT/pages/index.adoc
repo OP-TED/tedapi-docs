@@ -194,7 +194,7 @@ If we need to make significant updates that could affect how your system works w
 
 The https://docs.ted.europa.eu/eforms-common/preview/index.html[**eForms Preview Environment**] was made available to allow and encourage developers to test their applications before or after deployment. Here is how to get started:
 
-== How to get started
+=== How to get started
 
 . Obtain an API key
 * [ ] Create an EU Login account in the https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
