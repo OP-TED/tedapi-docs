@@ -128,7 +128,7 @@ The new TED API v3 introduces several enhancements designed to simplify access, 
 * **Unified Gateway** 
 +
   All APIs are now accessible through a single domain:  
-  https://api.ted.europa.eu/v3
+  https://api.ted.europa.eu/
 
 * **Rationalised and Standardised API Endpoints** 
 +
@@ -138,7 +138,7 @@ The new TED API v3 introduces several enhancements designed to simplify access, 
 * **Consolidated Swagger Interface** 
 +
   Explore all endpoints in one place for easier navigation and integration:  
-  https://api.ted.europa.eu/webjars/swagger-ui/
+  https://api.ted.europa.eu/swagger
 
 * **Streamlined API Transitions** 
 +
