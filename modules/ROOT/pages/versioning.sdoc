@@ -1,1 +1,34 @@
+= Versioning policy 
 
+TED API is committed to providing a stable and reliable environment for developers. Our versioning policy ensures clarity and minimises disruption when introducing updates. 
+
+== Supported versions 
+
+At any given time, TED API supports two active versions to allow users ample time to transition to the latest version. 
+
+== Current active versions 
+
+ * Version 2 (Legacy, recommended for migration). 
+ * Version 3 (Primary focus, unified and improved features). 
+
+Future transitions will maintain the two-version policy, with older versions being deprecated only after ensuring most users have migrated. 
+
+== When versions are changed
+
+New versions of TED API are introduced to deliver significant improvements or to address limitations in previous versions. A version change is triggered when:
+
+* New functionalities or services are added that cannot be accommodated within the current version. 
+* Technical or compliance requirements necessitate modifications that constitute "breaking changes". 
+* A need arises to consolidate or rationalise APIs for better usability. 
+
+The team is committed to providing smooth version transitions by offering extensive support, backwards compatibility, and clear timelines. 
+
+== Breaking Changes 
+
+We strive to avoid breaking changes within a single version. Breaking changes are updates that might require you to make changes in your current systems to keep them working smoothly. These include: 
+
+ * Removing an endpoint: Users rely on stable access to endpoints for their systems. 
+ * Adding a new required request parameter: This introduces incompatibility for existing requests. Adding a new optional parameter is *not* considered a breaking change. 
+ * Removing or changing the type of a request parameter or response attribute: This impacts how applications handle data. 
+
+If we need to make significant updates that could affect how your system works with our API, we'll introduce a new version. This ensures your current setup continues to operate without issues while giving you time to adjust. We will always provide clear migration guidance and sufficient notice before deprecating an older version. 
