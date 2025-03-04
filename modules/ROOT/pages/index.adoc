@@ -24,6 +24,8 @@ TED API allows anonymous access to all services manipulating published notices (
 
 See section <<API keys>>.
 
+xref:intro.adoc[Read more about the different APIs]
+
 == How TED API links to TED Apps 
 
 Each TED API operation aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured:
