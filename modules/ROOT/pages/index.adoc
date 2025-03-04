@@ -24,7 +24,7 @@ TED API allows anonymous access to all services manipulating published notices (
 
 See section <<API keys>>.
 
-xref:intro.adoc[Read more about the different APIs]
+xref:intro.adoc[Read more about the available APIs]
 
 == How TED API links to TED Apps 
 
