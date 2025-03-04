@@ -1,4 +1,5 @@
 * xref:index.adoc[Home]
+* xref:versioning.adoc[Versioning Policy]
 
 * [.separated]#**Available APIs**#
 * xref:intro.adoc[Introduction]
