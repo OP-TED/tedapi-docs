@@ -43,6 +43,6 @@ POST /v3/notices/render-async
 * *eNotices2 application*: For the rendering of notices via the web interface in PDF or HTML. 
 
 '''
-Explore more about view templates used in rendering here: https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html
+Explore more about view templates used in rendering https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html[here]
 
 ////
