@@ -21,10 +21,10 @@ POST /v3/api-keys/{token}/renew
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#//Developer%20Operations/renewApiKey[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Developer%20Operations/renewApiKey[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Developer%20Operations/renewApiKey[Access the Swagger API Interface]
 
 
 NOTE: *API Key Management*: API keys are valid for 24 months and are required to manage unpublished notices. Renewal notifications include a token sent via email, which can be used to manually renew keys or programmatically through the /renew endpoint.
@@ -47,10 +47,10 @@ GET /v3/config/sdk-versions
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#//Developer%20Operations/sdk-range[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Developer%20Operations/sdk-range[Access the Swagger API Interface]
 
 - **Production Environment:**  
- The Production environment is not yet available; please use the Preview environment for now.
+ link:https://api.ted.europa.eu/swagger-ui/index.html#/Developer%20Operations/sdk-range[Access the Swagger API Interface]
 
 
 NOTE: *SDK Version Compliance*: All notices submitted to TED must conform to an active SDK version. This endpoint ensures submissions adhere to supported standards, avoiding compatibility issues.
@@ -65,62 +65,3 @@ Read the documentation on link:https://docs.ted.europa.eu/eforms-common/active-v
 
 ////
 
-
-
-
-
-
-
-= Developer Operations API  
-
-The Developer Operations API provides auxiliary features to ensure smooth integration and compatibility with TED APIs, minimising disruptions and supporting uninterrupted service. 
-
-== Available Operations 
-
-[source]
-----
-POST /v3/api-keys/{token}/renew		extend the validity of an API key
-----  
-
-==== What It Does 
-To manage notices that are not yet published, TED API requires the \cas\logincaller to be authenticated with an API key. Developers can generate and manage their own API keys by logging in to their account in the https://developer.ted.europa.eu/[TED Developer Portal]. This operation: 
-
-* Enables systems to autonomously renew API keys nearing expiration.
-* Prevents disruptions by avoiding manual interventions.
-
-==== Swagger API Endpoint
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Developer%20Operations/renewApiKey
-
-NOTE: API Key Management:
-* API keys are valid for 24 months and are required to manage unpublished notices. 
-* Renewal notifications include a token sent via email, which can be used to manually renew keys or programmatically through the /renew endpoint.
-
-[source]
-----
-GET /v3/config/sdk-versions		Retrieve the active range of SDK versions
-----  
-
-
-==== What It Does 
-Submissions to TED require notices to conform to an https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[active SDK versions] range. This endpoint ensures developers can align their submissions with supported versions, avoiding compatibility issues. This operation: 
-* Returns the current range of SDK versions supported by the TED Central Validation Service (CVS). 
-* Helps developers ensure that notices submitted via their applications use a compatible SDK version. 
-
-==== Swagger API Endpoint
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Developer%20Operations/sdk-range
-
-NOTE: SDK Version Compliance: All notices submitted to TED must conform to an active SDK version. This endpoint ensures submissions adhere to supported standards, avoiding compatibility issues. 
-
-Read the documentation on Active SDK Versions here: https://docs.ted.europa.eu/eforms-common/active-versions/index.html[SDK version lifespan :: TED Developer Documentation]
-
-==== Who Uses This API
-* Developers: Automating API key renewals and ensuring SDK compatibility for seamless submissions. 
-* Applications: Validating SDK versions and maintaining uninterrupted integration with TED services. 
-* eSenders: Ensuring compliance with active SDK requirements during notice submissions. 
-
- 
-
-* Developers automating API key management. 
-* Systems requiring uninterrupted access to TED APIs over extended periods. 
-
- 
