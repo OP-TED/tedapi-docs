@@ -24,10 +24,10 @@ GET /v3/notices/
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication//getNotices[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Publication/getNotices[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Publication/getNotices[Access the Swagger API Interface]
 
 '''
 
@@ -47,10 +47,10 @@ POST /v3/notices/{businessId}/stop-publication
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/stopPublication[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Publication/stopPublication[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Publication/stopPublication[Access the Swagger API Interface]
 
 '''
 
@@ -68,10 +68,10 @@ GET /v3/notices/{businessId}/validation-report
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/getValidationReport[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Publication/getValidationReport[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Publication/getValidationReport[Access the Swagger API Interface]
 
 '''
 
@@ -89,10 +89,10 @@ POST /v3/notices/submit
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Publication/submitNotice[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Publication/submitNotice[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Publication/submitNotice[Access the Swagger API Interface]
 
 
 == Who Uses This API
@@ -101,113 +101,4 @@ POST /v3/notices/submit
 
 
 
-////
-
-= Publication API  
-
-The Publication API automates the management of procurement notices, enabling eSenders and public authorities to handle notices efficiently and at scale. This API connects to the eNotices2 system to provide programmatic control over the publication process. 
-
-== Available operations
-
-[.hlist]
-* Query submitted notices
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testing indents
-
-[.indent2]
-hello this is the intro
-
-[.indent2]
-==== API request
-[source]
-----
-GET /v3/notices/			        
-----
-
-[.indent2]
-==== What It Does
-* Enables synchronization of notice metadata, such as publication status, during the publication process. 
-
-[.indent2]
-==== Swagger API Endpoint 
-* https://api.acceptance.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getNotices
-
-'''
-
-[.hlist]
-* Request to stop the publication of submitted notice
-
-[.indent2]
-hello this is the intro
-
-[.indent2]
-==== API request
-[source]
-----
-POST /v3/notices/{businessId}/stop-publication	
-----
-
-[.indent2]
-==== What It Does
-* Stops the publication of notices that are successfully submitted but not yet published. 
-
-[.indent2]
-==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/stopPublication
-
-'''
-
-[.hlist]
-* Retrieve validation report for submitted notice
-
-[.indent2]
-hello this is the intro
-
-[.indent2]
-==== API request
-[source]
-----
-GET /v3/notices/{businessId}/validation-report	
-----
-
-[.indent2]
-==== What It Does
-* Provides the validation report that is created when a notice is submitted for publication.  
-
-[.indent2]
-==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Publication/getValidationReport
-
-'''
-
-[.hlist]
-* Submit new notices for publication on TED
-
-[.indent2]
-hello this is the intro
-
-[.indent2]
-==== API request
-[source]
-----
-POST /v3/notices/submit			        
-----
-
-[.indent2]
-==== What It Does
-* Allows programmatic submission of notices for publication.  
-
-[.indent2]
-==== Swagger API Endpoint 
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Endpoints/submitNotice
-
-
-
-
-
-
-
-=== Who Uses This API
-* *eSenders*: Managing notices on behalf of contracting authorities. 
-* *Public Authorities*: Handling their own procurement notices through connected applications. 
 ////
