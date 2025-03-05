@@ -21,10 +21,10 @@ POST /v3/notices/convert
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Conversion/convertNotice[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Conversion/convertNotice[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Conversion/convertNotice[Access the Swagger API Interface]
 
 
 == Who Uses This API 
@@ -47,13 +47,6 @@ POST /v3/notices/convert    Convert TED XML notices into partial eForms notices
 
 * Transforms legacy TED XML notices into "partial" eForms notices, which users can complete and submit. 
 * Bridges the gap between legacy systems and the eForms standard in use today. 
-
-
-==== Swagger API Endpoint 
-
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Conversion/convertNotice
-
-
 
 == Who Uses This API 
 
