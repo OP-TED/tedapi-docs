@@ -22,10 +22,10 @@ POST /v3/notices/validate
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  link:https://api.preview.ted.europa.eu/swagger/index.html#/Validation/validate[Access the Swagger API Interface]
+  link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Validation/validate[Access the Swagger API Interface]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  link:https://api.ted.europa.eu/swagger-ui/index.html#/Validation/validate[Access the Swagger API Interface]
 
 
 == Who Uses This API
@@ -38,30 +38,3 @@ POST /v3/notices/validate
 Explore more about schematron rules and validation reports here: https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files
 
 ////
-
-
-= Validation API  
-
-== Purpose 
-Validate procurement notices to ensure compliance with EU standards and eForms regulations. 
-
-== What It Does 
-* Checks notices for errors (e.g., missing fields, incorrect values). 
-* Issues/ Returns warnings for potential lawfulness concerns that require further human review. 
-
-== Why This API Exists
-The Validation API ensures notices meet mandatory legal and procedural standards at any time before or upon submission, preventing errors and reducing the risk of non-compliance.
-
-== Endpoint
-
-[source]
-----
-POST /v3/notices/validate		Validate notices for compliance at any time before or upon submission
-----  
-
-== Who Uses This API
-* Developers ensuring notices meet requirements, especially before submission. 
-* eSenders avoiding compliance errors during submission. 
-* eNotices2 web interface for validating notices before or upon submission. 
-
-Explore more about schematron rules and validation reports here: https://docs.ted.europa.eu/eforms/latest/schematrons/index.html#_structure_of_schematron_folder_and_files
