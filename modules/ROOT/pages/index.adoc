@@ -22,6 +22,8 @@ Using the TED API, developers can create applications that:
 
 TED API allows anonymous access to all services manipulating published notices (i.e., searching for or retrieving notices already published on TED). All TED API endpoints that manipulate notices which are not yet published require the \cas\logincaller to be authenticated with an API key.
 
+xref:intro.adoc[Read more about the available APIs]
+
 == Getting started
 
 . Obtain an API key
@@ -44,9 +46,6 @@ NOTE: The Search API does not require a key.
 IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
 
 More information on API key management can be found xref:api.adoc[here]
-
-xref:intro.adoc[Read more about the available APIs]
-
 
 == How TED API links to TED Apps 
 
