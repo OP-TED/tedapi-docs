@@ -28,11 +28,12 @@ POST /v3/notices/render-async
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
-  * link:https://api.preview.ted.europa.eu/swagger/index.html#/Visualisation/render[Swagger: Access Render Operation]
-  * link:https://api.preview.ted.europa.eu/swagger/index.html#/Visualisation/renderWithCallback[Swagger: Access Render With Callback Operation]
+  * link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Visualisation/render[Swagger: Access Render Operation]
+  * link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Visualisation/renderWithCallback[Swagger: Access Render With Callback Operation]
 
 - **Production Environment:**  
-  The Production environment is not yet available; please use the Preview environment for now.
+  * link:https://api.ted.europa.eu/swagger-ui/index.html#/Visualisation/render[Swagger: Access Render Operation]
+  * link:https://api.ted.europa.eu/swagger-ui/index.html#/Visualisation/renderWithCallback[Swagger: Access Render With Callback Operation]
 
 
 == Who Uses This API
@@ -45,33 +46,3 @@ POST /v3/notices/render-async
 Explore more about view templates used in rendering here: https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html
 
 ////
-
-
-= Visualisation API  
-
-== Available operations 
-
-[source]
-----
-POST /v3/notices/render 	Generate formatted notices (synchronous rendering)
-POST /v3/notices/render-async 	Generate formatted notices (asynchronous rendering)
-----  
-
-
-==== What It Does
-
-* Converts XML notices into visually accessible formats like PDF or HTML. 
-
-==== Swagger API Endpoint 
-
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/render
-* https://api.ted.europa.eu/webjars/swagger-ui/index.html#/Visualisation/renderWithCallback
-
-NOTE: This API provides operations in two variants. For larger, more complex notices, the asynchronous API should be used to prevent request time-outs.  
-
-== Who Uses This API
-* *Organisations*: Integrating visualised notices into their platforms. 
-* *TED developers*: Generating previews for notices. 
-* *eNotices2 application*: For the rendering of notices via the web interface in PDF or HTML. 
-
-Explore more about view templates used in rendering here: https://docs.ted.europa.eu/eforms/latest/viewer-templates/index.html
