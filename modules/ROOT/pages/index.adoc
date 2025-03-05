@@ -100,6 +100,8 @@ TED API v2 will remain supported for at least six months, until the end of Septe
 
 Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
+Read more on our versioning policy xref:versioning.adoc[here]
+
 == How to get started
 
 . Obtain an API key
@@ -120,6 +122,8 @@ NOTE: The Search API does not require a key.
 * [ ] For more information, see section <<Testing your apps>>.
 
 IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
+
+More information on API key management can be found xref:api.adoc[here]
 
 
 
