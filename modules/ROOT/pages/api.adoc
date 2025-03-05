@@ -1,3 +1,6 @@
+:eu-login: EU Login is the European Commission's user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don't have one, you can link:https://ecas.ec.europa.eu/cas/eim/external/register.cgi[create an EU Login account here].
+
+:dev-portal: The link:https://developer.ted.europa.eu[TED Developer Portal] is the single point of access for all TED developers.
 = API keys
 
 User authentication and authorisation (for those TED APIs that require it) is controlled by the use of API keys. TED API keys are essentially UUIDs (Universally Unique Identifiers) without hyphens (dashes). 
