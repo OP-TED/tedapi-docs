@@ -26,6 +26,8 @@ See section <<API keys>>.
 
 xref:intro.adoc[Read more about the available APIs]
 
+
+
 == How TED API links to TED Apps 
 
 Each TED API operation aligns with specific TED applications, enabling the seamless processing, validation, and publication of eForms notices. The diagram below illustrates how these connections are structured:
@@ -64,6 +66,39 @@ This interconnected structure ensures developers can automate the entire notice 
 
 Other systems, like TED Monitor, are internal to the Publications Office and support the preparation of procurement notices for publication. Additionally, auxiliary developer operations provide essential tools for both developers and OP systems.
 
+== New in TED API v3 
+
+The new TED API v3 introduces several enhancements designed to simplify access, consolidate services, and improve user experience for developers and organisations. Key improvements include:
+
+* **Unified Gateway** 
++
+  All APIs are now accessible through a single domain:  
+  https://api.ted.europa.eu/
+
+* **Rationalised and Standardised API Endpoints** 
++
+  The structure of API URLs has been harmonised for consistency:  
+  https://api.ted.europa.eu/{api-version}/{resource}/{action}
+
+* **Consolidated Swagger Interface** 
++
+  Explore all endpoints in one place for easier navigation and integration:  
+  https://api.ted.europa.eu/swagger
+
+* **Streamlined API Transitions** 
++
+  One unified version number for all APIs
+
+* **Backward Compatibility** 
++
+  TED API v2 remains active, allowing for a smooth transition to v3
+
+
+=== Transitioning from TED API v2 
+
+TED API v2 will remain supported for at least six months, until the end of September 2025, ensuring a smooth transition to the latest version. 
+
+Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
 == How to get started
 
@@ -123,39 +158,7 @@ NOTE: For security reasons API keys are not stored and cannot be retrieved via t
   - Revoked API keys are invalidated permanently.
 
 
-== New in TED API v3 
 
-The new TED API v3 introduces several enhancements designed to simplify access, consolidate services, and improve user experience for developers and organisations. Key improvements include:
-
-* **Unified Gateway** 
-+
-  All APIs are now accessible through a single domain:  
-  https://api.ted.europa.eu/
-
-* **Rationalised and Standardised API Endpoints** 
-+
-  The structure of API URLs has been harmonised for consistency:  
-  https://api.ted.europa.eu/{api-version}/{resource}/{action}
-
-* **Consolidated Swagger Interface** 
-+
-  Explore all endpoints in one place for easier navigation and integration:  
-  https://api.ted.europa.eu/swagger
-
-* **Streamlined API Transitions** 
-+
-  One unified version number for all APIs
-
-* **Backward Compatibility** 
-+
-  TED API v2 remains active, allowing for a smooth transition to v3
-
-
-=== Transitioning from TED API v2 
-
-TED API v2 will remain supported for at least six months, until the end of September 2025, ensuring a smooth transition to the latest version. 
-
-Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
 
 
