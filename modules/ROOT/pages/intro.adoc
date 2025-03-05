@@ -10,6 +10,8 @@ TED APIs are designed to meet specific needs within the TED procurement ecosyste
 
 * Enables the transition from legacy TED XML notices to modern eForms for users and systems alike.
 
+xref:convert.adoc[Read more about the Conversion API]
+
 === Developer Operations API
 
 * Offers tools to help developers integrate smoothly with TED APIs, including programmatic API key renewal.
@@ -19,20 +21,28 @@ TED APIs are designed to meet specific needs within the TED procurement ecosyste
 * Automates the management and submission of procurement notices.
 * Works seamlessly with the eNotices2 system for efficient handling.
 
+xref:publish.adoc[Read more about the Publication API]
+
 === Search API
 
 * Provides access to published procurement notices.
 * Enables data retrieval and analysis through expert queries and bulk downloads.
+
+xref:search.adoc[Read more about the Search API]
 
 === Validation API
 
 * Checks procurement notices for compliance with EU standards.
 * Identifies errors and warnings before and upon submission or independently.
 
+xref:validate.adoc[Read more about the Validation API]
+
 === Visualisation API
 
 * Transforms procurement notices into user-friendly formats like PDFs or HTML.
 * Supports both public dissemination and internal use.
+
+xref:visualise.adoc[Read more about the Visualisation API]
 
 '''
 
