@@ -8,30 +8,6 @@ If you use the Publication API, after you generate your key, log into the link:h
 
 NOTE: Only one API key is allowed per user. The creation of a new API key implies the automatic revocation of the previous one.
 
-== Getting started
-
-. Obtain an API key
-* [ ] Visit the https://developer.ted.europa.eu/home[**TED Developer Portal**].
-* [ ] Log in with your **EU Login** credentials.
-* [ ] Generate your API Key via the *Manage API Keys* section.
-
-NOTE: Copy and save your API key upon creation; it cannot be retrieved later.
-
-NOTE: The Search API does not require a key.
-
-[start=2]
-. Authenticate Your Application
-* [ ] Use your API Key in the header of requests to access TED services.
-
-. Test in the https://docs.ted.europa.eu/eforms-common/preview/index.html[eForms Preview Environment]
-* [ ] Do not test in the Production environment, as it is reserved for notices that will be published on TED.
-* [ ] For more information, see section <<Testing your apps>>.
-
-IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
-
-More information on API key management can be found xref:api.adoc[here]
-
-
 == API key generation
 
 You can generate an API Key by logging into the TED Developer Portalfootnote:portal[] and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU Loginfootnote:eu-login[{eu-login}] account. 
