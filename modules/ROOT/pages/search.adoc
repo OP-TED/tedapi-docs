@@ -22,8 +22,10 @@ POST /v3/notices/search
 
 ==== Swagger API Endpoint 
 
+- **Production Environment:**
 link:https://api.ted.europa.eu/swagger-ui/index.html#/Search/search[Access the Swagger API Interface]
 
+NOTE: The Search API and the TED Website are not available in the Preview environment; notices submitted in the Preview environment do not get published.
 
 '''
 
@@ -35,5 +37,5 @@ link:https://api.ted.europa.eu/swagger-ui/index.html#/Search/search[Access the S
 * *eNotices2 Users*: Importing a notice from TED via the web interface to continue a procedure. 
 
 '''
-Explore the full documentation here: https://ted.europa.eu/en/simap/developers-corner-for-reusers[Developers' corner: APIs for your own integration - ted.europa.eu - TED] 
+Explore the full documentation https://ted.europa.eu/en/simap/developers-corner-for-reusers[here] 
 ////
