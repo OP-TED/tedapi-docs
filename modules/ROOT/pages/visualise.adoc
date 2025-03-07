@@ -25,15 +25,18 @@ POST /v3/notices/render
 POST /v3/notices/render-async
 ----
 
+NOTE: Please note that asynchronous rendering is currently unavailable in Preview or Production environments and will result in a 404 Not Found error as an HTTP status code; however, we are working to make this feature accessible soon.
+
+
 ==== Swagger API Endpoints
 
 - **Preview Environment:**  
   * link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Visualisation/render[Swagger: Access Render Operation]
-  * link:https://api.preview.ted.europa.eu/swagger-ui/index.html#/Visualisation/renderWithCallback[Swagger: Access Render With Callback Operation]
+  * Asynchronous rendering with callback is not yet available but is soon to come.
 
 - **Production Environment:**  
   * link:https://api.ted.europa.eu/swagger-ui/index.html#/Visualisation/render[Swagger: Access Render Operation]
-  * link:https://api.ted.europa.eu/swagger-ui/index.html#/Visualisation/renderWithCallback[Swagger: Access Render With Callback Operation]
+  * Asynchronous rendering with callback is not yet available but is soon to come.
 
 
 == Who Uses This API
