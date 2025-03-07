@@ -122,6 +122,8 @@ TED API v2 will remain supported for at least six months, until the end of Septe
 
 Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
+NOTE: Please be aware that in TED API v3, the mandatory property "noticeAuthorLocale" in the metadata has been replaced by "*noticeAuthorLang*." Both properties will be accepted during the transition period to v3, but we recommend making the change as soon as possible.
+
 Read more on our versioning policy xref:versioning.adoc[here]
 
 == Testing your apps
