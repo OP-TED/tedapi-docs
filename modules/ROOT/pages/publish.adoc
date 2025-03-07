@@ -12,7 +12,7 @@ The Publication API allows users and systems to programmatically submit notices 
 
 === Query Submitted Notices
 
-This operation enables users to query the status and details of their submitted notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronisation of important metadata, such as publication status, during the notice management process.
+This operation enables users to query the status and details of their ted notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronisation of important metadata, such as publication status, during the notice management process.
 
 
 ==== API Request
@@ -78,6 +78,8 @@ GET /v3/notices/{businessId}/validation-report
 === Submit Notices for Publication
 
 This API operation enables users to programmatically submit new notices in XML format for publication. The notice must have a unique identifier and meet specific requirements, such as including a valid notice author email and the preferred language for notifications. The email identifies the responsible party, such as the Contracting Authority, and the language must be an official EU language. Upon submission, the notice is validated against a set of business rules. If it successfully passes, it is marked "SUBMITTED" and becomes eligible for publication. If it fails, it is marked "VALIDATION_FAILED" and cannot be published.
+
+NOTE: Please be aware that in TED API v3, the mandatory property "noticeAuthorLocale" in the metadata has been replaced by "*noticeAuthorLang*." Both properties will be accepted during the transition period to v3, but we recommend making the change as soon as possible.
 
 
 ==== API Request
