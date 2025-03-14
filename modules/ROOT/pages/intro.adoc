@@ -1,4 +1,4 @@
-= TED API Portal
+= TED API
 
 APIs, or Application Programming Interfaces, are tools that allow different software applications to communicate with each other. TED API provides a set of programmatic tools to simplify and improve procurement processes. These APIs work with the TED applications (TED Apps) to make procurement more efficient. From version 3, TED API brings all services together under a unified gateway for seamless use.
 
