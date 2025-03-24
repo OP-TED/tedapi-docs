@@ -20,7 +20,7 @@ Using the TED API, developers can create applications that:
 
 * **Visualise** notices in readable formats such as PDFs or HTML.
 
-TED API allows anonymous access to all services manipulating published notices (i.e., searching for or retrieving notices already published on TED). All TED API endpoints that manipulate notices which are not yet published require the \cas\logincaller to be authenticated with an API key.
+TED API allows anonymous access to all services manipulating published notices (i.e., searching for or retrieving notices already published on TED). All TED API endpoints that manipulate notices which are not yet published require the caller to be authenticated with an API key.
 
 xref:intro.adoc[Read more about the available APIs]
 
