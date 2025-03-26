@@ -154,7 +154,7 @@ NOTE: The Search API and the TED Website are not available in the Preview enviro
 
 * **Unified Swagger Interface**:  
   Easily navigate and integrate with all API endpoints:  
-  https://api.ted.europa.eu/v3
+  https://api.ted.europa.eu/swagger
 
 * **Developer Portal**:  
   Get your API key and manage your developer profile:  
