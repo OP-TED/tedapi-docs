@@ -234,13 +234,11 @@ NOTE: See also our https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_apis
 
 ==== Unified Swagger Interface
 
-[.paragraph-grey]
 Easily navigate and integrate with all API endpoints:  
 https://api.ted.europa.eu/swagger
 
 ==== Developer Portal
 
-[.banner]
 Get your API key and manage your developer profile:  
 https://developer.ted.europa.eu
 
