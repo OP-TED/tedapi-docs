@@ -12,13 +12,13 @@ The OP has also developed *TED API*, a set of programmatic tools that allows thi
 
 Using the TED API, developers can create applications that:
 
-* **Retrieve** published procurement notices from the TED website for analysis or reuse.
+* *Retrieve* published procurement notices from the TED website for analysis or reuse.
 
-* **Submit and Manage** notices for publication programmatically, eliminating manual steps.
+* *Submit and Manage* notices for publication programmatically, eliminating manual steps.
 
-* **Validate** notices to ensure compliance with procurement regulations.
+* *Validate* notices to ensure compliance with procurement regulations.
 
-* **Visualise** notices in readable formats such as PDFs or HTML.
+* *Visualise* notices in readable formats such as PDFs or HTML.
 
 TED API allows anonymous access to all services manipulating published notices (i.e., searching for or retrieving notices already published on TED). All TED API endpoints that manipulate notices which are not yet published require the caller to be authenticated with an API key.
 
@@ -31,33 +31,43 @@ Each TED API operation aligns with specific TED applications, enabling the seaml
 
 image::api_connections.png[]
 
-* **eNotices2:**  
-  The single entry point for submitting and managing eForms notices.  
-  - Interacts with the *Publication API* for programmatic submissions, queries, and publication management.  
-  - Designed with front-end users in mind, while developers interface directly with the Publication API.  
-  - Works with the *TED Central Validation Service* to validate notices before and upon submission.
+==== eNotices2 
 
-* **TED Central Validation Service (TED CVS):**  
-  An API-only service ensuring compliance standards for notices.  
-  - The *Validation API* checks notices for errors and warnings when they are submitted to the Publication API.
-  - Can be used independently to detect errors and warnings at any time before publication.  
-  - Notices that successfully pass CVS validation can be considered technically valid for publication on TED.
+The single entry point for submitting and managing eForms notices.
 
-* **TED Viewer:**  
-  Renders notices into readable formats like HTML and PDF.  
-  - The *Visualisation API* enables this functionality.  
-  - Works with eNotices2 to preview notices in PDF or HTML. 
-  - Can be called directly by external parties to preview XML notices.
+* Interacts with the *Publication API* for programmatic submissions, queries, and publication management.  
+* Designed with front-end users in mind, while developers interface directly with the Publication API.  
+* Works with the *TED Central Validation Service* to validate notices before and upon submission.
 
-* **TED Website:**  
-  The public-facing platform for published notices.  
-  - The *Search API* allows access to these notices for reuse or analysis.  
-  - Expert queries built on the TED Website can also be used via the API.
+==== TED Central Validation Service (TED CVS)  
+  
+An API-only service ensuring compliance standards for notices. 
 
-* **TED XML Data Converter (TEDXDC):**  
-  An API-only service designed to convert legacy TED XML schema notices into drafts in eForms.  
-  - Utilised by eNotices2 when importing a TED XML notice to continue procedures in eForms.
-  - Available as a stand-alone API for developers.
+* The *Validation API* checks notices for errors and warnings when they are submitted to the Publication API.
+* Can be used independently to detect errors and warnings at any time before publication.  
+* Notices that successfully pass CVS validation can be considered technically valid for publication on TED.
+
+==== TED Viewer
+
+Renders notices into readable formats like HTML and PDF.  
+
+* The *Visualisation API* enables this functionality.  
+* Works with eNotices2 to preview notices in PDF or HTML. 
+* Can be called directly by external parties to preview XML notices.
+
+==== TED Website
+
+The public-facing platform for published notices.
+
+* The *Search API* allows access to these notices for reuse or analysis.  
+* Expert queries built on the TED Website can also be used via the API.
+
+==== TED XML Data Converter (TEDXDC)
+
+An API-only service designed to convert legacy TED XML schema notices into drafts in eForms.
+
+* Utilised by eNotices2 when importing a TED XML notice to continue procedures in eForms.
+* Available as a stand-alone API for developers.
 
 This interconnected structure ensures developers can automate the entire notice processing lifecycle—submission to publication and visualisation—while adhering to EU standards.
 
@@ -67,23 +77,26 @@ Other systems, like TED Monitor, are internal to the Publications Office and sup
 == Getting started
 
 . Obtain an *API key*
-* [ ] Visit the https://developer.ted.europa.eu/home[**TED Developer Portal**].
-* [ ] Log in with your **EU Login** credentials.
-* [ ] Generate your API Key via the *Manage API Keys* section.
+
+* Visit the https://developer.ted.europa.eu/home[**TED Developer Portal**].
+* Log in with your **EU Login** credentials.
+* Generate your API Key via the *Manage API Keys* section.
 
 NOTE: Copy and save your API key upon creation; it cannot be retrieved later.
 
 
 [start=2]
 . *Authenticate* Your Application
-* [ ] Use your API Key in the header of requests to access TED services.
+
+* Use your API Key in the header of requests to access TED services.
 
 NOTE: The Search API does not require a key.
 
 [start=3]
 . *Test* in the https://docs.ted.europa.eu/eforms-common/preview/index.html[eForms *Preview* Environment]
-* [ ] Do not test in the Production environment, as it is reserved for notices that will be published on TED.
-* [ ] For more information, see section <<Testing your apps>>.
+
+*  Do not test in the Production environment, as it is reserved for notices that will be published on TED.
+*  For more information, see section <<Testing your apps>>.
 
 IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
 
@@ -94,31 +107,31 @@ More information on API key management can be found xref:api.adoc[here]
 
 The new TED API v3 introduces several enhancements designed to simplify access, consolidate services, and improve user experience for developers and organisations. Key improvements include:
 
-* **Unified Gateway** 
-+
+==== Unified Gateway
+
   All APIs are now accessible through a single domain:  
   https://api.ted.europa.eu/
 
-* **Rationalised and Standardised API Endpoints** 
-+
+==== Rationalised and Standardised API Endpoints 
+
   The structure of API URLs has been harmonised for consistency:  
   https://api.ted.europa.eu/{api-version}/{resource}/{action}
 
-* **Consolidated Swagger Interface** 
-+
+==== Consolidated Swagger Interface 
+
   Explore all endpoints in one place for easier navigation and integration:  
   https://api.ted.europa.eu/swagger
 
-* **Streamlined API Transitions** 
-+
+==== Streamlined API Transitions
+
   One unified version number for all APIs
 
-* **Backward Compatibility** 
-+
+==== Backwards Compatibility 
+
   TED API v2 remains active, allowing for a smooth transition to v3
 
 
-=== Transitioning from TED API v2 
+== Transitioning from TED API v2 
 
 TED API v2 will remain supported for at least six months, until 30 September 2025, ensuring a smooth transition to the latest version. 
 
@@ -134,17 +147,18 @@ The https://docs.ted.europa.eu/eforms-common/preview/index.html[**eForms Preview
 
 === How to start testing
 
-. Obtain an *API key*
-* [ ] Create an EU Login account in the https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
-* [ ] Generate an API key on the https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment] via the *Manage API Keys* section.
+==== 1. Obtain an API key
+
+* Create an EU Login account in the https://ecas.acceptance.ec.europa.eu/cas/login[EU-Login Acceptance Environment].
+* Generate an API key on the https://developer.preview.ted.europa.eu/home[TED Developer Portal of the Preview Environment] via the *Manage API Keys* section.
 
 NOTE: Copy and save your API key upon creation; it cannot be retrieved later.
 
 NOTE: Accounts and API keys in "Production" and "Preview" environments are not interchangeable.
 
-[start=2]
-. *Authenticate* Your Application
-* [ ] Use your API Key in the header of requests to access TED services.
+==== 2. Authenticate Your Application
+
+* Use your API Key in the header of requests to access TED services.
 
 IMPORTANT: If you are using the Publication API, you also need to create an account in https://enotices2.preview.ted.europa.eu/home[eNotices2 in the Preview environment] by logging in with the same EU Login account and perform at least one valid API request for the system to recognise you as an "eSender".
 
@@ -153,86 +167,102 @@ NOTE: The Search API and the TED Website are not available in the Preview enviro
 
 == Tips for eSenders
 
-. Refrain from using the front-end user interface (UI) of eNotices2:
-* [ ] Do not use the eNotices2 UI for submitting notices; its output is not intended to match the format used in API submissions.
-* [ ] Avoid using the UI to continue procedures or create Change notices for notices originally submitted via the API.
-* [ ] Workgroups are reserved for users of the UI, and the API is not aware of this context.
+==== Refrain from using the front-end user interface (UI) of eNotices2
 
-. Ensure correct SDK Usage:
-* [ ] Use the correct https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[SDK version].
-* [ ] Understand how to properly manage https://docs.ted.europa.eu/eforms-common/versioning/index.html#_significance_of_the_sdk_version_in_notice_handling_and_validation[SDK versioning].
+* Do not use the eNotices2 UI for submitting notices; its output is not intended to match the format used in API submissions.
+* Avoid using the UI to continue procedures or create Change notices for notices originally submitted via the API.
+* Workgroups are reserved for users of the UI, and the API is not aware of this context.
 
-. Respect the workflow of eForms Notices:
-* [ ] Submitting a Change notice for a parent notice that hasn't been published may result in errors.
-* [ ] Avoid other errors by ensuring correct references to previous notices.
+==== Ensure correct SDK Usage
+
+* Use the correct https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[SDK version].
+* Understand how to properly manage https://docs.ted.europa.eu/eforms-common/versioning/index.html#_significance_of_the_sdk_version_in_notice_handling_and_validation[SDK versioning].
+
+==== Respect the workflow of eForms Notices
+
+* Submitting a Change notice for a parent notice that hasn't been published may result in errors.
+* Avoid other errors by ensuring correct references to previous notices.
 
 IMPORTANT: Even though dynamic rules that check between notices are not yet in place, you should consider the above best practices.
 
-[start=4]
-. Understanding the Business ID:
-* [ ] The business ID is unique, consisting of the notice ID and version ID.
-* [ ] If a notice is "Submitted", "Publishing", or "Published", the notice ID cannot be reused.
-* [ ] If a notice is "Stopped", "Validation failed", or "Not published", reuse is possible with an increased version ID.
+
+==== Understanding the Business ID
+
+* The business ID is unique, consisting of the notice ID and version ID.
+* If a notice is "Submitted", "Publishing", or "Published", the notice ID cannot be reused.
+* If a notice is "Stopped", "Validation failed", or "Not published", reuse is possible with an increased version ID.
 
 NOTE: The business ID is a unique identifier generated by the eSender application, consisting of the notice ID and version ID. The notice ID can be reused in certain situations, but only with an incremented version ID, resulting in a new business ID.
 
-[start=5]
-. Understanding Notice Validation:
-* [ ] eNotices2 currently performs some checks upon submission, such as rejecting notices with the same ID and version ID.
-* [ ] In the future, these checks will be performed by the dynamic rules in CVS.
-* [ ] The `VALIDATION_FAILED` status is specific to eSenders (users of the Publication API).
-* [ ] To avoid validation issues, you can use the CVS API to check the validation of notices before submission, ensuring a successful submission process.
+
+==== Understanding Notice Validation
+
+* eNotices2 currently performs some checks upon submission, such as rejecting notices with the same ID and version ID.
+* In the future, these checks will be performed by the dynamic rules in CVS.
+* The `VALIDATION_FAILED` status is specific to eSenders (users of the Publication API).
+* To avoid validation issues, you can use the CVS API to check the validation of notices before submission, ensuring a successful submission process.
 
 NOTE: See also our https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_apis_and_web_services[eForms FAQ] on notice statuses.
 
-[start=6]
-. Understanding the Notice Workflow:
-* **Preview Environment:**
-  * [ ] Notices are not published; there is no TED website environment connected to the applications in Preview.
-  * **Mock Statuses to mimic the publication on TED:**
-    * [ ] "Publishing" status is assigned at ~15:00 CET.
-    * [ ] "Published" status is assigned at ~16:00 CET, on the previous working day before the (preferred) publication date.
 
-* **Production Environment:**
-  * [ ] Notices enter export at ~15:00 CET on the (preferred) publication date.
-  * [ ] Notices are published on TED no later than 09:00 CET on the publication date of the next OJ S.
-  * [ ] Publication cannot be stopped once the export process begins and the notice has entered the "Publishing" status.
+==== Understanding the Notice Workflow
 
-* **Notice Status Timeline:**
-  * **In Preview:**
-    * [ ] "Publishing": 15:00-16:00 CET.
-    * [ ] "Published": 16:00 CET on the export day.
-  * **In Production:**
-    * [ ] "Publishing": Between afternoon export and next morning publication on TED (working days).
+* *Preview Environment:*
+** Notices are not published; there is no TED website environment connected to the applications in Preview.
+
+* *Mock Statuses to mimic the publication on TED:*
+** "Publishing" status is assigned at ~15:00 CET.
+** "Published" status is assigned at ~16:00 CET, on the previous working day before the (preferred) publication date.
+
+* *Production Environment:*
+** Notices enter export at ~15:00 CET on the (preferred) publication date.
+** Notices are published on TED no later than 09:00 CET on the publication date of the next OJ S.
+** Publication cannot be stopped once the export process begins and the notice has entered the "Publishing" status.
+
+* *Notice Status Timeline:*
+
+** *In Preview:*
+*** "Publishing": 15:00-16:00 CET.
+*** "Published": 16:00 CET on the export day.
+
+** *In Production:*
+*** "Publishing": Between afternoon export and next morning publication on TED (working days).
 
 
 == Resources and Support 
 
 
-* **Unified Swagger Interface**:  
+==== Unified Swagger Interface
+
   Easily navigate and integrate with all API endpoints:  
   https://api.ted.europa.eu/swagger
 
-* **Developer Portal**:  
+==== Developer Portal
+
   Get your API key and manage your developer profile:  
   https://developer.ted.europa.eu
 
-* **Developers' Corner**:  
+==== Developers' Corner
+
   Explore various tools and resources for reusing TED data:  
   https://ted.europa.eu/en/simap/developers-corner-for-reusers
 
-* **eForms Preview Environment**:  
+==== eForms Preview Environment
+
   Understand the eForms Preview Environment before you test your eSender integration:  
   https://docs.ted.europa.eu/eforms-common/preview
 
-* **Technical Issues - eForms SDK**: 
+==== Technical Issues - eForms SDK 
+
   Discuss technical issues on GitHub related to the eForms SDK:  
   https://github.com/OP-TED/eForms-SDK/discussions
 
-* **Business Issues**:
+==== Business Issues
+
   Contact us via TED helpdesk: https://ted.europa.eu/en/contact
 
-* **TED eSender Workshops**:
+==== TED eSender Workshops
+
   Explore our events page: https://op.europa.eu/en/web/ted-eforms
 
 
