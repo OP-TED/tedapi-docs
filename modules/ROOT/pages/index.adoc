@@ -234,6 +234,7 @@ NOTE: See also our https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_apis
 
 ==== Unified Swagger Interface
 
+[.banner]
 Easily navigate and integrate with all API endpoints:  
 https://api.ted.europa.eu/swagger
 
@@ -263,7 +264,8 @@ https://developer.ted.europa.eu
 
 ==== TED eSender Workshops
 
-  Explore our events page: https://op.europa.eu/en/web/ted-eforms
+[.paragraph_grey]
+Explore our events page: https://op.europa.eu/en/web/ted-eforms
 
 
 
