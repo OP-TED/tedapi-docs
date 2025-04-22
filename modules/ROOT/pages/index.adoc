@@ -109,26 +109,31 @@ The new TED API v3 introduces several enhancements designed to simplify access, 
 
 ==== Unified Gateway
 
-  All APIs are now accessible through a single domain:  
-  https://api.ted.europa.eu/
+[.paragraph_grey]
+All APIs are now accessible through a single domain:  
+https://api.ted.europa.eu/
 
 ==== Rationalised and Standardised API Endpoints 
 
-  The structure of API URLs has been harmonised for consistency:  
-  https://api.ted.europa.eu/{api-version}/{resource}/{action}
+[.paragraph_grey]
+The structure of API URLs has been harmonised for consistency:  
+https://api.ted.europa.eu/{api-version}/{resource}/{action}
 
 ==== Consolidated Swagger Interface 
 
-  Explore all endpoints in one place for easier navigation and integration:  
-  https://api.ted.europa.eu/swagger
+[.paragraph_grey]
+Explore all endpoints in one place for easier navigation and integration:  
+https://api.ted.europa.eu/swagger
 
 ==== Streamlined API Transitions
 
-  One unified version number for all APIs
+[.paragraph_grey]
+One unified version number for all APIs
 
 ==== Backwards Compatibility 
 
-  TED API v2 remains active, allowing for a smooth transition to v3
+[.paragraph_grey]
+TED API v2 remains active, allowing for a smooth transition to v3
 
 
 == Transitioning from TED API v2 
@@ -234,33 +239,38 @@ NOTE: See also our https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_apis
 
 ==== Unified Swagger Interface
 
-[.banner]
+[.paragraph_grey]
 Easily navigate and integrate with all API endpoints:  
 https://api.ted.europa.eu/swagger
 
 ==== Developer Portal
 
+[.paragraph_grey]
 Get your API key and manage your developer profile:  
 https://developer.ted.europa.eu
 
 ==== Developers' Corner
 
-  Explore various tools and resources for reusing TED data:  
-  https://ted.europa.eu/en/simap/developers-corner-for-reusers
+[.paragraph_grey]
+Explore various tools and resources for reusing TED data: 
+https://ted.europa.eu/en/simap/developers-corner-for-reusers
 
 ==== eForms Preview Environment
 
-  Understand the eForms Preview Environment before you test your eSender integration:  
-  https://docs.ted.europa.eu/eforms-common/preview
+[.paragraph_grey]
+Understand the eForms Preview Environment before you test your eSender integration:  
+https://docs.ted.europa.eu/eforms-common/preview
 
 ==== Technical Issues - eForms SDK 
 
-  Discuss technical issues on GitHub related to the eForms SDK:  
-  https://github.com/OP-TED/eForms-SDK/discussions
+[.paragraph_grey]
+Discuss technical issues on GitHub related to the eForms SDK:  
+https://github.com/OP-TED/eForms-SDK/discussions
 
 ==== Business Issues
 
-  Contact us via TED helpdesk: https://ted.europa.eu/en/contact
+[.paragraph_grey]
+Contact us via TED helpdesk: https://ted.europa.eu/en/contact
 
 ==== TED eSender Workshops
 
