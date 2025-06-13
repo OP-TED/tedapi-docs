@@ -12,7 +12,7 @@ The Publication API allows users and systems to programmatically submit notices 
 
 === Query Submitted Notices
 
-This operation enables users to query the status and details of their ted notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronisation of important metadata, such as publication status, during the notice management process.
+This operation enables users to query the status and details of their TED notices. API users can access a paginated list of all their submitted notices, which they can filter and sort based on relevant criteria. Access is exclusive to the user's own submissions, requiring an API key. Additionally, this operation facilitates the synchronisation of important metadata, such as publication status, during the notice management process.
 
 
 ==== API Request
