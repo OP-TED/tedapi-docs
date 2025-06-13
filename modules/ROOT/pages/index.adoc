@@ -110,8 +110,7 @@ The new TED API v3 introduces several enhancements designed to simplify access, 
 ==== Unified Gateway
 
 [.paragraph_grey]
-All APIs are now accessible through a single domain:  
-https://api.ted.europa.eu/
+All APIs are now accessible through a single domain: api.ted.europa.eu
 
 ==== Rationalised and Standardised API Endpoints 
 
