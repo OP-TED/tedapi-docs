@@ -223,7 +223,7 @@ NOTE: See also our https://docs.ted.europa.eu/eforms-common/FAQ/index.html#_apis
 ** Notices are published on TED no later than 09:00 CET on the publication date of the next OJ S.
 ** Publication cannot be stopped once the export process begins and the notice has entered the "Publishing" status.
 
-NOTE: The Preview environment is currently unmonitored. Notices with workflow errors or lawfulness warnings will remain in their submitted status without review. To prevent this: <<Respect the workflow of eForms Notices>> and use CVS to pre-check notice lawfulness before submission.
+NOTE: The Preview environment is currently unmonitored. Notices with workflow errors or lawfulness warnings will remain in their submitted status without review. To prevent this: <<Respect the workflow of eForms Notices>> and use CVS to pre-check notice lawfulness before submission. Please note that every few months, OP will "clean" these records by transferring them to the "not published" status.
 
 
 * *Notice Status Timeline:*
