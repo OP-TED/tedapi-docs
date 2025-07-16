@@ -5,7 +5,7 @@
 * [.separated]#**Available APIs**#
 * xref:intro.adoc[Introduction]
 * xref:convert.adoc[Conversion API]
-* xref:developer operations.adoc[Developer Operations API]
+* xref:developer-operations.adoc[Developer Operations API]
 * xref:publish.adoc[Publication API]
 * xref:search.adoc[Search API]
 * xref:validate.adoc[Validation API]

@@ -63,5 +63,5 @@ Read the documentation on link:https://docs.ted.europa.eu/eforms-common/active-v
 * *Applications*: Validating SDK versions and maintaining uninterrupted integration with TED services. 
 * *eSenders*: Ensuring compliance with active SDK requirements during notice submissions.  
 
-////
+
 

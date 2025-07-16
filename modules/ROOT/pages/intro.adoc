@@ -16,7 +16,7 @@ xref:convert.adoc[Read more about the Conversion API]
 
 * Offers tools to help developers integrate smoothly with TED APIs, including programmatic API key renewal.
 
-xref:developer operations.adoc[Read more about the Developer Operations API]
+xref:developer-operations.adoc[Read more about the Developer Operations API]
 
 === Publication API
 
