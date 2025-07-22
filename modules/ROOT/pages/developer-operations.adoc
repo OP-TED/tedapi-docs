@@ -31,6 +31,7 @@ NOTE: *API Key Management*: API keys are valid for 24 months and are required to
 
 '''
 
+[#retrieve]
 === Retrieve the active range of SDK versions
 
 Submissions to TED require notices to conform to an https://docs.ted.europa.eu/eforms-common/active-versions/index.html#version-range[active SDK versions] range. This endpoint ensures developers can align their submissions with supported versions, avoiding compatibility issues. This operation returns the current range of SDK versions supported by the TED Central Validation Service (CVS) and assists developers in ensuring that notices submitted through their applications use a compatible SDK version.
