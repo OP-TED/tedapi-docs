@@ -137,7 +137,7 @@ TED API v2 remains active, allowing for a smooth transition to v3
 
 == Transitioning from TED API v2 
 
-TED API v2 will remain supported for at least six months, until 30 September 2025, ensuring a smooth transition to the latest version. 
+TED API v2 will remain supported until version 4 becomes available. Any plans for v4 will be communicated well in advance to ensure a smooth transition to the latest version. 
 
 Developers are encouraged to migrate to the latest version as soon as possible to benefit from its enhanced features and unified interface. 
 
