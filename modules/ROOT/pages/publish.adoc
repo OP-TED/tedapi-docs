@@ -5,6 +5,90 @@
 The Publication API allows users and systems to programmatically submit notices for publication on TED using an API key. With this key, users can also query their own submitted notices, stop the publication process, or retrieve validation reports. Connecting with the eNotices2 system and the TED Central Validation Service, this API enables eSenders and public authorities to process notices efficiently and at scale.
 
 
+== Notice lifecycle
+
+This section describes the lifecycle of an eForms notice submitted via the Publication API.  
+It applies exclusively to *eSenders* (users of the Publication API).
+
+A lifecycle describes how a notice progresses through statuses from submission until a final publication outcome.
+
+A notice is defined by its *Business ID* (`businessID`), which consists of:
+
+- a *notice ID*, and
+- a *version ID*.
+
+For notices submitted via the API, the *Business ID* (`businessID`) is assigned by the eSender system at submission time.  
+It is not generated, altered, or incremented by the Publications Office (OP).
+
+=== Core lifecycle (eSenders)
+
+*At a glance:*  
+*Submit notice → CVS validation → Submitted → Publishing → Published / Not published*
+
+The lifecycle of a notice submitted via the Publication API starts with an API action and progresses through a small number of system-managed statuses, including outcomes resulting from manual checks performed by OP.
+
+. *Submit notice (API action)*  
+  * An eSender submits a notice using the *Submit Notices for Publication* API operation (Submit XML notice).
+
+. *CVS validation*  
+  * Upon submission, the notice is automatically validated by the *TED Central Validation Service (CVS)*.  
+  * The CVS endpoint can be called separately at any time before submission to verify validation (both warnings and errors).
+
+. *Validation outcome*
+  * If CVS reports errors, validation fails and the notice reaches the final status *VALIDATION_FAILED*.
+  * If CVS validation passes (including warnings), the notice reaches status *SUBMITTED*.
+
+. *Submitted*  
+  * Once a notice is in status *SUBMITTED*, it is eligible for publication.  
+  * This is the *only stage* in which the buyer or eSender system can still stop the publication.
+[NOTE]
+  If the notice contains warnings, it may be checked manually by an OP operator, who will decide whether to accept or reject the notice.
+  
+. *Publishing (point of no return)*  
+  * When the notice is selected for export to the Official Journal, its status changes to *PUBLISHING*.  
+  * From this point onwards, the notice can no longer be stopped.
+
+. *Final outcome*
+  * *PUBLISHED* – the notice is published on TED.
+  * *NOT_PUBLISHED* – the notice is not published on TED, for example following manual checks by OP, workflow errors, or exceptional technical failures.
+
+[NOTE]
+====
+* A notice may also reach status *NOT_PUBLISHED* due to workflow errors, such as submitting a Change notice that refers to a parent notice which has not been published or providing incorrect references to previous notices.
+
+* To avoid workflow errors, eSenders should respect the expected lifecycle of notices and ensure correct references to previous notices.
+====
+
+[IMPORTANT]
+====
+* Submitting a notice is an API action, not a status.  
+
+* All notices submitted via the API go through CVS. A notice reaches status *SUBMITTED* only if CVS validation passes successfully (with no errors). CVS warnings allow notice submission but may trigger manual checks by OP operators.
+
+* At status *SUBMITTED*, the notice can either be stopped by the buyer or eSender system, or be rejected by OP following a manual check.
+
+* CVS is available as a separate endpoint so that eSenders can check validation of their notices (warnings and errors) before notice submission.
+====
+
+=== Business ID reuse rules
+
+Whether a *notice ID* can be reused depends on the status reached in the lifecycle.
+
+- If a notice reaches status *SUBMITTED*, *PUBLISHING* or *PUBLISHED*, the notice ID **cannot be reused**.
+- If a notice reaches status *STOPPED*, *VALIDATION_FAILED* or *NOT_PUBLISHED*, the notice ID **may be reused**, provided that the *version ID is increased*.
+
+Reusing a notice ID with an increased version ID results in a *new Business ID* (`businessID`) (notice ID + new version ID).
+
+=== Diagram – Notice lifecycle (Publication API)
+
+Placeholder for diagram
+
+=== Note on UI-only statuses
+
+Statuses such as *DRAFT*, *DELETED* and *ARCHIVED* exist only in the eNotices2 user interface.  
+They can be queried via the API but are not part of the API-managed publication lifecycle described on this page.
+
+
 == Available Operations
 
 //[.doc h3]
