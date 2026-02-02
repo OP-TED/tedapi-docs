@@ -57,6 +57,8 @@ The lifecycle of a notice submitted via the Publication API starts with an API a
 * A notice may also reach status *NOT_PUBLISHED* due to workflow errors, such as submitting a Change notice that refers to a parent notice which has not been published or providing incorrect references to previous notices.
 
 * To avoid workflow errors, eSenders should respect the expected lifecycle of notices and ensure correct references to previous notices.
+
+* See xref:index.adoc#_tips_for_esenders[Tips for eSenders].
 ====
 
 [IMPORTANT]
