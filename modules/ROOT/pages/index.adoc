@@ -200,7 +200,7 @@ These recommendations help eSenders avoid common integration and workflow issues
 
 ** Notice status behaviour and timing differ between the *Preview* and *Production* environments.
 ** These differences are operational and do not change the formal notice lifecycle.
-** See xref:publish.adoc#_notice_lifecycle[Notice lifecycle (Publication API)] for status definitions.
+** See xref:publish.adoc#_notice_lifecycle[Notice lifecycle] for status definitions.
 
 ** *Preview environment*
 *** Notices submitted in Preview are **not published** on TED.
