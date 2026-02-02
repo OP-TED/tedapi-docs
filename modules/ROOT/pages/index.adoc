@@ -188,7 +188,7 @@ These recommendations help eSenders avoid common integration and workflow issues
 * **Respect the notice lifecycle and references between notices**
 
 ** Submitting a Change notice that refers to a parent notice which has not been published, or providing incorrect references to previous notices, may result in workflow errors (and potentially status *NOT_PUBLISHED*).
-** See xref:publish.adoc#_notice_lifecycle[Notice lifecycle (Publication API)].
+** See xref:publish.adoc#_notice_lifecycle[Notice lifecycle].
 
 * **Manage the Business ID correctly**
 
