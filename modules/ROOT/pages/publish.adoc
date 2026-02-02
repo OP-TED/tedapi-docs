@@ -79,9 +79,9 @@ Whether a *notice ID* can be reused depends on the status reached in the lifecyc
 
 Reusing a notice ID with an increased version ID results in a *new Business ID* (`businessID`) (notice ID + new version ID).
 
-=== Diagram – Notice lifecycle (Publication API)
+=== Diagram – Notice lifecycle
 
-image::Notice Submission Workflow.png[]
+image::Notice lifecycle.png[]
 
 === Note on UI-only statuses
 
