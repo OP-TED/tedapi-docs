@@ -83,7 +83,7 @@ Reusing a notice ID with an increased version ID results in a *new Business ID* 
 
 === Diagram – Notice lifecycle
 
-image::Notice lifecycle.png[]
+image::Notice_lifecycle.png[]
 
 === Note on UI-only statuses
 
