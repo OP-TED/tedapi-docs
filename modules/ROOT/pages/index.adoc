@@ -98,8 +98,7 @@ NOTE: The Search API does not require a key.
 *  Do not test in the Production environment, as it is reserved for notices that will be published on TED.
 *  For more information, see section <<Testing your apps>>.
 
-[NOTE.note-green]
-When querying the Search API, please note that business sectors and geographical locations are structured hierarchically. To optimize your data parsing, consult our pages on https://ted.europa.eu/en/simap/cpv[CPV^] and https://ted.europa.eu/en/simap/nuts[NUTS^].
+NOTE: When querying the Search API, please note that business sectors and place of performance are structured hierarchically. To optimize your data parsing, consult our pages on https://ted.europa.eu/en/simap/cpv[CPV^] and https://ted.europa.eu/en/simap/nuts[NUTS^].
 
 
 IMPORTANT: eSenders and developers can create multiple accounts in the Preview environment for testing. In the Production environment, only one account and one API key per EU Login are allowed. We strongly recommend using a shared or functional email address for setting up Production accounts instead of a personal email.
