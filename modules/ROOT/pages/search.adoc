@@ -20,6 +20,8 @@ The Search API provides access to published notices via expert queries and enabl
 POST /v3/notices/search
 ----
 
+NOTE: When querying the Search API, please note that business sectors and place of performance are structured hierarchically. To optimize your data parsing, consult our pages on https://ted.europa.eu/en/simap/cpv[CPV^] and https://ted.europa.eu/en/simap/nuts[NUTS^].
+
 ==== Swagger API Endpoint 
 
 - **Production Environment:**
