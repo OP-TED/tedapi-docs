@@ -142,7 +142,9 @@ POST /v3/notices/{businessId}/stop-publication
 
 === Retrieve Validation Report
 
-Every submitted eForms notice undergoes a validation process to ensure compliance with regulatory business rules; this results in a report even if the notice does not pass validation successfully. This API operation enables users to obtain the validation report generated during their notice submission. It ensures users can review and address any validation issues identified during the submission.
+Every submitted eForms notice undergoes validation against the applicable business rules. This API operation allows users to retrieve the validation report generated during submission and review any errors or warnings.
+
+Validation reports for notices that fail validation are retained and can be retrieved using this operation. For successfully validated notices, the reports are deleted once the submitted notice has been published and are therefore unavailable for retrieval.
 
 
 ==== API Request
